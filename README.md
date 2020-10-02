@@ -1,7 +1,8 @@
 # Cats-Dogs-Classifier
 
-An amazing cats-dogs binary-classifier made by using CNN. The code is kept very begginer friendly.
-Peeps looking forward to start with CNNs can do hands-on on this.
+##### An amazing cats-dogs binary-classifier made by using CNN. The code is kept very beginner friendly.
+
+##### Peeps looking forward to starting with CNNs can do hands-on on this.
 
 This repository contains:
 - a jupyter notebook source code file
