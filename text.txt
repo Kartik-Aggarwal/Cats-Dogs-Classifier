@@ -1,3 +1,106 @@
+import React, { useState, useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+import Papa from 'papaparse';
+
+const BarChartFromCSV = () => {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/path/to/your/csv/data.csv');
+        const text = await response.text();
+        const parsedData = Papa.parse(text, { header: true }).data;
+        setData(parsedData);
+        setIsLoading(false); // Set isLoading to false once data is fetched and processed
+      } catch (error) {
+        console.error('Error fetching CSV:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Process the data to format it for the chart
+  const processDataForChart = () => {
+    if (data.length === 0) {
+      return null; // Return null if data is not available yet
+    }
+
+    const labels = data.map(entry => entry.label);
+    const values = data.map(entry => entry.value);
+    return {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Data from CSV',
+          backgroundColor: 'rgba(75,192,192,1)',
+          borderColor: 'rgba(0,0,0,1)',
+          borderWidth: 2,
+          data: values,
+        },
+      ],
+    };
+  };
+
+  return (
+    <div>
+      <h2>Bar Chart from CSV Data</h2>
+      {isLoading ? (
+        <p>Loading...</p> // Display loading indicator while data is being fetched
+      ) : (
+        <div style={{ height: '400px', width: '600px' }}>
+          <Bar
+            data={processDataForChart()}
+            options={{
+              title: {
+                display: true,
+                text: 'Bar Chart',
+                fontSize: 20,
+              },
+              legend: {
+                display: true,
+                position: 'right',
+              },
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default BarChartFromCSV;
+
+
+
+
+// Process the data to format it for the chart
+const processDataForChart = () => {
+  if (data.length === 0) {
+    return { labels: [], datasets: [] }; // Return empty data if data is not available yet
+  }
+
+  const labels = data.map(entry => entry.label);
+  const values = data.map(entry => entry.value);
+  return {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Data from CSV',
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: values,
+      },
+    ],
+  };
+};
+
+
+
+
 e.map is not a function
 TypeError: e.map is not a function
     at ne (http://localhost:3000/static/js/bundle.js:20036:14)
