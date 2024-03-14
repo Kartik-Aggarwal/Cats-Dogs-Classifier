@@ -1,3 +1,17 @@
+Error reading CSV: TypeError: Failed to fetch
+    at readCSV (BarChartFromCsv.jsx:21:1)
+    at BarChartFromCsv.jsx:32:1
+    at commitHookEffectListMount (react-dom.development.js:23127:1)
+    at commitPassiveMountOnFiber (react-dom.development.js:24902:1)
+    at commitPassiveMountEffects_complete (react-dom.development.js:24867:1)
+    at commitPassiveMountEffects_begin (react-dom.development.js:24855:1)
+    at commitPassiveMountEffects (react-dom.development.js:24841:1)
+    at flushPassiveEffectsImpl (react-dom.development.js:27016:1)
+    at flushPassiveEffects (react-dom.development.js:26962:1)
+    at commitRootImpl (react-dom.development.js:26914:1)
+readCSV @ BarChartFromCsv.jsx:28
+
+
 return (
   <ResponsiveBar
     data={processDataForChart()}
