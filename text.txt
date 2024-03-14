@@ -1,3 +1,18 @@
+e.map is not a function
+TypeError: e.map is not a function
+    at ne (http://localhost:3000/static/js/bundle.js:20036:14)
+    at xe (http://localhost:3000/static/js/bundle.js:20367:133)
+    at Se (http://localhost:3000/static/js/bundle.js:20511:39)
+    at Le (http://localhost:3000/static/js/bundle.js:20680:12)
+    at renderWithHooks (http://localhost:3000/static/js/bundle.js:66763:22)
+    at mountIndeterminateComponent (http://localhost:3000/static/js/bundle.js:70047:17)
+    at beginWork (http://localhost:3000/static/js/bundle.js:71343:20)
+    at HTMLUnknownElement.callCallback (http://localhost:3000/static/js/bundle.js:56359:18)
+    at Object.invokeGuardedCallbackDev (http://localhost:3000/static/js/bundle.js:56403:20)
+    at invokeGuardedCallback (http://localhost:3000/static/js/bundle.js:56460:35)
+
+
+
 // webpack.config.js
 module.exports = {
   // other webpack configurations...
