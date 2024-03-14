@@ -1,0 +1,69 @@
+// Install dependencies
+// npm install csv-parse react-chartjs-2 chart.js
+
+import React, { useState, useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { parse } from 'csv-parse/lib/sync';
+
+const BarChartFromCSV = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Function to read CSV file
+    const readCSV = async () => {
+      try {
+        const response = await fetch('/path/to/your/csv/file.csv'); // Replace with the path to your CSV file
+        const text = await response.text();
+        const parsedData = parse(text, { columns: true });
+        setData(parsedData);
+      } catch (error) {
+        console.error('Error reading CSV:', error);
+      }
+    };
+
+    readCSV();
+  }, []);
+
+  // Process the data to format it for the chart
+  const processDataForChart = () => {
+    // Example: Convert CSV data to dataset format expected by Chart.js
+    const labels = data.map(entry => entry.label);
+    const values = data.map(entry => entry.value);
+    return {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Data from CSV',
+          backgroundColor: 'rgba(75,192,192,1)',
+          borderColor: 'rgba(0,0,0,1)',
+          borderWidth: 2,
+          data: values,
+        },
+      ],
+    };
+  };
+
+  return (
+    <div>
+      <h2>Bar Chart from CSV Data</h2>
+      <div style={{ height: '400px', width: '600px' }}>
+        <Bar
+          data={processDataForChart()}
+          options={{
+            title: {
+              display: true,
+              text: 'Bar Chart',
+              fontSize: 20,
+            },
+            legend: {
+              display: true,
+              position: 'right',
+            },
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default BarChartFromCSV;
