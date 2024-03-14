@@ -1,3 +1,15 @@
+// webpack.config.js
+module.exports = {
+  // other webpack configurations...
+  resolve: {
+    fallback: {
+      "stream": false
+    }
+  }
+};
+
+
+
 // Install dependencies
 // npm install csv-parse react-chartjs-2 chart.js
 
@@ -236,4 +248,9 @@ If you want to include a polyfill, you need to:
 	- install 'stream-browserify'
 If you don't want to include a polyfill, you can use an empty module like this:
 	resolve.fallback: { "stream": false }
+
+
+
+
+
 
