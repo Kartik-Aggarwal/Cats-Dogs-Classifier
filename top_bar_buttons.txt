@@ -1,3 +1,17 @@
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setAnchorEl(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+
 Cannot read properties of undefined (reading 'main')
 TypeError: Cannot read properties of undefined (reading 'main')
     at http://localhost:3000/main.76f869eeffc6e4c14364.hot-update.js:258:54
