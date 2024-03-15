@@ -1,4 +1,51 @@
-  const handleClose = () => {
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+function TopBar() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (page) => {
+    setAnchorEl(null);
+    history.push(page); // Navigate to the selected page
+  };
+
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} color="inherit">
+          Menu
+        </Button>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={() => handleClose('/home')}>Home</MenuItem>
+          <MenuItem onClick={() => handleClose('/about')}>About</MenuItem>
+          <MenuItem onClick={() => handleClose('/contact')}>Contact</MenuItem>
+        </Menu>
+      </Toolbar>
+    </AppBar>
+  );
+}
+
+export default TopBar;
+
+
+
+const handleClose = () => {
     setAnchorEl(null);
   };
 
