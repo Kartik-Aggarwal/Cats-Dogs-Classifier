@@ -1,3 +1,16 @@
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: C:\D\Dashboard\react-admin1\src\components\TempTopbar.jsx: JSX value should be either an expression or a quoted JSX text. (28:36)
+
+  26 |
+  27 |   return (
+> 28 |     <AppBar position="static" color=colors.greenAccent[500]>
+     |                                     ^
+  29 |       <Toolbar>
+  30 |         <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} color="inherit">
+  31 |           Menu
+
+
+
 Converting circular structure to JSON
     --> starting at object with constructor 'HTMLDivElement'
     |     property '__reactFiber$b5hijrmie3s' -> object with constructor 'FiberNode'
