@@ -1,3 +1,25 @@
+Converting circular structure to JSON
+    --> starting at object with constructor 'HTMLDivElement'
+    |     property '__reactFiber$iirz8gqk8ja' -> object with constructor 'FiberNode'
+    --- property 'stateNode' closes the circle
+TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'HTMLDivElement'
+    |     property '__reactFiber$iirz8gqk8ja' -> object with constructor 'FiberNode'
+    --- property 'stateNode' closes the circle
+    at JSON.stringify (<anonymous>)
+    at getInvalidPathError (http://localhost:3000/static/js/bundle.js:35845:118)
+    at resolveTo (http://localhost:3000/static/js/bundle.js:35897:59)
+    at http://localhost:3000/static/js/bundle.js:90853:76
+    at handleClose (http://localhost:3000/static/js/bundle.js:1950:5)
+    at http://localhost:3000/static/js/bundle.js:9152:7
+    at HTMLUnknownElement.callCallback (http://localhost:3000/static/js/bundle.js:62878:18)
+    at Object.invokeGuardedCallbackDev (http://localhost:3000/static/js/bundle.js:62922:20)
+    at invokeGuardedCallback (http://localhost:3000/static/js/bundle.js:62979:35)
+    at invokeGuardedCallbackAndCatchFirstError (http://localhost:3000/static/js/bundle.js:62993:29)
+
+
+
+
 export 'useHistory' (imported as 'useHistory') was not found in 'react-router-dom' (possible exports: AbortedDeferredError, Await, BrowserRouter, Form, HashRouter, Link, MemoryRouter, NavLink, Navigate, NavigationType, Outlet, Route, Router, RouterProvider, Routes, ScrollRestoration, UNSAFE_DataRouterContext, UNSAFE_DataRouterStateContext, UNSAFE_FetchersContext, UNSAFE_LocationContext, UNSAFE_NavigationContext, UNSAFE_RouteContext, UNSAFE_ViewTransitionContext, UNSAFE_useRouteId, UNSAFE_useScrollRestoration, createBrowserRouter, createHashRouter, createMemoryRouter, createPath, createRoutesFromChildren, createRoutesFromElements, createSearchParams, defer, generatePath, isRouteErrorResponse, json, matchPath, matchRoutes, parsePath, redirect, redirectDocument, renderMatches, resolvePath, unstable_HistoryRouter, unstable_usePrompt, unstable_useViewTransitionState, useActionData, useAsyncError, useAsyncValue, useBeforeUnload, useBlocker, useFetcher, useFetchers, useFormAction, useHref, useInRouterContext, useLinkClickHandler, useLoaderData, useLocation, useMatch, useMatches, useNavigate, useNavigation, useNavigationType, useOutlet, useOutletContext, useParams, useResolvedPath, useRevalidator, useRouteError, useRouteLoaderData, useRoutes, useSearchParams, useSubmit)
 
 
