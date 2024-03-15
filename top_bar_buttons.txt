@@ -1,3 +1,18 @@
+Cannot read properties of undefined (reading 'main')
+TypeError: Cannot read properties of undefined (reading 'main')
+    at http://localhost:3000/main.76f869eeffc6e4c14364.hot-update.js:258:54
+    at processStyleArg (http://localhost:3000/static/js/bundle.js:19587:67)
+    at http://localhost:3000/static/js/bundle.js:19693:25
+    at handleInterpolation (http://localhost:3000/static/js/bundle.js:7355:24)
+    at serializeStyles (http://localhost:3000/static/js/bundle.js:7459:15)
+    at http://localhost:3000/static/js/bundle.js:7770:91
+    at http://localhost:3000/static/js/bundle.js:6630:12
+    at renderWithHooks (http://localhost:3000/static/js/bundle.js:73044:22)
+    at updateForwardRef (http://localhost:3000/static/js/bundle.js:75613:24)
+    at beginWork (http://localhost:3000/static/js/bundle.js:77660:20)
+
+
+
 Module build failed (from ./node_modules/babel-loader/lib/index.js):
 SyntaxError: C:\D\Dashboard\react-admin1\src\components\TempTopbar.jsx: JSX value should be either an expression or a quoted JSX text. (28:36)
 
