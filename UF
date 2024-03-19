@@ -1,0 +1,9 @@
+label_encoders = {}
+for col in non_numeric_cols:
+    label_encoders[col] = LabelEncoder()
+    df[col] = label_encoders[col].fit_transform(df[col])
+
+# Compute correlation matrix
+correlation_matrix = df.corr()
+
+print(correlation_matrix)
