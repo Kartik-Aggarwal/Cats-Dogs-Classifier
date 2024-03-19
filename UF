@@ -1,3 +1,19 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+
+data = pd.DataFrame()
+data['A'] = ['a','a','b','a']
+data['B'] = ['b','b','a','b']
+data['C'] = [0, 0, 1, 0]
+data['Class'] = ['n','n','y','n']
+
+tree = DecisionTreeClassifier()
+
+one_hot_data = pd.get_dummies(data[['A','B','C']],drop_first=True)
+tree.fit(one_hot_data, data['Class'])
+
+
+
 label_encoders = {}
 for col in non_numeric_cols:
     label_encoders[col] = LabelEncoder()
