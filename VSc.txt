@@ -1,4 +1,79 @@
-x,y
-a,4
-b,5
-c,6
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-UI/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles({
+  table: {
+    borderCollapse: 'separate',
+    width: '100%',
+  },
+  titleCell: {
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+    paddingBottom: '1rem',
+  },
+  tableCell: {
+    padding: '.5rem',
+    fontSize: '1rem',
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+  },
+});
+
+function OrderHeaderComponent() {
+  const classes = useStyles();
+
+  return (
+    <TableContainer>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.titleCell} colSpan={2}>
+              Order Header
+            </TableCell>
+            <TableCell className={classes.titleCell} align="right">
+              Bill of Lading
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell className={classes.tableCell} colSpan={3}>
+              <Typography variant="body2" color="error">
+                You must select Debtor Type (TERMS) to proceed.
+              </Typography>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className={classes.tableCell}>BILL CLASS</TableCell>
+            <TableCell className={classes.tableCell}>DEBTOR TYPE (TERMS)</TableCell>
+            <TableCell className={classes.tableCell}>PICKUP DATE</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className={classes.tableCell}>NORM</TableCell>
+            <TableCell className={classes.tableCell}>Revenue Bill</TableCell>
+            <TableCell className={classes.tableCell}>03/20/2024</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className={classes.tableCell}>PROF</TableCell>
+            <TableCell className={classes.tableCell}>EBOL SOURCE</TableCell>
+            <TableCell className={classes.tableCell}>RELATED PRO #</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className={classes.tableCell}>PRO</TableCell>
+            <TableCell className={classes.tableCell} colSpan={2}>
+              SPOT QUOTE
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+export default OrderHeaderComponent;
