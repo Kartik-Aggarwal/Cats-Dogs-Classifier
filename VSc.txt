@@ -1,3 +1,51 @@
+import React from 'react';
+
+const OrderHeader = () => {
+  return (
+    <div>
+      <h2>Order Header</h2>
+      <span>Bill of Lading</span>
+      <p>You must select Debtor Type (TERMS) to proceed.</p>
+      <div>
+        <label>BILL CLASS</label>
+        <select>
+          <option>NORM</option>
+        </select>
+      </div>
+      <div>
+        <label>DEBTOR TYPE (TERMS)</label>
+        <input type="text" placeholder="Revenue Bill" />
+      </div>
+      <div>
+        <label>PICKUP DATE</label>
+        <input type="text" value="03/20/2024" />
+      </div>
+      <div>
+        <label>PRO #</label>
+        <input type="text" placeholder="PRO" />
+      </div>
+      <div>
+        <label>EBOL SOURCE</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label>RELATED PRO #</label>
+        <input type="text" />
+      </div>
+      <div>
+        <label>SPOT QUOTE</label>
+        <input type="text" />
+      </div>
+    </div>
+  );
+};
+
+export default OrderHeader;
+
+
+
+
+
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
