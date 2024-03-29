@@ -1,0 +1,14 @@
+export default function ButtonAppBar({label_name, color="#f0f0f0"}) {
+  return (
+    <Box sx={{ flexGrow:1}}>
+      <AppBar position="static" color='inherit' sx={{bgcolor: color}} elevation={0}>
+        <Toolbar>
+          <Typography color="common.white" variant="h6" component="div" sx={{ flexGrow: 1}}>
+            <b>{label_name}</b>
+          </Typography>
+          {/* <img src="/images/exl_logo_rgb_orange_pos.png" alt="React Image" style={{height:30, width:81.2}}/> */}
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+}
