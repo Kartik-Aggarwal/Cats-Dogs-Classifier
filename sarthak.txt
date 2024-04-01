@@ -1,0 +1,79 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import BasicSelect from './BasicSelect';
+import ButtonAppBar from './Header';
+
+export default function OrderHeader() {
+  const[inputValue, setInputValue] = React.useState('');
+
+
+
+  const handleInputChange = (event) => {
+    const newValue = event.target.value;
+    setInputValue(newValue);
+  };
+
+
+  
+  return (
+    <Box
+      component="form"
+      sx={{
+        // display: 'flex',
+        // flexDirection: 'row',
+        // gap: '4px',
+        '& .MuiTextField-root': { m: 1 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <ButtonAppBar label_name={'Order Header'}/>
+      <div style={{margin: 20}}>
+      <div class='row1' style={{display:'flex', flexDirection: 'row', gap: '114px'}}>
+        <BasicSelect label_name={'BILL CLASS'}/>
+        <BasicSelect label_name={'DEBTOR TYPE (TERMS)'}/>
+        <TextField
+          // id="outlined-helperText_orderheader_1"
+          label="PICKUP DATE#1"
+          InputLabelProps={{shrink: true}}
+          // defaultValue=" "
+          value={inputValue}
+          onChange={handleInputChange}
+          // placeholder='Type here'
+          // helperText="Some important text"
+          sx={{ m: 1, width: '40ch' }}
+          size='small'
+        />
+      </div>
+
+        <div class='row2' style={{display:'flex', flexDirection: 'row', gap: '114px'}}>
+        <TextField
+          // id="outlined-helperText_orderheader_2"
+          label="PRO#"
+          value={inputValue}
+          InputLabelProps={{shrink: true}}
+          onChange={() => {}}
+          // placeholder="Automatically updated"
+          sx={{ m: 1, width: '40ch' }}
+          size='small'
+        />
+        <TextField
+          id="outlined-helperText_orderheader_3"
+          label="RELATED PRO #"
+          defaultValue=" "
+          sx={{ m: 1, width: '40ch' }}
+          size='small'
+        />
+        <TextField
+          id="outlined-helperText_orderheader_4"
+          label="SPOT QUOTE"
+          defaultValue=" "
+          sx={{ m: 1, width: '40ch' }}
+          size='small'
+        />
+        </div>
+      </div>
+    </Box>
+  );
+}
