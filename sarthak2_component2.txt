@@ -1,0 +1,120 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import BasicSelect from './BasicSelect';
+import ButtonAppBar from './Header';
+import BasicCard from './Card';
+import LineItems_sub1 from './LineItems_sub1';
+
+export default function LineItems() {
+  return (
+    <Box
+      component="form"
+      sx={{
+        // display: 'flex',
+        // flexDirection: 'row',
+        // gap: '4px',
+        '& .MuiTextField-root': { m: 1 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <ButtonAppBar label_name={'Line Items'}/>
+      <div style={{marginTop: 30, marginLeft: 30, marginRight: 30, display:'flex', flexDirection: 'row', gap: 20, justifyContent: 'space-between'}}>
+      <div>
+        <div>SHIPPER COMMODITY PROFILE STATUS</div>
+        <br />
+        <div>Not Available</div>
+      </div>
+      <div>
+        <div>Total Pieces </div>
+        <br />
+        <div>0</div>
+      </div>
+      <div>
+        <div>Total Weight</div>
+        <br />
+        <div>0</div>
+      </div>
+      <div>
+        <div>Total Pallets</div>
+        <br />
+        <div>0</div>
+      </div>
+      </div>
+      <br />
+      <hr />
+      <br />  
+      <LineItems_sub1 />
+      <LineItems_sub1 />
+      <LineItems_sub1 />
+
+    </Box>
+  );
+}
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+
+export default function LineItems_sub1({top_margin=0}) {
+    return (
+        <div style={{display:'flex', flexDirection: 'row', justifyContent: 'left'}}>
+      <TextField
+          // id="outlined-helperText"
+          label="Charge To"
+          defaultValue=" "
+          sx={{ m: 1, width: '20ch' }}
+          size='small'
+        /> 
+        <TextField
+          // id="outlined-helperText"
+          label="Pieces"
+          defaultValue=" "
+          sx={{ m: 1, width: '20ch' }}
+          size='small'
+        />
+        <TextField
+          // id="outlined-helperText"
+          label="Packaging Type"
+          defaultValue=" "
+          sx={{ m: 1, width: '40ch' }}
+          size='small'
+        />
+        <TextField
+          // id="outlined-helperText"
+          label="Weight"
+          defaultValue=" "
+          sx={{ m: 1, width: '20ch' }}
+          size='small'
+        />
+        <TextField
+          // id="outlined-helperText"
+          label="NMFC"
+          defaultValue=" "
+          sx={{ m: 1, width: '20ch' }}
+          size='small'
+        />
+        <TextField
+          // id="outlined-helperText"
+          label="Commodity Class"
+          defaultValue=" "
+          sx={{ m: 1, width: '20ch' }}
+          size='small'
+        />
+        <TextField
+          // id="outlined-helperText"
+          label="Commodity Description"
+          defaultValue=" "
+          sx={{ m: 1, width: '50ch' }}
+          size='small'
+        />
+      </div>
+    );
+}
