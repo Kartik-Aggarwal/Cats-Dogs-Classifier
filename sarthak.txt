@@ -1,3 +1,104 @@
+import time
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+from sklearn.preprocessing import LabelEncoder
+import collections
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+
+from datetime import datetime
+
+from sklearn.tree import DecisionTreeClassifier
+
+from sklearn.model_selection import train_test_split 
+from sklearn.metrics import confusion_matrix, recall_score, precision_score, f1_score
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.model_selection import GridSearchCV
+
+import joblib
+
+test = pd.read_excel("test.xlsx")
+
+day_night = []
+for i in range(len(test)):
+    dt = test['Date_Worked'][i]
+    if 6 < datetime.strptime(str(dt), "%Y-%m-%d %H:%M:%S").hour < 20:
+        day_night.append(0)
+    else:
+        day_night.append(1)
+
+        
+same_auditor = []
+for i in range(len(test)):
+    if test['Audit Manager'][i] == test['Auditor'][i]:
+        same_auditor.append(1)
+    else:
+        same_auditor.append(0)
+        
+weekday = []
+for i in range(len(test)):
+    dt = test['Date_Worked'][i]
+    weekday.append(datetime.strptime(str(dt), "%Y-%m-%d %H:%M:%S").weekday())
+    
+    
+test = pd.concat([test, pd.DataFrame({'day_night': day_night, 'same_auditor': same_auditor, 'weekday': weekday})], axis=1)
+
+
+
+test = test[["EOD Type", "180+ Invoices", "Carrier Claimed Amount", "Current Date Filter", "Denied Amount", "Denied Amount.1", 
+"High Dollar Invoices", "Highest Approved", "Initial Discrepancy Amount", 'Invoice Approved Amount', 'Invoice_Amount', 'Invoice_Status',
+'Last 4 Weeks Filter', 'Mode_Type', 'Operations VP', 'Queue_Posted_to', 'Rolling Average Filter', 'Short Paid Amount', 'Total Approved', 'day_night', 'same_auditor', 'weekday', "Domain", "SCAC", "Account", "Invoice_Carrier"]]
+
+test['Current Date Filter'] = test['Current Date Filter']*1
+test['Last 4 Weeks Filter'] = test['Last 4 Weeks Filter']*1
+test['Rolling Average Filter'] = test['Rolling Average Filter']*1
+
+
+
+dummies = test[["Domain", "SCAC", "Account", "Invoice_Carrier"]]
+test = test[["EOD Type", "180+ Invoices", "Carrier Claimed Amount", "Current Date Filter", "Denied Amount", "Denied Amount.1", 
+"High Dollar Invoices", "Highest Approved", "Initial Discrepancy Amount", 'Invoice Approved Amount', 'Invoice_Amount', 'Invoice_Status',
+'Last 4 Weeks Filter', 'Mode_Type', 'Operations VP', 'Queue_Posted_to', 'Rolling Average Filter', 'Short Paid Amount', 'Total Approved', 'day_night', 'same_auditor', 'weekday']]
+
+
+
+
+one_hot_data_1 = pd.get_dummies(test.select_dtypes(include=['object', 'bool']))
+df1 = one_hot_data_1*1
+df2 = test.select_dtypes(include=['int32', 'int64', 'float64'])
+test = pd.concat([df1, df2], axis=1)
+
+
+test = pd.concat([test, pd.get_dummies(dummies)*1], axis=1)
+
+d  = np.load('column_names.npy')
+test = test[list(set(test.columns).intersection(set(d)))]
+
+test[list(set(d) - set(test.columns))] = 0
+test = test[list(d)]
+
+
+scaler = joblib.load('std_scaler_mini.bin')
+
+test.columns = test.columns.astype(str)
+test_scaled = scaler.transform(np.array(test))
+
+model = joblib.load('rf_0204_4.joblib')
+
+pred = model.predict(np.array(test))
+pd.DataFrame({'Predictions': pred}).to_excel('preds.xlsx', index=False)
+print('Done')
+time.sleep(2)
+print(':)')
+time.sleep(2)
+
+
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
