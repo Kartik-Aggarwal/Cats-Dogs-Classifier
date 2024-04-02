@@ -1,3 +1,14 @@
+ERROR in [eslint]
+src\App.js
+  Line 19:2:   'cons' is not defined             no-undef
+  Line 19:8:   'selectedName' is not defined     no-undef
+  Line 19:22:  'setSelectedName' is not defined  no-undef
+  Line 22:3:   'setSelectedName' is not defined  no-undef
+  Line 41:31:  'selectedName' is not defined     no-undef
+  Line 68:29:  'selectedName' is not defined     no-undef
+
+
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
