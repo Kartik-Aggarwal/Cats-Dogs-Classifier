@@ -1,3 +1,107 @@
+// App.js
+
+function App() {
+	const [selectedName, setSelectedName] = useState('');
+
+	const handleNameChange = (event) => {
+		setSelectedName(event.target.value);
+	};
+
+	const divStyle = {
+		width: '1400px', // Set your desired width here
+		// height: '200px', // Set your desired height here
+		// Other CSS properties...
+	  };
+
+
+	return (
+		<div>
+			<MainButtonAppBar label_name={"WEBSITE TITLE"} color='lightblue'/>
+		<div className="App"
+		style={divStyle}
+		>
+			<div>
+				{/* <div><h2>Order Header</h2></div> */}
+			<Header selectedName={selectedName} handleNameChange={handleNameChange}/>
+			</div>	
+		</div>
+       
+
+		<div className="App"
+		style={divStyle}
+		>
+			<div>
+			<Details selectedName={selectedName}/>
+			</div>	
+		</div>
+		</div>	
+	);
+
+}
+
+export default App;
+
+
+
+-------------------
+
+export default function Header({ selectedName, handleNameChange }) {  
+  return (
+    <Box
+      component="form"
+      sx={{
+        // display: 'flex',
+        // flexDirection: 'row',
+        // gap: '4px',
+        '& .MuiTextField-root': { m: 1 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <ButtonAppBar label_name={'Order Header'}/>
+      <div style={{margin: 20}}>
+      <div class='row1' style={{display:'flex', flexDirection: 'row', gap: '114px'}}>
+        <BasicSelect label_name={'BILL CLASS'} selectedName={selectedName} handleNameChange={handleNameChange}/>
+        <BasicSelect label_name={'DEBTOR TYPE (TERMS)'} />
+      </div>
+    </Box>
+  );
+}
+
+
+
+-----------------
+
+
+export default function BasicSelect({label_name, selectedName, handleNameChange }) {
+
+  return (
+    <Box sx={{ minWidth: 120 }}>
+      <FormControl sx={{ m: 1, width: '40ch'}} size="small">
+        <Select
+          value={selectedName}
+          onChange={handleNameChange}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
+        >
+          <MenuItem value="">
+            <em></em>
+          </MenuItem>
+          <MenuItem value='10'>Ten</MenuItem>
+          <MenuItem value='20'>Twenty</MenuItem>
+          <MenuItem value='30'>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
+  );
+}
+-----------------
+
+
+
+
+
+
 console.js:213 
  MUI: You have provided an out-of-range value `undefined` for the select component.
 Consider providing a value that matches one of the available options or ''.
