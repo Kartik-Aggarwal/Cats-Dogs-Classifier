@@ -1,3 +1,10 @@
+from sklearn.ensemble import AdaBoostClassifier
+svc = SVC(probability=True, kernel='linear')
+abc = AdaBoostClassifier(n_estimators=50, estimator=svc)
+model = abc.fit(X_train, y_train)
+pred = model.predict(X_test)
+recall_score(y_test, pred), precision_score(y_test, pred), f1_score(y_test, pred)
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 
