@@ -1,3 +1,6 @@
+Pro Nbr	Biller Dt Tm	Scan Dt	Origin Terminal Cd	Destination Terminal Cd	Purchase Order #	Bill Of Lading #	Pick Up Dt	Shipper #	Shipper Name	Shipper Address	Shipper City	Shipper State	Shipper Zip	Consignee #	Consignee Name	Consignee Address	Consignee City	Consignee State	Consignee Zip	Bill To #	Bill To Type Cd	Bill To Name	Bill To Address	Bill To City	Bill To State	Bill To Zip	COD Amt	Pickup SCAC	Pallet Cnt	Total Wgt	Is Hazmat	User Id	CL Pro Nbr	Biller	Reference Pro #	Initial Amount	Fatal_Error	Non-Fatal Error	Error
+
+
 from sklearn.ensemble import AdaBoostClassifier
 svc = SVC(probability=True, kernel='linear')
 abc = AdaBoostClassifier(n_estimators=50, estimator=svc)
