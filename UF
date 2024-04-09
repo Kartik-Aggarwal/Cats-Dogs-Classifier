@@ -1,3 +1,42 @@
+ error: subprocess-exited-with-error
+  
+  Getting requirements to build wheel did not run successfully.
+  exit code: 1
+  
+  [20 lines of output]
+  Traceback (most recent call last):
+    File "C:\ProgramData\anaconda3\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>
+      main()
+    File "C:\ProgramData\anaconda3\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main
+      json_out['return_val'] = hook(**hook_input['kwargs'])
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\ProgramData\anaconda3\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 118, in get_requires_for_build_wheel
+      return hook(config_settings)
+             ^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\kartik225832\AppData\Local\Temp\1\pip-build-env-kjtzk_2a\overlay\Lib\site-packages\setuptools\build_meta.py", line 325, in get_requires_for_build_wheel
+      return self._get_build_requires(config_settings, requirements=['wheel'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "C:\Users\kartik225832\AppData\Local\Temp\1\pip-build-env-kjtzk_2a\overlay\Lib\site-packages\setuptools\build_meta.py", line 295, in _get_build_requires
+      self.run_setup()
+    File "C:\Users\kartik225832\AppData\Local\Temp\1\pip-build-env-kjtzk_2a\overlay\Lib\site-packages\setuptools\build_meta.py", line 487, in run_setup
+      super().run_setup(setup_script=setup_script)
+    File "C:\Users\kartik225832\AppData\Local\Temp\1\pip-build-env-kjtzk_2a\overlay\Lib\site-packages\setuptools\build_meta.py", line 311, in run_setup
+      exec(code, locals())
+    File "<string>", line 10, in <module>
+  ValueError: Detected unsupported operating system: win32. Please check the compability information of auto-sklearn: https://automl.github.io/auto-sklearn/master/installation.html#windows-osx-compatibility
+  [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+Getting requirements to build wheel did not run successfully.
+exit code: 1
+
+See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+
 Pro Nbr	Biller Dt Tm	Scan Dt	Origin Terminal Cd	Destination Terminal Cd	Purchase Order #	Bill Of Lading #	Pick Up Dt	Shipper #	Shipper Name	Shipper Address	Shipper City	Shipper State	Shipper Zip	Consignee #	Consignee Name	Consignee Address	Consignee City	Consignee State	Consignee Zip	Bill To #	Bill To Type Cd	Bill To Name	Bill To Address	Bill To City	Bill To State	Bill To Zip	COD Amt	Pickup SCAC	Pallet Cnt	Total Wgt	Is Hazmat	User Id	CL Pro Nbr	Biller	Reference Pro #	Initial Amount	Fatal_Error	Non-Fatal Error	Error
 
 
