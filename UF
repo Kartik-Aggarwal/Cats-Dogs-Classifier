@@ -1,4 +1,9 @@
- error: subprocess-exited-with-error
+Auditor Manager	User Type	EOD Type	Process Type	User	Current Week Filter	Domain	Responsible Party	Role	SCAC	Bot Check	Date_Worked	Inbound_SCAC	Invoice_SCAC	Queue Posting Type	Bot Entries	Goal	Manual Entries	Percentage of Goal	180+ Invoices	Account	Aggregate to Weeks	Audit Manager	Auditor	Bot Entries	Carrier Claimed Amount	COE	Current Date Filter	Delivery_Date	Denied Amount	Denied Amount	EOD Label for Donut	EOD Touches	EOD Touches	Fin_Doc_Header_ID	Group	Group2	High Dollar Invoices	High Dollar Invoices	Highest Approved	Initial Discrepancy Amount	Invoice Approved Amount	Invoice_Amount	Invoice_Carrier	Invoice_Created_Date	Invoice_Currency	Invoice_Date	Invoice_Number	Invoice_Receipt_Date	Invoice_Status	Last 4 Weeks Filter	Manual Entries	ME_ID	Final Fatal Error	Mode_Type	No. Weeks	Number of Records	Operations VP	Previous Sunday	Queue Movement	Queue Movement	Queue_Posted_to	Resolution Comment	RFB_Date	Right_Group	Right_Group2	Rolling Average Filter	Service_Group	Ship_Date	Short Paid Amount	TaskType	TaskTypeNote	Tenure Date	TMSFQueue	TMSFQueueID	TMSFStatus	TMSFStatusID	Total Approved	Updated Count	Weekly Completions Target	Weekly Goal	Weekly Production Average	Worked Date No Time
+
+
+
+
+error: subprocess-exited-with-error
   
   Getting requirements to build wheel did not run successfully.
   exit code: 1
