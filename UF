@@ -1,3 +1,67 @@
+import numpy as np
+from scipy.spatial import Delaunay
+
+def tri_area(p1, p2, p3):
+    return 0.5 * np.abs(np.cross(p2 - p1, p3 - p1))
+
+def tri_centroid(p1, p2, p3):
+    return (p1 + p2 + p3) / 3.0
+
+def inpolygon(p, pv):
+    n = len(pv)
+    inside = False
+    for i in range(n):
+        j = (i + 1) % n
+        if ((pv[i, 1] <= p[1] and p[1] < pv[j, 1]) or
+            (pv[j, 1] <= p[1] and p[1] < pv[i, 1])):
+            if (p[0] < (pv[j, 0] - pv[i, 0]) * (p[1] - pv[i, 1]) / (pv[j, 1] - pv[i, 1]) + pv[i, 0]):
+                inside = not inside
+    return inside
+
+def create_node_points(pv, hmax):
+    node_points = []
+    n = len(pv)
+    for i in range(n - 1):  # Exclude the last point (closed polygon)
+        p1, p2 = pv[i], pv[i + 1]
+        segment_length = np.linalg.norm(p2 - p1)
+        num_points = max(int(segment_length / hmax), 1)
+        delta = (p2 - p1) / num_points
+        for j in range(num_points):
+            node_points.append(p1 + j * delta)
+    return np.array(node_points)
+
+def pmesh(pv, hmax):
+    p = create_node_points(pv, hmax)
+    t = Delaunay(p)
+    centroids = np.array([tri_centroid(p[t.vertices[i, 0]], p[t.vertices[i, 1]], p[t.vertices[i, 2]]) for i in range(len(t.simplices))])
+    
+    while True:
+        large_triangles = []
+        for i, triangle in enumerate(t.simplices):
+            area = tri_area(p[triangle[0]], p[triangle[1]], p[triangle[2]])
+            if area > hmax ** 2 / 2.0:
+                large_triangles.append(i)
+        if not large_triangles:
+            break
+        
+        new_points = []
+        for tri_index in large_triangles:
+            centroid = centroids[tri_index]
+            if inpolygon(centroid, pv):
+                new_points.append(centroid)
+        
+        if not new_points:
+            break
+        
+        p = np.vstack([p, new_points])
+        t = Delaunay(p)
+        centroids = np.array([tri_centroid(p[t.vertices[i, 0]], p[t.vertices[i, 1]], p[t.vertices[i, 2]]) for i in range(len(t.simplices))])
+    
+    return p, t.simplices
+
+
+
+
 Auditor Manager	User Type	EOD Type	Process Type	User	Current Week Filter	Domain	Responsible Party	Role	SCAC	Bot Check	Date_Worked	Inbound_SCAC	Invoice_SCAC	Queue Posting Type	Bot Entries	Goal	Manual Entries	Percentage of Goal	180+ Invoices	Account	Aggregate to Weeks	Audit Manager	Auditor	Bot Entries	Carrier Claimed Amount	COE	Current Date Filter	Delivery_Date	Denied Amount	Denied Amount	EOD Label for Donut	EOD Touches	EOD Touches	Fin_Doc_Header_ID	Group	Group2	High Dollar Invoices	High Dollar Invoices	Highest Approved	Initial Discrepancy Amount	Invoice Approved Amount	Invoice_Amount	Invoice_Carrier	Invoice_Created_Date	Invoice_Currency	Invoice_Date	Invoice_Number	Invoice_Receipt_Date	Invoice_Status	Last 4 Weeks Filter	Manual Entries	ME_ID	Final Fatal Error	Mode_Type	No. Weeks	Number of Records	Operations VP	Previous Sunday	Queue Movement	Queue Movement	Queue_Posted_to	Resolution Comment	RFB_Date	Right_Group	Right_Group2	Rolling Average Filter	Service_Group	Ship_Date	Short Paid Amount	TaskType	TaskTypeNote	Tenure Date	TMSFQueue	TMSFQueueID	TMSFStatus	TMSFStatusID	Total Approved	Updated Count	Weekly Completions Target	Weekly Goal	Weekly Production Average	Worked Date No Time
 
 
