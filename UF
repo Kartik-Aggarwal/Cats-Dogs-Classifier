@@ -1,3 +1,19 @@
+Invoice_Amount	Carrier Claimed Amount	Denied Amount	Denied Amount	Highest Approved	Initial Discrepancy Amount	Invoice Approved Amount	Short Paid Amount	Total Approved
+166.94	166.94	0	0	166.94	61.14	166.94	0	166.94
+401.18	401.18	0	0	401.18	78	401.18	0	401.18
+158.49	158.49	0	0	158.49	84	158.49	0	158.49
+-84	-84	0	0	-84	0	-84	0	-84
+167.44	167.44	0	0	167.44	0	167.44	0	167.44
+66.65	66.65	0	0	66.65	0	66.65	0	66.65
+1838.4	1838.4	0	0	1838.4	0	1838.4	0	1838.4
+239.93	239.93	0	0	239.93	0	239.93	0	239.93
+367.47	367.47	0	0	367.47	0	367.47	0	367.47
+43	52.89	0	0	43	52.89	43	9.89	43
+178.53	178.53	0	0	178.53	98.89	178.53	0	178.53
+
+
+
+
 df2 Carrier Claimed Amount, Denied Amount, Highest Approved, Initial Discrepancy Amount, Invoice Approved Amount, Invoice_Amount, Short Paid Amount, Total Approved
 
 
