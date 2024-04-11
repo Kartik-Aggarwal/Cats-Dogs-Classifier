@@ -1,3 +1,6 @@
+df2 Carrier Claimed Amount, Denied Amount, Highest Approved, Initial Discrepancy Amount, Invoice Approved Amount, Invoice_Amount, Short Paid Amount, Total Approved
+
+
 import numpy as np
 from scipy.spatial import Delaunay
 
