@@ -1,0 +1,41 @@
+import React, { useState } from 'react';
+
+const ImageUploader = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Function to handle file selection
+  const handleImageChange = (e) => {
+    const file = e.target.files[0]; // Assuming single file selection
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result); // Set the selected image to be displayed
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Image Uploader</h2>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageChange}
+        style={{ marginBottom: '20px' }}
+      />
+      {selectedImage && (
+        <div>
+          <h4>Preview:</h4>
+          <img
+            src={selectedImage}
+            alt="Uploaded"
+            style={{ maxWidth: '300px', maxHeight: '300px' }}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ImageUploader;
