@@ -85,3 +85,110 @@ export default ImageUploader;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+------------------
+
+
+import React, { useState } from 'react';
+import './ImageUploader.css'; // Import custom CSS for styling
+
+const ImageUploader = ({ containerClassName, titleClassName, buttonClassName, previewClassName }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  // Function to handle file selection
+  const handleImageChange = (e) => {
+    const file = e.target.files[0]; // Assuming single file selection
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setSelectedImage(reader.result); // Set the selected image to be displayed
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return (
+    <div className={containerClassName}>
+      <h2 className={titleClassName}>Image Uploader</h2>
+      <label htmlFor="upload-button" className={buttonClassName}>
+        Choose Image
+      </label>
+      <input
+        type="file"
+        id="upload-button"
+        accept="image/*"
+        onChange={handleImageChange}
+        style={{ display: 'none' }}
+      />
+      {selectedImage && (
+        <div className={previewClassName}>
+          <h4>Preview:</h4>
+          <img
+            src={selectedImage}
+            alt="Uploaded"
+            className="preview-image"
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ImageUploader;
+
+
+---------------------
+
+
+import React from 'react';
+import ImageUploader from './ImageUploader';
+import './App.css';
+
+const App = () => {
+  return (
+    <div className="app-container">
+      <div className="left-pane">
+        {/* Text data display */}
+        <div>
+          <h2>Welcome to My Website</h2>
+          <p>This is some text data displayed on the left side.</p>
+        </div>
+      </div>
+      <div className="right-pane">
+        {/* Image uploader component */}
+        <ImageUploader
+          containerClassName="image-uploader-container"
+          titleClassName="title"
+          buttonClassName="custom-file-upload"
+          previewClassName="image-preview"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default App;
+
+
+------------------
+
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-pane {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.right-pane {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
