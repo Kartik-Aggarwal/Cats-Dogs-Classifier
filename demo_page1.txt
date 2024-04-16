@@ -1,3 +1,24 @@
+.json-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.json-item {
+  margin-right: 20px; /* Adjust spacing between items */
+  margin-bottom: 10px; /* Add space below each item */
+}
+
+.type {
+  font-weight: bold; /* Make type bold */
+}
+
+.text-value {
+  margin-left: 5px; /* Add space between type and text_value */
+  /* Adjust width and display style for text_value */
+  word-break: break-word; /* Wrap long text */
+}
+--------------------------
+
 import React from 'react';
 import './DisplayJsonData.css'; // Import CSS file for styling (create this file)
 
