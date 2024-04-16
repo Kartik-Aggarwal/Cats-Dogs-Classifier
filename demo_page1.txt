@@ -1,3 +1,10 @@
+[
+    {
+        "type": "Pro_number",
+        "text_value": "950-731294"
+    }
+]
+
 import React, { useState } from 'react';
 import './ImageUploader.css'; // Import custom CSS for styling
 
