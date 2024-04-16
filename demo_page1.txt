@@ -1,4 +1,65 @@
 import React from 'react';
+import './DisplayJsonData.css'; // Import CSS file for styling (create this file)
+
+const DisplayJsonData = ({ jsonData }) => {
+  return (
+    <div className="json-container">
+      {jsonData.map((item, index) => (
+        <div key={index} className="json-item">
+          <span className="type">{item.type}: </span>
+          <span className="text-value">{item.text_value}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const YourComponent = () => {
+  // Example JSON data (replace this with your actual JSON import)
+  const jsonData = [
+    {
+      "type": "Pro_number",
+      "text_value": "950-731294"
+    },
+    {
+      "type": "Another_type",
+      "text_value": "Some value that is longer and will wrap to the next line"
+    },
+    // Add more items as needed
+  ];
+
+  return (
+    <div>
+      <h2>Display JSON Data</h2>
+      <DisplayJsonData jsonData={jsonData} />
+    </div>
+  );
+};
+
+export default YourComponent;
+---------------
+.json-container {
+  width: 100%;
+}
+
+.json-item {
+  margin-bottom: 10px; /* Add space between items */
+}
+
+.type {
+  font-weight: bold; /* Make type bold */
+}
+
+.text-value {
+  /* Adjust width and display style for text_value */
+  display: inline-block;
+  word-break: break-word; /* Wrap long text */
+}
+-----------------------
+
+
+
+import React from 'react';
 
 const DisplayJsonData = ({ jsonData }) => {
   return (
