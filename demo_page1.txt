@@ -1,3 +1,28 @@
+import React from 'react';
+import TextField from '@mui/material/TextField';
+import './DisplayJsonData.css'; // Import CSS file for styling (create this file)
+
+const DisplayJsonData = ({ jsonData }) => {
+  return (
+    <div className="json-container">
+      {jsonData.map((item, index) => (
+        <div key={index} className="json-item">
+          <TextField
+            label={item.type}
+            value={item.text_value}
+            variant="outlined"
+            fullWidth
+            InputProps={{
+              readOnly: true, // Make text field read-only
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+
 .json-container {
   display: flex;
   flex-wrap: wrap;
