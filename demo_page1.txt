@@ -1,3 +1,21 @@
+[5:19 PM] Rishabh Mittal
+npx : The term 'npx' is not recognized as the name of a cmdlet, function, script file, or operable 
+
+program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+
+and try again.
+
+At line:1 char:1
+
++ npx create-react-app demo-page1
+
++ ~~~
+
+    + CategoryInfo          : ObjectNotFound: (npx:String) [], CommandNotFoundException
+
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import './DisplayJsonData.css'; // Import CSS file for styling (create this file)
