@@ -1,0 +1,47 @@
+import React, { useState, useEffect } from 'react';
+const XLSX = require('xlsx'); // Assuming you have `xlsx` installed using npm or yarn
+
+function InputSearch() {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const workbook = XLSX.readFile('path/to/your/excel_file.xlsx'); // Replace with your file path
+      const sheetName = workbook.SheetNames[0]; // Get the first sheet
+      const worksheet = workbook.Sheets[sheetName];
+      const data = XLSX.utils.sheet_to_object(worksheet); // Convert sheet to object array
+      setData(data);
+    };
+
+    fetchData();
+  }, []);
+
+  const [data, setData] = useState([]);
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const search = () => {
+    const searchString = `${name} - ${address}`;
+    const foundItem = data.find((item) => item.name === searchString);
+    setSearchResult(foundItem ? foundItem.value : 'Not Found');
+  };
+
+  return (
+    <div>
+      <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
+      <input type="text" placeholder="Address" value={address} onChange={handleAddressChange} />
+      <button onClick={search}>Search</button>
+      <p>Search Result: {searchResult}</p>
+    </div>
+  );
+}
+
+export default InputSearch;
