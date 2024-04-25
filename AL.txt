@@ -1,3 +1,43 @@
+[
+  {
+    "Vehicle Type": "Van",
+    "Maximum Load Capacity (kg)": 1000,
+    "Dimensions (L x W x H)": "3.5m x 1.8m x 1.9m",
+    "Refrigeration": "Optional",
+    "Special Features": ["GPS tracking", "Rear camera"]
+  },
+  {
+    "Vehicle Type": "Box Truck",
+    "Maximum Load Capacity (kg)": 3000,
+    "Dimensions (L x W x H)": "6.0m x 2.5m x 2.4m",
+    "Refrigeration": "Available",
+    "Special Features": ["Tail lift", "Temperature control"]
+  },
+  {
+    "Vehicle Type": "Flatbed",
+    "Maximum Load Capacity (kg)": 5000,
+    "Dimensions (L x W x H)": "7.2m x 2.6m",
+    "Refrigeration": "Not available",
+    "Special Features": ["Tie-down points", "Side rails"]
+  },
+  {
+    "Vehicle Type": "Reefer Truck",
+    "Maximum Load Capacity (kg)": 2500,
+    "Dimensions (L x W x H)": "5.5m x 2.4m x 2.2m",
+    "Refrigeration": "Standard",
+    "Special Features": ["Temperature logging", "Dual compartment"]
+  },
+  {
+    "Vehicle Type": "Pickup",
+    "Maximum Load Capacity (kg)": 800,
+    "Dimensions (L x W x H)": "2.5m x 1.5m x 1.2m",
+    "Refrigeration": "Not available",
+    "Special Features": ["4-wheel drive", "Extended cab"]
+  }
+]
+
+
+
 {
     id: 1,
     name: "Jon Snow",
