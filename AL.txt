@@ -1,15 +1,15 @@
 <Box
-                    gridColumn="span 6"
-                    gridRow="span 1"
-                    backgroundColor={'#f2f0f0'}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    >
-                    <Typography gutterBottom variant="h5" component="div">
-                    Each location must be visited exactly once  
-                    </Typography>
-                </Box>
+    gridColumn="span 6"
+    gridRow="span 1"
+    backgroundColor={'#f2f0f0'}
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+    >
+    <Typography gutterBottom variant="h5" component="div">
+    Each location must be visited exactly once  
+    </Typography>
+</Box>
 
 
 <React.Fragment>
