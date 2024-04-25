@@ -1,3 +1,18 @@
+      <Accordion defaultExpanded>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          <Typography>Each location must be visited exactly once</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          This constraint ensures that every stop in the route is covered efficiently without revisiting the same location. By adhering to this rule, route optimization algorithms can focus on finding the shortest or most time-efficient path that fulfills all required visits.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
 1. **Each location must be visited exactly once**: This constraint ensures that every stop in the route is covered efficiently without revisiting the same location. By adhering to this rule, route optimization algorithms can focus on finding the shortest or most time-efficient path that fulfills all required visits.
 
 2. **Sales representative must return to starting location**: Requiring the representative to return to the starting point ensures the completion of a round trip. This constraint impacts route planning significantly, influencing the sequence and order of visited locations to optimize both time and distance.
