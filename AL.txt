@@ -1,14 +1,52 @@
-            Key advantages:
-            
-            Cost reduction due to the most efficient routes meeting demand and constraints
-            
-            Improved customer satisfaction and retention through meeting delivery windows and providing accurate ETA
-            
-            Enhanced performance for drivers through reducing driving time and stress
-            
-            Increased sustainability by lowering CO2 emissions, noise pollution, and congestion
-            
-            Dynamic routing can help support green initiatives such as electric vehicles or low-emission zones
+// src/Advantages.js
+
+import React from 'react';
+
+const Advantages = ({ advantages }) => {
+  return (
+    <div>
+      <h2>Key Advantages</h2>
+      <ul>
+        {advantages.map((advantage, index) => (
+          <li key={index}>{advantage}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Advantages;
+
+
+// src/App.js
+
+import React from 'react';
+import Advantages from './Advantages';
+
+const App = () => {
+  const advantagesList = [
+    "Cost reduction due to the most efficient routes meeting demand and constraints",
+    "Improved customer satisfaction and retention through meeting delivery windows and providing accurate ETA",
+    "Enhanced performance for drivers through reducing driving time and stress",
+    "Increased sustainability by lowering CO2 emissions, noise pollution, and congestion",
+    "Dynamic routing can help support green initiatives such as electric vehicles or low-emission zones"
+  ];
+
+  return (
+    <div>
+      <h1>Delivery Optimization Advantages</h1>
+      <Advantages advantages={advantagesList} />
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+
+
 
 
 Minimize total distance travelled by sales representative:
