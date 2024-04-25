@@ -1,111 +1,95 @@
-const columns = [
-    {field: 'id', headerName: 'ID', flex: 0.2},
-    { field: "coordinates", headerName: "Coordinates", flex: 0.5},
-    { field: "streetName", headerName: "Street Name",headerAlign: "left",align: "left", flex: 0.6},
-    {
-      field: "distance",
-      headerName: "Distance",
-      flex: 0.4,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "speedLimit",
-      headerName: "Speed Limit",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "geographicalConstraints",
-      headerName: "Geographical Constraints",
-      flex: 0.8,
-    },
-  ];
-
-
-[
+const rows = [
   {
-    "id": 1,
-    "coordinates": [40.7128, -74.0060],
-    "streetName": "Broadway Ave",
-    "distance": 3,
-    "speedLimit": 30,
-    "geographicalConstraints": "tollBridge George Washington Bridge"
+    orderId: 1,
+    customerId: 101,
+    weight: 500,
+    volume: 10,
+    startTime: '09:00 AM',
+    endTime: '12:00 PM',
+    priority: 'High'
   },
   {
-    "id": 2,
-    "coordinates": [34.0522, -118.2437],
-    "streetName": "Santa Monica Blvd",
-    "distance": 2.5,
-    "speedLimit": 25,
-    "geographicalConstraints": "noThroughTrucks Downtown LA"
+    orderId: 2,
+    customerId: 102,
+    weight: 300,
+    volume: 5,
+    startTime: '11:00 AM',
+    endTime: '02:00 PM',
+    priority: 'Medium'
   },
   {
-    "id": 3,
-    "coordinates": [41.8781, -87.6298],
-    "streetName": "Michigan Ave",
-    "distance": 1.5,
-    "speedLimit": 20,
-    "geographicalConstraints": "lowEmissionZone Chicago Loop"
+    orderId: 3,
+    customerId: 103,
+    weight: 700,
+    volume: 12,
+    startTime: '10:00 AM',
+    endTime: '01:00 PM',
+    priority: 'High'
   },
   {
-    "id": 4,
-    "coordinates": [39.9526, -75.1652],
-    "streetName": "Market Street",
-    "distance": 1,
-    "speedLimit": 15,
-    "geographicalConstraints": "pedestrianZone Center City, Philly"
+    orderId: 4,
+    customerId: 104,
+    weight: 400,
+    volume: 8,
+    startTime: '01:00 PM',
+    endTime: '04:00 PM',
+    priority: 'Low'
   },
   {
-    "id": 5,
-    "coordinates": [29.7604, -95.3698],
-    "streetName": "Main Street",
-    "distance": 2,
-    "speedLimit": 30,
-    "geographicalConstraints": "noParking Downtown Houston"
+    orderId: 5,
+    customerId: 105,
+    weight: 600,
+    volume: 15,
+    startTime: '08:00 AM',
+    endTime: '11:00 AM',
+    priority: 'High'
   },
   {
-    "id": 6,
-    "coordinates": [32.7157, -117.1611],
-    "streetName": "Harbor Drive",
-    "distance": 3.5,
-    "speedLimit": 35,
-    "geographicalConstraints": "roadClosure Construction on I-5"
+    orderId: 6,
+    customerId: 106,
+    weight: 200,
+    volume: 4,
+    startTime: '12:00 PM',
+    endTime: '03:00 PM',
+    priority: 'Medium'
   },
   {
-    "id": 7,
-    "coordinates": [37.7749, -122.4194],
-    "streetName": "Market Street",
-    "distance": 2,
-    "speedLimit": 25,
-    "geographicalConstraints": "tunnelRestrictions Bay Area Bridges"
+    orderId: 7,
+    customerId: 107,
+    weight: 350,
+    volume: 7,
+    startTime: '02:00 PM',
+    endTime: '05:00 PM',
+    priority: 'Low'
   },
   {
-    "id": 8,
-    "coordinates": [47.6062, -122.3321],
-    "streetName": "Pine Street",
-    "distance": 1.8,
-    "speedLimit": 20,
-    "geographicalConstraints": "weightLimit Seattle Waterfront"
+    orderId: 8,
+    customerId: 108,
+    weight: 450,
+    volume: 9,
+    startTime: '10:00 AM',
+    endTime: '01:00 PM',
+    priority: 'Medium'
   },
   {
-    "id": 9,
-    "coordinates": [33.7490, -84.3880],
-    "streetName": "Peachtree Street",
-    "distance": 2.2,
-    "speedLimit": 25,
-    "geographicalConstraints": "heightRestriction Underpass on I-85"
+    orderId: 9,
+    customerId: 109,
+    weight: 550,
+    volume: 11,
+    startTime: '11:00 AM',
+    endTime: '02:00 PM',
+    priority: 'High'
   },
   {
-    "id": 10,
-    "coordinates": [38.9072, -77.0369],
-    "streetName": "Pennsylvania Ave",
-    "distance": 1.7,
-    "speedLimit": 30,
-    "geographicalConstraints": "speedLimitReduction National Mall"
+    orderId: 10,
+    customerId: 110,
+    weight: 250,
+    volume: 5,
+    startTime: '03:00 PM',
+    endTime: '06:00 PM',
+    priority: 'Low'
   }
-]
-
+];
 
 
 
