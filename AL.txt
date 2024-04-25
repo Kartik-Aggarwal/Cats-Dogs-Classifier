@@ -1,3 +1,17 @@
+Objects are not valid as a React child (found: object with keys {}). If you meant to render a collection of children, use an array instead.
+    at throwOnInvalidObjectType (http://localhost:3000/static/js/bundle.js:126867:13)
+    at reconcileChildFibers (http://localhost:3000/static/js/bundle.js:127643:11)
+    at reconcileChildren (http://localhost:3000/static/js/bundle.js:130567:32)
+    at updateHostComponent (http://localhost:3000/static/js/bundle.js:131211:7)
+    at beginWork (http://localhost:3000/static/js/bundle.js:132656:18)
+    at HTMLUnknownElement.callCallback (http://localhost:3000/static/js/bundle.js:117648:18)
+    at Object.invokeGuardedCallbackDev (http://localhost:3000/static/js/bundle.js:117692:20)
+    at invokeGuardedCallback (http://localhost:3000/static/js/bundle.js:117749:35)
+    at beginWork$1 (http://localhost:3000/static/js/bundle.js:137613:11)
+    at performUnitOfWork (http://localhost:3000/static/js/bundle.js:136861:16)
+
+
+
 import React, { useState } from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import './FlipCard.css'; // Import CSS for styling
