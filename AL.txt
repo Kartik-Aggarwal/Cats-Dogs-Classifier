@@ -1,55 +1,86 @@
 [
   {
-    "ID": 1,
-    "Distribution Center ID": "DC975",
-    "Working Hours": "8:00 AM - 6:00 PM"
+    "id": 1,
+    "coordinates": [40.7128, -74.0060],
+    "streetName": "Broadway Ave",
+    "distance": 3,
+    "speedLimit": 30,
+    "geographicalConstraints": "tollBridge George Washington Bridge"
   },
   {
-    "ID": 2,
-    "Distribution Center ID": "DC246",
-    "Working Hours": "7:30 AM - 5:30 PM"
+    "id": 2,
+    "coordinates": [34.0522, -118.2437],
+    "streetName": "Santa Monica Blvd",
+    "distance": 2.5,
+    "speedLimit": 25,
+    "geographicalConstraints": "noThroughTrucks Downtown LA"
   },
   {
-    "ID": 3,
-    "Distribution Center ID": "DC503",
-    "Working Hours": "9:00 AM - 7:00 PM"
+    "id": 3,
+    "coordinates": [41.8781, -87.6298],
+    "streetName": "Michigan Ave",
+    "distance": 1.5,
+    "speedLimit": 20,
+    "geographicalConstraints": "lowEmissionZone Chicago Loop"
   },
   {
-    "ID": 4,
-    "Distribution Center ID": "DC789",
-    "Working Hours": "8:30 AM - 6:30 PM"
+    "id": 4,
+    "coordinates": [39.9526, -75.1652],
+    "streetName": "Market Street",
+    "distance": 1,
+    "speedLimit": 15,
+    "geographicalConstraints": "pedestrianZone Center City, Philly"
   },
   {
-    "ID": 5,
-    "Distribution Center ID": "DC362",
-    "Working Hours": "8:00 AM - 6:00 PM"
+    "id": 5,
+    "coordinates": [29.7604, -95.3698],
+    "streetName": "Main Street",
+    "distance": 2,
+    "speedLimit": 30,
+    "geographicalConstraints": "noParking Downtown Houston"
   },
   {
-    "ID": 6,
-    "Distribution Center ID": "DC815",
-    "Working Hours": "7:00 AM - 5:00 PM"
+    "id": 6,
+    "coordinates": [32.7157, -117.1611],
+    "streetName": "Harbor Drive",
+    "distance": 3.5,
+    "speedLimit": 35,
+    "geographicalConstraints": "roadClosure Construction on I-5"
   },
   {
-    "ID": 7,
-    "Distribution Center ID": "DC124",
-    "Working Hours": "9:00 AM - 6:00 PM"
+    "id": 7,
+    "coordinates": [37.7749, -122.4194],
+    "streetName": "Market Street",
+    "distance": 2,
+    "speedLimit": 25,
+    "geographicalConstraints": "tunnelRestrictions Bay Area Bridges"
   },
   {
-    "ID": 8,
-    "Distribution Center ID": "DC672",
-    "Working Hours": "8:30 AM - 5:30 PM"
+    "id": 8,
+    "coordinates": [47.6062, -122.3321],
+    "streetName": "Pine Street",
+    "distance": 1.8,
+    "speedLimit": 20,
+    "geographicalConstraints": "weightLimit Seattle Waterfront"
   },
   {
-    "ID": 9,
-    "Distribution Center ID": "DC529",
-    "Working Hours": "7:00 AM - 4:30 PM"
+    "id": 9,
+    "coordinates": [33.7490, -84.3880],
+    "streetName": "Peachtree Street",
+    "distance": 2.2,
+    "speedLimit": 25,
+    "geographicalConstraints": "heightRestriction Underpass on I-85"
   },
   {
-    "ID": 10,
-    "Distribution Center ID": "DC937",
-    "Working Hours": "8:00 AM - 5:00 PM"
+    "id": 10,
+    "coordinates": [38.9072, -77.0369],
+    "streetName": "Pennsylvania Ave",
+    "distance": 1.7,
+    "speedLimit": 30,
+    "geographicalConstraints": "speedLimitReduction National Mall"
   }
 ]
+
 
 
 
