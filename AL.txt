@@ -1,3 +1,10 @@
+Each location must be visited exactly once
+Sales rep must return to starting location
+Time window constraints
+Capacity constraints if sales rep is carrying goods
+Vehicle specific and traffic specific constraints such as maximum speed, weight limit or fuel constraints
+
+
 // src/Advantages.js
 
 import React from 'react';
