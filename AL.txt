@@ -1,3 +1,28 @@
+const columns = [
+    {field: 'id', headerName: 'ID', flex: 0.2},
+    { field: "coordinates", headerName: "Coordinates", flex: 0.5},
+    { field: "streetName", headerName: "Street Name",headerAlign: "left",align: "left", flex: 0.6},
+    {
+      field: "distance",
+      headerName: "Distance",
+      flex: 0.4,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "speedLimit",
+      headerName: "Speed Limit",
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+    },
+    {
+      field: "geographicalConstraints",
+      headerName: "Geographical Constraints",
+      flex: 0.8,
+    },
+  ];
+
+
 [
   {
     "id": 1,
