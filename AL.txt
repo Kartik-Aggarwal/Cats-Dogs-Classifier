@@ -1,3 +1,16 @@
+            Key advantages:
+            
+            Cost reduction due to the most efficient routes meeting demand and constraints
+            
+            Improved customer satisfaction and retention through meeting delivery windows and providing accurate ETA
+            
+            Enhanced performance for drivers through reducing driving time and stress
+            
+            Increased sustainability by lowering CO2 emissions, noise pollution, and congestion
+            
+            Dynamic routing can help support green initiatives such as electric vehicles or low-emission zones
+
+
 Minimize total distance travelled by sales representative:
 Route optimization aims to reduce the total distance travelled by a sales representative by intelligently planning the sequence of stops. Using algorithms like the Traveling Salesman Problem (TSP), the system can determine the shortest path that covers all stops efficiently. This reduces fuel costs and time spent on the road, ultimately improving productivity and customer service.
 Minimize time taken to complete the route:
