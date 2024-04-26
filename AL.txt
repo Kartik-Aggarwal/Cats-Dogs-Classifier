@@ -1,3 +1,15 @@
+  const customStyles = {
+    components: {
+      Cell: {
+        style: {
+          fontSize: '16px', // Adjust the font size as needed
+        },
+      },
+    },
+  };
+
+
+
 [
   {
     "Algorithm": "Mixed Integer Linear Programming",
