@@ -1,93 +1,107 @@
-const rows = [
+const trafficAndWeatherRows = [
   {
-    orderId: 1,
-    customerId: 101,
-    weight: 500,
-    volume: 10,
-    startTime: '09:00 AM',
-    endTime: '12:00 PM',
-    priority: 'High'
+    roadSegment: "I-95 North",
+    trafficStatus: "Heavy congestion",
+    weatherCondition: "Partly cloudy"
   },
   {
-    orderId: 2,
-    customerId: 102,
-    weight: 300,
-    volume: 5,
-    startTime: '11:00 AM',
-    endTime: '02:00 PM',
-    priority: 'Medium'
+    roadSegment: "Route 66",
+    trafficStatus: "Moderate traffic",
+    weatherCondition: "Clear skies"
   },
   {
-    orderId: 3,
-    customerId: 103,
-    weight: 700,
-    volume: 12,
-    startTime: '10:00 AM',
-    endTime: '01:00 PM',
-    priority: 'High'
+    roadSegment: "Highway 101",
+    trafficStatus: "Smooth traffic flow",
+    weatherCondition: "Rain showers"
   },
   {
-    orderId: 4,
-    customerId: 104,
-    weight: 400,
-    volume: 8,
-    startTime: '01:00 PM',
-    endTime: '04:00 PM',
-    priority: 'Low'
+    roadSegment: "Interstate 5",
+    trafficStatus: "Accident, lane closure",
+    weatherCondition: "Foggy"
   },
   {
-    orderId: 5,
-    customerId: 105,
-    weight: 600,
-    volume: 15,
-    startTime: '08:00 AM',
-    endTime: '11:00 AM',
-    priority: 'High'
+    roadSegment: "I-80 West",
+    trafficStatus: "Construction zone, delays expected",
+    weatherCondition: "Sunny"
   },
   {
-    orderId: 6,
-    customerId: 106,
-    weight: 200,
-    volume: 4,
-    startTime: '12:00 PM',
-    endTime: '03:00 PM',
-    priority: 'Medium'
+    roadSegment: "US-1 Coastal Highway",
+    trafficStatus: "Light traffic",
+    weatherCondition: "Windy"
   },
   {
-    orderId: 7,
-    customerId: 107,
-    weight: 350,
-    volume: 7,
-    startTime: '02:00 PM',
-    endTime: '05:00 PM',
-    priority: 'Low'
+    roadSegment: "I-70 East",
+    trafficStatus: "Vehicle breakdown, shoulder blocked",
+    weatherCondition: "Thunderstorms"
   },
   {
-    orderId: 8,
-    customerId: 108,
-    weight: 450,
-    volume: 9,
-    startTime: '10:00 AM',
-    endTime: '01:00 PM',
-    priority: 'Medium'
+    roadSegment: "State Route 99",
+    trafficStatus: "Road closed due to flooding",
+    weatherCondition: "Heavy rain"
   },
   {
-    orderId: 9,
-    customerId: 109,
-    weight: 550,
-    volume: 11,
-    startTime: '11:00 AM',
-    endTime: '02:00 PM',
-    priority: 'High'
+    roadSegment: "I-10 South",
+    trafficStatus: "Normal traffic",
+    weatherCondition: "Scattered clouds"
   },
   {
-    orderId: 10,
-    customerId: 110,
-    weight: 250,
-    volume: 5,
-    startTime: '03:00 PM',
-    endTime: '06:00 PM',
-    priority: 'Low'
+    roadSegment: "Interstate 495",
+    trafficStatus: "Delays due to road maintenance",
+    weatherCondition: "Snow showers"
+  }
+];
+
+
+const additionalTrafficAndWeatherRows = [
+  {
+    roadSegment: "Highway 280",
+    trafficStatus: "Minor delays",
+    weatherCondition: "Partly cloudy"
+  },
+  {
+    roadSegment: "Interstate 90",
+    trafficStatus: "Heavy rain causing flooding",
+    weatherCondition: "Heavy rain"
+  },
+  {
+    roadSegment: "US-50",
+    trafficStatus: "Congestion due to roadworks",
+    weatherCondition: "Clear skies"
+  },
+  {
+    roadSegment: "State Route 1A",
+    trafficStatus: "Accident cleared, residual delays",
+    weatherCondition: "Sunny"
+  },
+  {
+    roadSegment: "I-20",
+    trafficStatus: "Free flowing traffic",
+    weatherCondition: "Scattered clouds"
+  },
+  {
+    roadSegment: "Interstate 495",
+    trafficStatus: "Road closed for maintenance",
+    weatherCondition: "Foggy"
+  },
+  {
+    roadSegment: "Highway 101",
+    trafficStatus: "Moderate traffic",
+    weatherCondition: "Light rain"
+  },
+  {
+    roadSegment: "Route 22",
+    trafficStatus: "Vehicle fire, expect delays",
+    weatherCondition: "Windy"
+  },
+  {
+    roadSegment: "I-5 North",
+    trafficStatus: "Roadwork, reduced speed limit",
+    weatherCondition: "Overcast"
+  },
+  {
+    roadSegment: "US-101",
+    trafficStatus: "Major accident, road closure",
+    weatherCondition: "Thunderstorms"
   }
 ];
 
