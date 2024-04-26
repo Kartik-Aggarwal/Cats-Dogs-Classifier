@@ -1,128 +1,47 @@
 [
   {
-    "id": 1,
-    "vehicleId": 101,
-    "fuelCost": 3.50,
-    "laborCost": 20.00
+    "Algorithm": "Mixed Integer Linear Programming",
+    "Computation Time": "Medium",
+    "Accuracy": "High",
+    "Scalibility": "Medium",
+    "Idea for": "Linear objective function\nMedium no. of variables\nLow no. of constraints"
   },
   {
-    "id": 2,
-    "vehicleId": 102,
-    "fuelCost": 3.75,
-    "laborCost": 22.50
+    "Algorithm": "Non Linear Programming",
+    "Computation Time": "High",
+    "Accuracy": "High",
+    "Scalibility": "Low",
+    "Idea for": "Linear/Non-Linear objective function\nMedium no. of variables\nLow no. of constraints"
+  },
+  {
+    "Algorithm": "Genetic Algorithm",
+    "Computation Time": "High",
+    "Accuracy": "Medium",
+    "Scalibility": "Low",
+    "Idea for": "Linear/Non-Linear objective function\nLow no. of variables\nMedium no. of constraints"
+  },
+  {
+    "Algorithm": "Particle Swarm Optimization",
+    "Computation Time": "High",
+    "Accuracy": "Medium",
+    "Scalibility": "Low",
+    "Idea for": "Linear/Non-Linear objective function\nLow no. of variables\nMedium no. of constraints"
+  },
+  {
+    "Algorithm": "Step Optimization",
+    "Computation Time": "Medium",
+    "Accuracy": "Medium",
+    "Scalibility": "Medium",
+    "Idea for": "Linear/Non-Linear objective function\nMedium no. of variables\nMedium no. of constraints"
+  },
+  {
+    "Algorithm": "Custom Heuristic",
+    "Computation Time": "Low",
+    "Accuracy": "Medium",
+    "Scalibility": "Medium",
+    "Idea for": "Linear/Non-Linear objective function\nHigh no. of variables\nHigh no. of constraints"
   }
 ]
-[
-  {
-    "id": 3,
-    "vehicleId": 103,
-    "fuelCost": 3.60,
-    "laborCost": 21.00
-  },
-  {
-    "id": 4,
-    "vehicleId": 104,
-    "fuelCost": 3.65,
-    "laborCost": 21.50
-  },
-  {
-    "id": 5,
-    "vehicleId": 105,
-    "fuelCost": 3.55,
-    "laborCost": 20.50
-  },
-  {
-    "id": 6,
-    "vehicleId": 106,
-    "fuelCost": 3.70,
-    "laborCost": 22.00
-  },
-  {
-    "id": 7,
-    "vehicleId": 107,
-    "fuelCost": 3.45,
-    "laborCost": 19.50
-  },
-  {
-    "id": 8,
-    "vehicleId": 108,
-    "fuelCost": 3.80,
-    "laborCost": 23.00
-  },
-  {
-    "id": 9,
-    "vehicleId": 109,
-    "fuelCost": 3.75,
-    "laborCost": 22.50
-  },
-  {
-    "id": 10,
-    "vehicleId": 110,
-    "fuelCost": 3.85,
-    "laborCost": 24.00
-  },
-  {
-    "id": 11,
-    "vehicleId": 111,
-    "fuelCost": 3.40,
-    "laborCost": 19.00
-  },
-  {
-    "id": 12,
-    "vehicleId": 112,
-    "fuelCost": 3.90,
-    "laborCost": 25.00
-  },
-  {
-    "id": 13,
-    "vehicleId": 113,
-    "fuelCost": 3.95,
-    "laborCost": 26.00
-  },
-  {
-    "id": 14,
-    "vehicleId": 114,
-    "fuelCost": 3.50,
-    "laborCost": 20.00
-  },
-  {
-    "id": 15,
-    "vehicleId": 115,
-    "fuelCost": 3.55,
-    "laborCost": 20.50
-  },
-  {
-    "id": 16,
-    "vehicleId": 116,
-    "fuelCost": 3.60,
-    "laborCost": 21.00
-  },
-  {
-    "id": 17,
-    "vehicleId": 117,
-    "fuelCost": 3.65,
-    "laborCost": 21.50
-  },
-  {
-    "id": 18,
-    "vehicleId": 118,
-    "fuelCost": 3.70,
-    "laborCost": 22.00
-  },
-  {
-    "id": 19,
-    "vehicleId": 119,
-    "fuelCost": 3.75,
-    "laborCost": 22.50
-  },
-  {
-    "id": 20,
-    "vehicleId": 120,
-    "fuelCost": 3.80,
-    "laborCost": 23.00
-  }
-]
-
 
 
 
