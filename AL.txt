@@ -1,163 +1,125 @@
 [
   {
     "id": 1,
-    "driverId": 12345,
-    "maxHoursOfService": 14,
     "vehicleId": 101,
-    "maxDistance": 500,
-    "maxTime": 10
+    "fuelCost": 3.50,
+    "laborCost": 20.00
   },
   {
     "id": 2,
-    "driverId": 23456,
-    "maxHoursOfService": 13,
     "vehicleId": 102,
-    "maxDistance": 450,
-    "maxTime": 9
-  },
+    "fuelCost": 3.75,
+    "laborCost": 22.50
+  }
+]
+[
   {
     "id": 3,
-    "driverId": 34567,
-    "maxHoursOfService": 12,
     "vehicleId": 103,
-    "maxDistance": 400,
-    "maxTime": 8
+    "fuelCost": 3.60,
+    "laborCost": 21.00
   },
   {
     "id": 4,
-    "driverId": 45678,
-    "maxHoursOfService": 11,
     "vehicleId": 104,
-    "maxDistance": 350,
-    "maxTime": 7
+    "fuelCost": 3.65,
+    "laborCost": 21.50
   },
   {
     "id": 5,
-    "driverId": 56789,
-    "maxHoursOfService": 10,
     "vehicleId": 105,
-    "maxDistance": 300,
-    "maxTime": 6
+    "fuelCost": 3.55,
+    "laborCost": 20.50
   },
   {
     "id": 6,
-    "driverId": 67890,
-    "maxHoursOfService": 9,
     "vehicleId": 106,
-    "maxDistance": 250,
-    "maxTime": 5
+    "fuelCost": 3.70,
+    "laborCost": 22.00
   },
   {
     "id": 7,
-    "driverId": 78901,
-    "maxHoursOfService": 8,
     "vehicleId": 107,
-    "maxDistance": 200,
-    "maxTime": 4
+    "fuelCost": 3.45,
+    "laborCost": 19.50
   },
   {
     "id": 8,
-    "driverId": 89012,
-    "maxHoursOfService": 7,
     "vehicleId": 108,
-    "maxDistance": 150,
-    "maxTime": 3
+    "fuelCost": 3.80,
+    "laborCost": 23.00
   },
   {
     "id": 9,
-    "driverId": 90123,
-    "maxHoursOfService": 6,
     "vehicleId": 109,
-    "maxDistance": 100,
-    "maxTime": 2
+    "fuelCost": 3.75,
+    "laborCost": 22.50
   },
   {
     "id": 10,
-    "driverId": 10123,
-    "maxHoursOfService": 5,
     "vehicleId": 110,
-    "maxDistance": 50,
-    "maxTime": 1
+    "fuelCost": 3.85,
+    "laborCost": 24.00
   },
   {
     "id": 11,
-    "driverId": 11234,
-    "maxHoursOfService": 14,
     "vehicleId": 111,
-    "maxDistance": 500,
-    "maxTime": 10
+    "fuelCost": 3.40,
+    "laborCost": 19.00
   },
   {
     "id": 12,
-    "driverId": 12345,
-    "maxHoursOfService": 13,
     "vehicleId": 112,
-    "maxDistance": 450,
-    "maxTime": 9
+    "fuelCost": 3.90,
+    "laborCost": 25.00
   },
   {
     "id": 13,
-    "driverId": 23456,
-    "maxHoursOfService": 12,
     "vehicleId": 113,
-    "maxDistance": 400,
-    "maxTime": 8
+    "fuelCost": 3.95,
+    "laborCost": 26.00
   },
   {
     "id": 14,
-    "driverId": 34567,
-    "maxHoursOfService": 11,
     "vehicleId": 114,
-    "maxDistance": 350,
-    "maxTime": 7
+    "fuelCost": 3.50,
+    "laborCost": 20.00
   },
   {
     "id": 15,
-    "driverId": 45678,
-    "maxHoursOfService": 10,
     "vehicleId": 115,
-    "maxDistance": 300,
-    "maxTime": 6
+    "fuelCost": 3.55,
+    "laborCost": 20.50
   },
   {
     "id": 16,
-    "driverId": 56789,
-    "maxHoursOfService": 9,
     "vehicleId": 116,
-    "maxDistance": 250,
-    "maxTime": 5
+    "fuelCost": 3.60,
+    "laborCost": 21.00
   },
   {
     "id": 17,
-    "driverId": 67890,
-    "maxHoursOfService": 8,
     "vehicleId": 117,
-    "maxDistance": 200,
-    "maxTime": 4
+    "fuelCost": 3.65,
+    "laborCost": 21.50
   },
   {
     "id": 18,
-    "driverId": 78901,
-    "maxHoursOfService": 7,
     "vehicleId": 118,
-    "maxDistance": 150,
-    "maxTime": 3
+    "fuelCost": 3.70,
+    "laborCost": 22.00
   },
   {
     "id": 19,
-    "driverId": 89012,
-    "maxHoursOfService": 6,
     "vehicleId": 119,
-    "maxDistance": 100,
-    "maxTime": 2
+    "fuelCost": 3.75,
+    "laborCost": 22.50
   },
   {
     "id": 20,
-    "driverId": 90123,
-    "maxHoursOfService": 5,
     "vehicleId": 120,
-    "maxDistance": 50,
-    "maxTime": 1
+    "fuelCost": 3.80,
+    "laborCost": 23.00
   }
 ]
 
