@@ -1,110 +1,245 @@
-const trafficAndWeatherRows = [
+[
   {
-    roadSegment: "I-95 North",
-    trafficStatus: "Heavy congestion",
-    weatherCondition: "Partly cloudy"
+    "id": 1,
+    "drivingRegulations": {
+      "driverId": 12345,
+      "maxHoursOfService": 14
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 101,
+      "maxDistance": 500,
+      "maxTime": 10
+    }
   },
   {
-    roadSegment: "Route 66",
-    trafficStatus: "Moderate traffic",
-    weatherCondition: "Clear skies"
+    "id": 2,
+    "drivingRegulations": {
+      "driverId": 23456,
+      "maxHoursOfService": 13
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 102,
+      "maxDistance": 450,
+      "maxTime": 9
+    }
   },
   {
-    roadSegment: "Highway 101",
-    trafficStatus: "Smooth traffic flow",
-    weatherCondition: "Rain showers"
+    "id": 3,
+    "drivingRegulations": {
+      "driverId": 34567,
+      "maxHoursOfService": 12
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 103,
+      "maxDistance": 400,
+      "maxTime": 8
+    }
   },
   {
-    roadSegment: "Interstate 5",
-    trafficStatus: "Accident, lane closure",
-    weatherCondition: "Foggy"
+    "id": 4,
+    "drivingRegulations": {
+      "driverId": 45678,
+      "maxHoursOfService": 11
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 104,
+      "maxDistance": 350,
+      "maxTime": 7
+    }
   },
   {
-    roadSegment: "I-80 West",
-    trafficStatus: "Construction zone, delays expected",
-    weatherCondition: "Sunny"
+    "id": 5,
+    "drivingRegulations": {
+      "driverId": 56789,
+      "maxHoursOfService": 10
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 105,
+      "maxDistance": 300,
+      "maxTime": 6
+    }
   },
   {
-    roadSegment: "US-1 Coastal Highway",
-    trafficStatus: "Light traffic",
-    weatherCondition: "Windy"
+    "id": 6,
+    "drivingRegulations": {
+      "driverId": 67890,
+      "maxHoursOfService": 9
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 106,
+      "maxDistance": 250,
+      "maxTime": 5
+    }
   },
   {
-    roadSegment: "I-70 East",
-    trafficStatus: "Vehicle breakdown, shoulder blocked",
-    weatherCondition: "Thunderstorms"
+    "id": 7,
+    "drivingRegulations": {
+      "driverId": 78901,
+      "maxHoursOfService": 8
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 107,
+      "maxDistance": 200,
+      "maxTime": 4
+    }
   },
   {
-    roadSegment: "State Route 99",
-    trafficStatus: "Road closed due to flooding",
-    weatherCondition: "Heavy rain"
+    "id": 8,
+    "drivingRegulations": {
+      "driverId": 89012,
+      "maxHoursOfService": 7
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 108,
+      "maxDistance": 150,
+      "maxTime": 3
+    }
   },
   {
-    roadSegment: "I-10 South",
-    trafficStatus: "Normal traffic",
-    weatherCondition: "Scattered clouds"
+    "id": 9,
+    "drivingRegulations": {
+      "driverId": 90123,
+      "maxHoursOfService": 6
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 109,
+      "maxDistance": 100,
+      "maxTime": 2
+    }
   },
   {
-    roadSegment: "Interstate 495",
-    trafficStatus: "Delays due to road maintenance",
-    weatherCondition: "Snow showers"
+    "id": 10,
+    "drivingRegulations": {
+      "driverId": 10123,
+      "maxHoursOfService": 5
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 110,
+      "maxDistance": 50,
+      "maxTime": 1
+    }
+  },
+  {
+    "id": 11,
+    "drivingRegulations": {
+      "driverId": 11234,
+      "maxHoursOfService": 14
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 111,
+      "maxDistance": 500,
+      "maxTime": 10
+    }
+  },
+  {
+    "id": 12,
+    "drivingRegulations": {
+      "driverId": 12345,
+      "maxHoursOfService": 13
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 112,
+      "maxDistance": 450,
+      "maxTime": 9
+    }
+  },
+  {
+    "id": 13,
+    "drivingRegulations": {
+      "driverId": 23456,
+      "maxHoursOfService": 12
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 113,
+      "maxDistance": 400,
+      "maxTime": 8
+    }
+  },
+  {
+    "id": 14,
+    "drivingRegulations": {
+      "driverId": 34567,
+      "maxHoursOfService": 11
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 114,
+      "maxDistance": 350,
+      "maxTime": 7
+    }
+  },
+  {
+    "id": 15,
+    "drivingRegulations": {
+      "driverId": 45678,
+      "maxHoursOfService": 10
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 115,
+      "maxDistance": 300,
+      "maxTime": 6
+    }
+  },
+  {
+    "id": 16,
+    "drivingRegulations": {
+      "driverId": 56789,
+      "maxHoursOfService": 9
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 116,
+      "maxDistance": 250,
+      "maxTime": 5
+    }
+  },
+  {
+    "id": 17,
+    "drivingRegulations": {
+      "driverId": 67890,
+      "maxHoursOfService": 8
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 117,
+      "maxDistance": 200,
+      "maxTime": 4
+    }
+  },
+  {
+    "id": 18,
+    "drivingRegulations": {
+      "driverId": 78901,
+      "maxHoursOfService": 7
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 118,
+      "maxDistance": 150,
+      "maxTime": 3
+    }
+  },
+  {
+    "id": 19,
+    "drivingRegulations": {
+      "driverId": 89012,
+      "maxHoursOfService": 6
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 119,
+      "maxDistance": 100,
+      "maxTime": 2
+    }
+  },
+  {
+    "id": 20,
+    "drivingRegulations": {
+      "driverId": 90123,
+      "maxHoursOfService": 5
+    },
+    "vehicleOperatingLimits": {
+      "vehicleId": 120,
+      "maxDistance": 50,
+      "maxTime": 1
+    }
   }
-];
-
-
-const additionalTrafficAndWeatherRows = [
-  {
-    roadSegment: "Highway 280",
-    trafficStatus: "Minor delays",
-    weatherCondition: "Partly cloudy"
-  },
-  {
-    roadSegment: "Interstate 90",
-    trafficStatus: "Heavy rain causing flooding",
-    weatherCondition: "Heavy rain"
-  },
-  {
-    roadSegment: "US-50",
-    trafficStatus: "Congestion due to roadworks",
-    weatherCondition: "Clear skies"
-  },
-  {
-    roadSegment: "State Route 1A",
-    trafficStatus: "Accident cleared, residual delays",
-    weatherCondition: "Sunny"
-  },
-  {
-    roadSegment: "I-20",
-    trafficStatus: "Free flowing traffic",
-    weatherCondition: "Scattered clouds"
-  },
-  {
-    roadSegment: "Interstate 495",
-    trafficStatus: "Road closed for maintenance",
-    weatherCondition: "Foggy"
-  },
-  {
-    roadSegment: "Highway 101",
-    trafficStatus: "Moderate traffic",
-    weatherCondition: "Light rain"
-  },
-  {
-    roadSegment: "Route 22",
-    trafficStatus: "Vehicle fire, expect delays",
-    weatherCondition: "Windy"
-  },
-  {
-    roadSegment: "I-5 North",
-    trafficStatus: "Roadwork, reduced speed limit",
-    weatherCondition: "Overcast"
-  },
-  {
-    roadSegment: "US-101",
-    trafficStatus: "Major accident, road closure",
-    weatherCondition: "Thunderstorms"
-  }
-];
-
+]
 
 
 
