@@ -3,6 +3,72 @@ import * as XLSX from 'xlsx';
 
 const ExcelTable = () => {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) {
+      setError('Please select a file.');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const binaryString = event.target.result;
+      const workbook = XLSX.read(binaryString, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0]; // Assuming first sheet is the one to be used
+      const excelData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      setData(excelData.slice(0, 15)); // Limiting to first 15 rows
+    };
+    reader.readAsBinaryString(file);
+    setError(null); // Clear any previous errors
+  };
+
+  return (
+    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      <input type="file" onChange={handleFileUpload} style={{ marginBottom: '20px' }} />
+      {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
+      {data && (
+        <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <thead style={{ backgroundColor: '#f2f2f2' }}>
+              <tr>
+                {Object.keys(data[0]).map((key, index) => (
+                  <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'left' }}>
+                    {key}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row, index) => (
+                <tr key={index}>
+                  {Object.values(row).map((cell, index) => (
+                    <td key={index} style={{ padding: '8px', border: '1px solid #ddd' }}>
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ExcelTable;
+
+
+
+
+
+
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+
+const ExcelTable = () => {
+  const [data, setData] = useState(null);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
