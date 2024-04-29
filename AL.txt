@@ -18,14 +18,16 @@ const ExcelTable = () => {
   };
 
   return (
-    <div>
-      <input type="file" onChange={handleFileUpload} />
+    <div style={{ fontFamily: 'Arial, sans-serif' }}>
+      <input type="file" onChange={handleFileUpload} style={{ marginBottom: '20px' }} />
       {data && (
-        <table>
-          <thead>
+        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <thead style={{ backgroundColor: '#f2f2f2' }}>
             <tr>
               {Object.keys(data[0]).map((key, index) => (
-                <th key={index}>{key}</th>
+                <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'left' }}>
+                  {key}
+                </th>
               ))}
             </tr>
           </thead>
@@ -33,7 +35,9 @@ const ExcelTable = () => {
             {data.map((row, index) => (
               <tr key={index}>
                 {Object.values(row).map((cell, index) => (
-                  <td key={index}>{cell}</td>
+                  <td key={index} style={{ padding: '8px', border: '1px solid #ddd' }}>
+                    {cell}
+                  </td>
                 ))}
               </tr>
             ))}
@@ -45,6 +49,7 @@ const ExcelTable = () => {
 };
 
 export default ExcelTable;
+
 
 
 
