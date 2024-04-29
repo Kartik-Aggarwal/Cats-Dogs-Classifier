@@ -1,3 +1,55 @@
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+
+const ExcelTable = () => {
+  const [data, setData] = useState(null);
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const binaryString = event.target.result;
+      const workbook = XLSX.read(binaryString, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0]; // Assuming first sheet is the one to be used
+      const excelData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
+      setData(excelData);
+    };
+    reader.readAsBinaryString(file);
+  };
+
+  return (
+    <div>
+      <input type="file" onChange={handleFileUpload} />
+      {data && (
+        <table>
+          <thead>
+            <tr>
+              {Object.keys(data[0]).map((key, index) => (
+                <th key={index}>{key}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, index) => (
+              <tr key={index}>
+                {Object.values(row).map((cell, index) => (
+                  <td key={index}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+};
+
+export default ExcelTable;
+
+
+
+
+
 ERROR in ./src/scenes/global/Sidebar.jsx 10:0-47
 Module not found: Error: Can't resolve 'react-pro-sidebar/dist/css/styles.css' in 'C:\D\Access locate\al-admin\src\scenes\global'
 ERROR in ./src/scenes/global/Sidebar.jsx 87:35-45
