@@ -1,120 +1,113 @@
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+import { Box } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { tokens } from "../../theme";
+import Header from "../../components/Header";
+import { useTheme } from "@mui/material";
+import { mockDataAlgorithm } from "../../data/mockData";
 
-const ExcelTable = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+const Algorithm = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) {
-      setError('Please select a file.');
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const binaryString = event.target.result;
-      const workbook = XLSX.read(binaryString, { type: 'binary' });
-      const sheetName = workbook.SheetNames[0]; // Assuming first sheet is the one to be used
-      const excelData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-      setData(excelData.slice(0, 15)); // Limiting to first 15 rows
-    };
-    reader.readAsBinaryString(file);
-    setError(null); // Clear any previous errors
-  };
+  const columns = [
+    { field: "id", headerName: "ID", flex: 0.05 },
+    { field: "Algorithm", headerName: "Algorithm" , flex: 0.2},
+    {
+      field: "Computation Time",
+      headerName: "Computation Time",
+      flex: 0.1,
+      cellClassName: "name-column--cell",
+    },
+    {
+      field: "Accuracy",
+      headerName: "Accuracy",
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+      flex: 0.1
+    },
+    {
+        field: "Scalibility",
+        headerName: "Scalibility",
+        type: "number",
+        headerAlign: "left",
+        align: "left",
+        flex: 0.1
+      },
+    {
+      field: "Idea for",
+      headerName: "Idea for",
+      type: "number",
+      headerAlign: "left",
+      align: "left",
+      flex: 0.4
+    },
+  ];
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif' }}>
-      <input type="file" onChange={handleFileUpload} style={{ marginBottom: '20px' }} />
-      {error && <div style={{ color: 'red', marginBottom: '10px' }}>{error}</div>}
-      {data && (
-        <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
-          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-            <thead style={{ backgroundColor: '#f2f2f2' }}>
-              <tr>
-                {Object.keys(data[0]).map((key, index) => (
-                  <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'left' }}>
-                    {key}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((row, index) => (
-                <tr key={index}>
-                  {Object.values(row).map((cell, index) => (
-                    <td key={index} style={{ padding: '8px', border: '1px solid #ddd' }}>
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </div>
+    <Box m="20px">
+      <Header
+        // title="Algorithms"//"CONTACTS"
+        // subtitle="List of Contacts for Future Reference"
+      />
+      <Box
+        m="40px 0 0 0"
+        height="75vh"
+        sx={{
+            "& .MuiDataGrid-root": {
+              border: "none",
+              fontSize: 20
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: "none",
+              fontSize: 15    
+            },
+            "& .name-column--cell": {
+              color: colors.greenAccent[300],
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: 'black',
+              borderBottom: "none",
+            },
+            "& .MuiDataGrid-virtualScroller": {
+              backgroundColor: colors.primary[400],
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderTop: "none",
+              backgroundColor: colors.blueAccent[700],
+            },
+            "& .MuiCheckbox-root": {
+              color: `${colors.greenAccent[200]} !important`,
+            },
+            "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+              color: `${colors.grey[100]} !important`,
+            },
+          }}
+        >
+          <style>
+          {`
+            .MuiDataGrid-root .MuiDataGrid-colCellWrapper,
+            .MuiDataGrid-root .MuiDataGrid-cell {
+              border-right: 1px solid #e0e0e0;
+              border-bottom: 1px solid #e0e0e0;
+            }
+          `}
+        </style>
+        <DataGrid
+          rows={mockDataAlgorithm}
+          columns={columns}
+          density="comfortable"
+        //   initialState={{
+        //     density: 'comfortable'}}
+        //   components={{ Toolbar: GridToolbar }}
+        />
+      </Box>
+    </Box>
   );
 };
 
-export default ExcelTable;
+export default Algorithm;
 
-
-
-
-
-
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
-
-const ExcelTable = () => {
-  const [data, setData] = useState(null);
-
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const binaryString = event.target.result;
-      const workbook = XLSX.read(binaryString, { type: 'binary' });
-      const sheetName = workbook.SheetNames[0]; // Assuming first sheet is the one to be used
-      const excelData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-      setData(excelData);
-    };
-    reader.readAsBinaryString(file);
-  };
-
-  return (
-    <div style={{ fontFamily: 'Arial, sans-serif' }}>
-      <input type="file" onChange={handleFileUpload} style={{ marginBottom: '20px' }} />
-      {data && (
-        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-          <thead style={{ backgroundColor: '#f2f2f2' }}>
-            <tr>
-              {Object.keys(data[0]).map((key, index) => (
-                <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'left' }}>
-                  {key}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => (
-              <tr key={index}>
-                {Object.values(row).map((cell, index) => (
-                  <td key={index} style={{ padding: '8px', border: '1px solid #ddd' }}>
-                    {cell}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
-  );
-};
-
-export default ExcelTable;
 
 
 
