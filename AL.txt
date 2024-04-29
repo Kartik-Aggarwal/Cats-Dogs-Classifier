@@ -1,3 +1,69 @@
+import React, { useState } from 'react';
+import { Box, TextField } from '@mui/material';
+
+const SearchBar = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+    // Call the onSearch callback with the current search term
+    onSearch(event.target.value);
+  };
+
+  return (
+    <Box mb={2}>
+      <TextField
+        label="Search"
+        variant="outlined"
+        value={searchTerm}
+        onChange={handleChange}
+        fullWidth
+      />
+    </Box>
+  );
+};
+
+export default SearchBar;
+
+
+
+
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+import { mockDataAlgorithm } from '../../data/mockData';
+import SearchBar from './SearchBar';
+
+const Algorithm = () => {
+  const [filteredRows, setFilteredRows] = useState(mockDataAlgorithm);
+
+  const handleSearch = (searchTerm) => {
+    // Filter the rows based on the search term
+    const filteredData = mockDataAlgorithm.filter((row) =>
+      Object.values(row).some((value) =>
+        value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+    setFilteredRows(filteredData);
+  };
+
+  // Define your columns and other configurations for DataGrid
+
+  return (
+    <Box m="20px">
+      <SearchBar onSearch={handleSearch} />
+      <DataGrid rows={filteredRows} columns={columns} />
+    </Box>
+  );
+};
+
+export default Algorithm;
+
+
+
+
+
+
 import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
