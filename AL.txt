@@ -1,3 +1,10 @@
+ERROR in ./src/scenes/global/Sidebar.jsx 10:0-47
+Module not found: Error: Can't resolve 'react-pro-sidebar/dist/css/styles.css' in 'C:\D\Access locate\al-admin\src\scenes\global'
+ERROR in ./src/scenes/global/Sidebar.jsx 87:35-45
+export 'ProSidebar' (imported as 'ProSidebar') was not found in 'react-pro-sidebar' (possible exports: LevelContext, Menu, MenuContext, MenuItem, MenuItemFR, ProSidebarProvider, Sidebar, SidebarContext, SubMenu, SubMenuFR, menuClasses, sidebarClasses, useProSidebar)
+
+
+
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent } from '@mui/material';
 import ReactPlayer from 'react-player';
