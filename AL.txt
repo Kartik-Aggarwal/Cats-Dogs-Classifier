@@ -1,11 +1,110 @@
-export const mockDataTeam = [{'id': 1,
-'job': 1283354,
-'Executed by': 'Admin',
-'source document': '123_abc',
-'execution start date': '22/03/2024 8:10pm',
-'category': 'University',
-'sub category': 'Research Institution',
-'accessorial': 'RSD'},
+import React, { useState } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import { mockDataTeam } from './data'; // Importing mock data from data.js
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [tableData, setTableData] = useState(mockDataTeam); // State to hold table data
+
+  const handleSearch = () => {
+    // Concatenate name and address
+    const combinedString = name + ' ' + address;
+
+    // Here, you would perform the search in your Excel sheet database
+    // and retrieve the corresponding description based on the combined string
+    // For demonstration purposes, let's assume we have a sample database
+    const sampleDatabase = [
+      { combinedString: "John Doe 123 Main St", description: "**Category:** Gas station\n**Subcategory:** Convenience store\n**Accessorial (RSD/DMS):** RSD\n**Phone number:** Not provided" },
+      { combinedString: "Jane Smith 456 Elm St", description: "**Category:** Restaurant\n**Subcategory:** Fast food\n**Accessorial (RSD/DMS):** DMS\n**Phone number:** 123-456-7890" },
+      // Add more entries as needed
+    ];
+
+    // Search the sample database for a matching entry
+    const match = sampleDatabase.find(entry => entry.combinedString === combinedString);
+
+    if (match) {
+      setSearchResult('Match found!');
+      // Extract values from the description
+      let newEntry = {
+        id: tableData.length + 1, // Generate unique ID for the new entry
+        name: name,
+        address: address,
+        category: getCategory(match.description),
+        subcategory: getSubcategory(match.description),
+        accessorial: getAccessorial(match.description),
+        'Phone number': getPhoneNumber(match.description)
+      };
+      setTableData([...tableData, newEntry]); // Append new entry to table data
+    } else {
+      setSearchResult('No matching details found');
+    }
+  };
+
+  const getCategory = (description) => {
+    // Extract category from description
+    return description.split('\n').find(line => line.startsWith('**Category:')).split(':** ')[1];
+  };
+
+  const getSubcategory = (description) => {
+    // Extract subcategory from description
+    return description.split('\n').find(line => line.startsWith('**Subcategory:')).split(':** ')[1];
+  };
+
+  const getAccessorial = (description) => {
+    // Extract accessorial from description
+    return description.split('\n').find(line => line.startsWith('**Accessorial (RSD/DMS):')).split(':** ')[1];
+  };
+
+  const getPhoneNumber = (description) => {
+    // Extract phone number from description
+    return description.split('\n').find(line => line.startsWith('**Phone number:')).split(':** ')[1];
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter name"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Enter address"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+      <div>
+        <h3>Search Result:</h3>
+        <p>{searchResult}</p>
+        <h3>Data Grid:</h3>
+        <div style={{ height: 400, width: '100%' }}>
+          <DataGrid
+            rows={tableData}
+            columns={[
+              { field: 'id', headerName: 'ID', width: 90 },
+              { field: 'name', headerName: 'Name', width: 150 },
+              { field: 'address', headerName: 'Address', width: 200 },
+              { field: 'category', headerName: 'Category', width: 150 },
+              { field: 'subcategory', headerName: 'Subcategory', width: 200 },
+              { field: 'accessorial', headerName: 'Accessorial', width: 150 },
+              { field: 'Phone number', headerName: 'Phone Number', width: 150 },
+            ]}
+            pageSize={5}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SearchComponent;
+
+
+
 
 import React, { useState } from 'react';
 
