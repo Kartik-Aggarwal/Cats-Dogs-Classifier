@@ -1,26 +1,7 @@
-ERROR
-MUI: makeStyles is no longer exported from @mui/material/styles.
-You have to import it from @mui/styles.
-See https://mui.com/r/migration-v4/#mui-material-styles for more details.
-Error: MUI: makeStyles is no longer exported from @mui/material/styles.
-You have to import it from @mui/styles.
-
-
-
-
-
 import React, { useState } from 'react';
-import { Button, Box, Checkbox, FormControlLabel, CircularProgress, makeStyles } from '@mui/material';
-
-const useStyles = makeStyles({
-  checked: {
-    color: 'green',
-  },
-});
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
 
 const RealtimeChecklist = () => {
-  const classes = useStyles();
-
   // State to manage whether the checklist should be visible
   const [showChecklist, setShowChecklist] = useState(false);
   // State to manage the checked state of each item
@@ -61,27 +42,27 @@ const RealtimeChecklist = () => {
       </Button>
       <Box>
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item1} className={checkedItems.item1 ? classes.checked : ''} />}
+          control={<Checkbox checked={checkedItems.item1} sx={{ color: checkedItems.item1 ? 'green' : 'inherit' }} />}
           label="Item 1"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item2} className={checkedItems.item2 ? classes.checked : ''} />}
+          control={<Checkbox checked={checkedItems.item2} sx={{ color: checkedItems.item2 ? 'green' : 'inherit' }} />}
           label="Item 2"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item3} className={checkedItems.item3 ? classes.checked : ''} />}
+          control={<Checkbox checked={checkedItems.item3} sx={{ color: checkedItems.item3 ? 'green' : 'inherit' }} />}
           label="Item 3"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item4} className={checkedItems.item4 ? classes.checked : ''} />}
+          control={<Checkbox checked={checkedItems.item4} sx={{ color: checkedItems.item4 ? 'green' : 'inherit' }} />}
           label="Item 4"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item5} className={checkedItems.item5 ? classes.checked : ''} />}
+          control={<Checkbox checked={checkedItems.item5} sx={{ color: checkedItems.item5 ? 'green' : 'inherit' }} />}
           label="Item 5"
           disabled={showChecklist || checkingItems}
         />
