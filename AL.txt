@@ -1,3 +1,22 @@
+<Box display="flex" justifyContent="space-between" mb={2} marginBottom={5}>
+      <Box
+        display="flex"
+        // backgroundColor={colors.primary[400]}
+        borderRadius="3px"
+        justifyContent='space-between'
+      >
+        {/* <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" /> */}
+        <Stack spacing={3} direction="row" p={1}>
+            {/* <Button variant="text">Text</Button> */}
+            <Button variant="outlined" onClick={handleClick1} size='large' sx={{backgroundColor: '', transition: 'background-color 0.3s', '&:hover': {boxShadow:4}}}><b>Product Table</b></Button>
+            <Button variant="outlined" onClick={handleClick2} size='large' sx={{transition: 'background-color 0.3s', '&:hover': {boxShadow:4}}}><b>Inventory Table</b></Button>
+            {/* <BasicMenu /> */}
+            {/* <Button variant="outlined">Outlined</Button> */}
+        </Stack>
+      </Box>
+    </Box>
+
+
 import React, { useState, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 
