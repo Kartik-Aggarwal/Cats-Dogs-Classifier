@@ -42,27 +42,27 @@ const RealtimeChecklist = () => {
       </Button>
       <Box>
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item1} sx={{ color: checkedItems.item1 ? 'green' : 'inherit' }} />}
+          control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
           label="Item 1"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item2} sx={{ color: checkedItems.item2 ? 'green' : 'inherit' }} />}
+          control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
           label="Item 2"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item3} sx={{ color: checkedItems.item3 ? 'green' : 'inherit' }} />}
+          control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
           label="Item 3"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item4} sx={{ color: checkedItems.item4 ? 'green' : 'inherit' }} />}
+          control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
           label="Item 4"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item5} sx={{ color: checkedItems.item5 ? 'green' : 'inherit' }} />}
+          control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
           label="Item 5"
           disabled={showChecklist || checkingItems}
         />
