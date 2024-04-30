@@ -1,3 +1,92 @@
+import React, { useState } from 'react';
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+  const [accessorial, setAccessorial] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleSearch = () => {
+    // Concatenate name and address
+    const combinedString = name + ' ' + address;
+
+    // Here, you would perform the search in your Excel sheet database
+    // and retrieve the corresponding description based on the combined string
+    // For demonstration purposes, let's assume we have a sample database
+    const sampleDatabase = [
+      { combinedString: "John Doe 123 Main St", description: "**Category:** Gas station\n**Subcategory:** Convenience store\n**Accessorial (RSD/DMS):** RSD\n**Phone number:** Not provided" },
+      { combinedString: "Jane Smith 456 Elm St", description: "**Category:** Restaurant\n**Subcategory:** Fast food\n**Accessorial (RSD/DMS):** DMS\n**Phone number:** 123-456-7890" },
+      // Add more entries as needed
+    ];
+
+    // Search the sample database for a matching entry
+    const match = sampleDatabase.find(entry => entry.combinedString === combinedString);
+
+    if (match) {
+      setSearchResult('Match found!');
+      // Extract values from the description
+      let arr = match.description.split('\n').filter(Boolean);
+      arr.forEach(line => {
+        if (line.startsWith('**Category:')) {
+          setCategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Subcategory:')) {
+          setSubcategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Accessorial (RSD/DMS):')) {
+          setAccessorial(line.split(':** ')[1]);
+        } else if (line.startsWith('**Phone number:')) {
+          setPhoneNumber(line.split(':** ')[1]);
+        }
+      });
+    } else {
+      setSearchResult('No matching details found');
+      setCategory('');
+      setSubcategory('');
+      setAccessorial('');
+      setPhoneNumber('');
+    }
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter name"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Enter address"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+      <div>
+        <h3>Search Result:</h3>
+        <p>{searchResult}</p>
+        {searchResult === 'Match found!' && (
+          <div>
+            <h4>Details:</h4>
+            <p>Category: {category}</p>
+            <p>Subcategory: {subcategory}</p>
+            <p>Accessorial (RSD/DMS): {accessorial}</p>
+            <p>Phone number: {phoneNumber}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default SearchComponent;
+
+
+
+
+
 "**Category:** Gas station
 
 **Subcategory:** Convenience store
