@@ -1,3 +1,14 @@
+ERROR
+MUI: makeStyles is no longer exported from @mui/material/styles.
+You have to import it from @mui/styles.
+See https://mui.com/r/migration-v4/#mui-material-styles for more details.
+Error: MUI: makeStyles is no longer exported from @mui/material/styles.
+You have to import it from @mui/styles.
+
+
+
+
+
 import React, { useState } from 'react';
 import { Button, Box, Checkbox, FormControlLabel, CircularProgress, makeStyles } from '@mui/material';
 
