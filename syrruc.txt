@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress, Typography } from '@mui/material';
 
 const RealtimeChecklist = () => {
   // State to manage whether the checklist should be visible
@@ -36,39 +36,52 @@ const RealtimeChecklist = () => {
   };
 
   return (
-    <div>
-      <Button variant="contained" onClick={handleCheckInputsClick} disabled={showChecklist}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Button
+        variant="contained"
+        onClick={handleCheckInputsClick}
+        disabled={showChecklist}
+        sx={{ mt: 2, bgcolor: 'primary.main', color: 'primary.contrastText', '&:hover': { bgcolor: 'primary.dark' } }}
+      >
         Check inputs
       </Button>
-      <Box>
-        <FormControlLabel
-          control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-          label="Item 1"
-          disabled={showChecklist || checkingItems}
-        />
-        <FormControlLabel
-          control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-          label="Item 2"
-          disabled={showChecklist || checkingItems}
-        />
-        <FormControlLabel
-          control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-          label="Item 3"
-          disabled={showChecklist || checkingItems}
-        />
-        <FormControlLabel
-          control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-          label="Item 4"
-          disabled={showChecklist || checkingItems}
-        />
-        <FormControlLabel
-          control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-          label="Item 5"
-          disabled={showChecklist || checkingItems}
-        />
-      </Box>
-      {checkingItems && <CircularProgress />} {/* Show loading indicator while checking items */}
-    </div>
+      {showChecklist && (
+        <Box sx={{ mt: 2 }}>
+          <Typography variant="h6">Checklist</Typography>
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+            label="Item 1"
+            disabled={checkingItems}
+            sx={{ mt: 1 }}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+            label="Item 2"
+            disabled={checkingItems}
+            sx={{ mt: 1 }}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+            label="Item 3"
+            disabled={checkingItems}
+            sx={{ mt: 1 }}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+            label="Item 4"
+            disabled={checkingItems}
+            sx={{ mt: 1 }}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+            label="Item 5"
+            disabled={checkingItems}
+            sx={{ mt: 1 }}
+          />
+        </Box>
+      )}
+      {checkingItems && <CircularProgress sx={{ mt: 2 }} />} {/* Show loading indicator while checking items */}
+    </Box>
   );
 };
 
