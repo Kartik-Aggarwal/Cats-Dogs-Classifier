@@ -1,0 +1,77 @@
+import React, { useState } from 'react';
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
+
+const RealtimeChecklist = () => {
+  // State to manage whether the checklist should be visible
+  const [showChecklist, setShowChecklist] = useState(false);
+  // State to manage the checked state of each item
+  const [checkedItems, setCheckedItems] = useState({
+    item1: false,
+    item2: false,
+    item3: false,
+    item4: false,
+    item5: false,
+  });
+  // State to manage the loading state of checking items
+  const [checkingItems, setCheckingItems] = useState(false);
+
+  // Function to handle the "Check inputs" button click
+  const handleCheckInputsClick = () => {
+    // Show the checklist
+    setShowChecklist(true);
+    // Set loading state
+    setCheckingItems(true);
+    // Simulate real-time checking with a delay
+    setTimeout(() => {
+      setCheckingItems(false);
+      setCheckedItems({
+        item1: true,
+        item2: true,
+        item3: true,
+        item4: true,
+        item5: true,
+      });
+    }, 1000 * 6); // 1 second delay for each of the 5 items
+  };
+
+  return (
+    <div>
+      <Button variant="contained" onClick={handleCheckInputsClick} disabled={showChecklist}>
+        Check inputs
+      </Button>
+      {checkingItems ? (
+        <CircularProgress /> // Show loading indicator while checking items
+      ) : showChecklist ? (
+        <Box>
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item1} />}
+            label="Item 1"
+            disabled={true}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item2} />}
+            label="Item 2"
+            disabled={true}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item3} />}
+            label="Item 3"
+            disabled={true}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item4} />}
+            label="Item 4"
+            disabled={true}
+          />
+          <FormControlLabel
+            control={<Checkbox checked={checkedItems.item5} />}
+            label="Item 5"
+            disabled={true}
+          />
+        </Box>
+      ) : null}
+    </div>
+  );
+};
+
+export default RealtimeChecklist;
