@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress, makeStyles } from '@mui/material';
+
+const useStyles = makeStyles({
+  checked: {
+    color: 'green',
+  },
+});
 
 const RealtimeChecklist = () => {
+  const classes = useStyles();
+
   // State to manage whether the checklist should be visible
   const [showChecklist, setShowChecklist] = useState(false);
   // State to manage the checked state of each item
@@ -42,28 +50,27 @@ const RealtimeChecklist = () => {
       </Button>
       <Box>
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item1} />}
+          control={<Checkbox checked={checkedItems.item1} className={checkedItems.item1 ? classes.checked : ''} />}
           label="Item 1"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item2} />}
+          control={<Checkbox checked={checkedItems.item2} className={checkedItems.item2 ? classes.checked : ''} />}
           label="Item 2"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item3} />}
+          control={<Checkbox checked={checkedItems.item3} className={checkedItems.item3 ? classes.checked : ''} />}
           label="Item 3"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-          control={<Checkbox checked={checkedItems.item4} />}
+          control={<Checkbox checked={checkedItems.item4} className={checkedItems.item4 ? classes.checked : ''} />}
           label="Item 4"
           disabled={showChecklist || checkingItems}
         />
         <FormControlLabel
-
-          control={<Checkbox checked={checkedItems.item5} />}
+          control={<Checkbox checked={checkedItems.item5} className={checkedItems.item5 ? classes.checked : ''} />}
           label="Item 5"
           disabled={showChecklist || checkingItems}
         />
