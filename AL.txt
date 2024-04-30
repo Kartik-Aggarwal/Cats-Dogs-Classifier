@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 
 const SearchComponent = () => {
   const [name, setName] = useState('');
@@ -50,38 +51,58 @@ const SearchComponent = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Enter name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Enter address"
-        value={address}
-        onChange={e => setAddress(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      <div>
-        <h3>Search Result:</h3>
-        <p>{searchResult}</p>
-        {searchResult === 'Match found!' && (
-          <div>
-            <h4>Details:</h4>
-            <p>Category: {category}</p>
-            <p>Subcategory: {subcategory}</p>
-            <p>Accessorial (RSD/DMS): {accessorial}</p>
-            <p>Phone number: {phoneNumber}</p>
-          </div>
-        )}
-      </div>
-    </div>
+    <Box p={2} boxShadow={3} borderRadius={2}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Search Component
+      </Typography>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Enter name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Enter address"
+            value={address}
+            onChange={e => setAddress(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" color="primary" onClick={handleSearch}>
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+      <Box mt={3}>
+        <Paper elevation={3} variant="outlined">
+          <Box p={2}>
+            <Typography variant="h6">Search Result:</Typography>
+            <Typography>{searchResult}</Typography>
+            {searchResult === 'Match found!' && (
+              <Box mt={2}>
+                <Typography variant="h6">Details:</Typography>
+                <Typography>Category: {category}</Typography>
+                <Typography>Subcategory: {subcategory}</Typography>
+                <Typography>Accessorial (RSD/DMS): {accessorial}</Typography>
+                <Typography>Phone number: {phoneNumber}</Typography>
+              </Box>
+            )}
+          </Box>
+        </Paper>
+      </Box>
+    </Box>
   );
 };
 
 export default SearchComponent;
+
 
 
 
