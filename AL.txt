@@ -1,3 +1,12 @@
+export const mockDataTeam = [{'id': 1,
+'job': 1283354,
+'Executed by': 'Admin',
+'source document': '123_abc',
+'execution start date': '22/03/2024 8:10pm',
+'category': 'University',
+'sub category': 'Research Institution',
+'accessorial': 'RSD'},
+
 import React, { useState } from 'react';
 
 const SearchComponent = () => {
