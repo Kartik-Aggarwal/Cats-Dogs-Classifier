@@ -1,4 +1,43 @@
 import React, { useState } from 'react';
+import { Button, CircularProgress } from '@mui/material';
+import Table from './Table'; // Assuming Table is the component you want to render
+
+const RunButton = () => {
+  // State to manage the loading state of running
+  const [running, setRunning] = useState(false);
+
+  // Function to handle the "Run" button click
+  const handleRunClick = () => {
+    // Set running state
+    setRunning(true);
+
+    // Simulate running with a delay
+    setTimeout(() => {
+      setRunning(false);
+    }, 3000); // Simulating a 3-second delay for fake loading
+  };
+
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <Button
+        variant="contained"
+        onClick={handleRunClick}
+        disabled={running}
+        sx={{ mt: 2, bgcolor: 'primary.main', color: 'primary.contrastText', '&:hover': { bgcolor: 'primary.dark' } }}
+      >
+        {running ? <CircularProgress size={24} sx={{ color: 'white' }} /> : 'Run'}
+      </Button>
+      {running && <p style={{ marginTop: '10px' }}>Running...</p>}
+      {!running && <Table />} {/* Render the Table component after running completes */}
+    </div>
+  );
+};
+
+export default RunButton;
+
+
+
+import React, { useState } from 'react';
 import { Button, Box, Checkbox, FormControlLabel, CircularProgress, Typography, Grid } from '@mui/material';
 
 const RealtimeChecklist = () => {
