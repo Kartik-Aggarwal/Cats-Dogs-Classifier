@@ -1,3 +1,29 @@
+"**Category:** Gas station
+
+**Subcategory:** Convenience store
+
+**Accessorial (RSD/DMS):** RSD
+
+**Phone number:** Not provided
+
+
+
+arr = list(set(txt.split('\n')))
+cat, subc, acc, phn = '', '', '', ''
+for i in arr:
+    if i[:5] == '**Cat':
+        cat = (i.split(':** ')[1])
+    elif i[:6] == '**Subc':
+        subc = (i.split(':** ')[1])
+    elif i[:10] == '**Accessor':
+        acc = (i.split(':** ')[1])
+    elif i[:7] == '**Phone':
+        phn = (i.split(':** ')[1])
+ 
+print(cat, subc, acc, phn)
+
+
+
 import React, { useState } from 'react';
 
 const SearchComponent = () => {
