@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Box, Checkbox, FormControlLabel, CircularProgress, Typography } from '@mui/material';
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress, Typography, Grid } from '@mui/material';
 
 const RealtimeChecklist = () => {
   // State to manage whether the checklist should be visible
@@ -11,6 +11,7 @@ const RealtimeChecklist = () => {
     item3: false,
     item4: false,
     item5: false,
+    item6: false, // Add item6
   });
   // State to manage the loading state of checking items
   const [checkingItems, setCheckingItems] = useState(false);
@@ -31,8 +32,9 @@ const RealtimeChecklist = () => {
         item3: true,
         item4: true,
         item5: true,
+        item6: true, // Set item6 to true
       });
-    }, 1000 * 6); // 1 second delay for each of the 5 items
+    }, 1000 * 6); // 1 second delay for each of the 6 items
   };
 
   return (
@@ -48,36 +50,52 @@ const RealtimeChecklist = () => {
       {showChecklist && (
         <Box sx={{ mt: 2 }}>
           <Typography variant="h6">Checklist</Typography>
-          <FormControlLabel
-            control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-            label="Item 1"
-            disabled={checkingItems}
-            sx={{ mt: 1 }}
-          />
-          <FormControlLabel
-            control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-            label="Item 2"
-            disabled={checkingItems}
-            sx={{ mt: 1 }}
-          />
-          <FormControlLabel
-            control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-            label="Item 3"
-            disabled={checkingItems}
-            sx={{ mt: 1 }}
-          />
-          <FormControlLabel
-            control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-            label="Item 4"
-            disabled={checkingItems}
-            sx={{ mt: 1 }}
-          />
-          <FormControlLabel
-            control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
-            label="Item 5"
-            disabled={checkingItems}
-            sx={{ mt: 1 }}
-          />
+          <Grid container spacing={2} sx={{ mt: 1 }}>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 1"
+                disabled={checkingItems}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 2"
+                disabled={checkingItems}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 3"
+                disabled={checkingItems}
+              />
+            </Grid>
+          </Grid>
+          <Grid container spacing={2} sx={{ mt: 1 }}>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 4"
+                disabled={checkingItems}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 5"
+                disabled={checkingItems}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={<Checkbox checked={checkedItems.item6} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+                label="Item 6"
+                disabled={checkingItems}
+              />
+            </Grid>
+          </Grid>
         </Box>
       )}
       {checkingItems && <CircularProgress sx={{ mt: 2 }} />} {/* Show loading indicator while checking items */}
