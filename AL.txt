@@ -1,4 +1,65 @@
 import React, { useState } from 'react';
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+
+  const handleSearch = () => {
+    // Concatenate name and address
+    const combinedString = name + ' ' + address;
+
+    // Here, you would perform the search in your Excel sheet database
+    // and retrieve the corresponding description based on the combined string
+    // For demonstration purposes, let's assume we have a sample database
+    const sampleDatabase = [
+      { combinedString: "John Doe 123 Main St", description: "Description for John Doe" },
+      { combinedString: "Jane Smith 456 Elm St", description: "Description for Jane Smith" },
+      // Add more entries as needed
+    ];
+
+    // Search the sample database for a matching entry
+    const match = sampleDatabase.find(entry => entry.combinedString === combinedString);
+
+    if (match) {
+      setSearchResult(match.description);
+    } else {
+      setSearchResult('No matching details found');
+    }
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Enter name"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Enter address"
+        value={address}
+        onChange={e => setAddress(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+      <div>
+        <h3>Search Result:</h3>
+        <p>{searchResult}</p>
+      </div>
+    </div>
+  );
+};
+
+export default SearchComponent;
+
+
+
+
+
+
+
+import React, { useState } from 'react';
 import { Box, TextField } from '@mui/material';
 
 const SearchBar = ({ onSearch }) => {
