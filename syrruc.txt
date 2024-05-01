@@ -1,3 +1,16 @@
+    const handleFileUpload = () => {
+    // Trigger file input click event
+    document.getElementById('fileInput').click();
+  };
+
+  const handleFileChange = (event) => {
+    // Handle file selection
+    const selectedFile = event.target.files[0];
+    console.log('Selected File:', selectedFile);
+    // You can perform further operations with the selected file here
+  };
+
+
 import React from 'react';
 import Button from '@mui/material/Button';
 
