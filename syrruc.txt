@@ -1,4 +1,105 @@
 import React, { useState } from 'react';
+import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
+
+const RealtimeChecklist = () => {
+  // State to manage whether the checklist should be visible
+  const [showChecklist, setShowChecklist] = useState(false);
+  // State to manage the checked state of each item
+  const [checkedItems, setCheckedItems] = useState({
+    item1: false,
+    item2: false,
+    item3: false,
+    item4: false,
+    item5: false,
+  });
+  // State to manage the loading state of checking items
+  const [checkingItems, setCheckingItems] = useState(false);
+
+  // Function to handle the "Check inputs" button click
+  const handleCheckInputsClick = () => {
+    // Show the checklist
+    setShowChecklist(true);
+    // Set loading state
+    setCheckingItems(true);
+
+    // Simulate real-time checking with a delay
+    setTimeout(() => {
+      setCheckingItems(false);
+      setCheckedItems((prevCheckedItems) => ({
+        ...prevCheckedItems,
+        item1: true,
+      }));
+      setTimeout(() => {
+        setCheckedItems((prevCheckedItems) => ({
+          ...prevCheckedItems,
+          item2: true,
+        }));
+        setTimeout(() => {
+          setCheckedItems((prevCheckedItems) => ({
+            ...prevCheckedItems,
+            item3: true,
+          }));
+          setTimeout(() => {
+            setCheckedItems((prevCheckedItems) => ({
+              ...prevCheckedItems,
+              item4: true,
+            }));
+            setTimeout(() => {
+              setCheckedItems((prevCheckedItems) => ({
+                ...prevCheckedItems,
+                item5: true,
+              }));
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+    }, 1000);
+  };
+
+  return (
+    <div>
+      <Button variant="contained" onClick={handleCheckInputsClick} disabled={showChecklist}>
+        Check inputs
+      </Button>
+      <Box>
+        <FormControlLabel
+          control={<Checkbox checked={checkedItems.item1} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+          label="Item 1"
+          disabled={showChecklist || checkingItems}
+        />
+        <FormControlLabel
+          control={<Checkbox checked={checkedItems.item2} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+          label="Item 2"
+          disabled={showChecklist || checkingItems}
+        />
+        <FormControlLabel
+          control={<Checkbox checked={checkedItems.item3} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+          label="Item 3"
+          disabled={showChecklist || checkingItems}
+        />
+        <FormControlLabel
+          control={<Checkbox checked={checkedItems.item4} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+          label="Item 4"
+          disabled={showChecklist || checkingItems}
+        />
+        <FormControlLabel
+          control={<Checkbox checked={checkedItems.item5} sx={{ '&.Mui-checked': { color: 'green' } }} />}
+          label="Item 5"
+          disabled={showChecklist || checkingItems}
+        />
+      </Box>
+      {checkingItems && <CircularProgress />} {/* Show loading indicator while checking items */}
+    </div>
+  );
+};
+
+export default RealtimeChecklist;
+
+
+
+
+
+import React, { useState } from 'react';
 
 const UploadButton = () => {
   const [selectedFile, setSelectedFile] = useState(null);
