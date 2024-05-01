@@ -10,6 +10,26 @@
     // You can perform further operations with the selected file here
   };
 
+                <>
+                <input
+                    type="file"
+                    id="fileInput"
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                />
+                </>
+
+
+                {/* <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" /> */}
+                <Stack spacing={5} direction="row" p={1}>
+                    {/* <Button variant="text">Text</Button> */}
+                    <Button variant="outlined" onClick={handleFileUpload} size='large' style={{fontSize: '16px'}} sx={{width: 310, height: 50 , marginLeft: 2}}><b>Upload Demand Data</b></Button>
+                    {/* <BasicMenu /> */}
+                    {/* <Button variant="outlined">Outlined</Button> */}
+                </Stack>
+
+
+
 
 import React from 'react';
 import Button from '@mui/material/Button';
