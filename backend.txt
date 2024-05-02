@@ -1,3 +1,34 @@
+const handleSearch = () => {
+    const combinedString = name + ' ' + address;
+
+    // Call generateContent() function from the other code
+    generateContent(combinedString)
+      .then(() => {
+        // Handle success
+      })
+      .catch(error => {
+        // Handle error
+        console.error('Error:', error);
+      });
+  };
+
+function generateContent(combinedString) {
+  return new Promise((resolve, reject) => {
+    // Your existing code for generating content
+
+    // After completion of generating content, resolve or reject the promise accordingly
+    // Example:
+    // resolve(); // if successful
+    // or
+    // reject('Error message'); // if an error occurs
+  });
+}
+
+// Rest of your code remains the same
+
+
+
+
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 
