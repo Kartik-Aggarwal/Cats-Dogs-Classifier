@@ -1,3 +1,96 @@
+
+
+
+
+
+
+
+const {VertexAI} = require('@google-cloud/vertexai');
+ 
+// Initialize Vertex with your Cloud project and location
+const vertex_ai = new VertexAI({project: 'eci-ugi-analytics-ttlvertexpoc', location: 'us-central1'});
+const model = 'gemini-1.5-pro-preview-0409';
+ 
+// Instantiate the models
+const generativeModel = vertex_ai.preview.getGenerativeModel({
+  model: model,
+  generationConfig: {
+    'maxOutputTokens': 8192,
+    'temperature': 1,
+    'topP': 0.95,
+  },
+  safetySettings: [
+    {
+        'category': 'HARM_CATEGORY_HATE_SPEECH',
+        'threshold': 'BLOCK_MEDIUM_AND_ABOVE'
+    },
+    {
+        'category': 'HARM_CATEGORY_DANGEROUS_CONTENT',
+        'threshold': 'BLOCK_MEDIUM_AND_ABOVE'
+    },
+    {
+        'category': 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+        'threshold': 'BLOCK_MEDIUM_AND_ABOVE'
+    },
+    {
+        'category': 'HARM_CATEGORY_HARASSMENT',
+        'threshold': 'BLOCK_MEDIUM_AND_ABOVE'
+    }
+  ],
+});
+ 
+const text1_1 = {text: `LTL ACCESSORIAL RSD(RESIDENTIAL DELIVERY), DMS , RSD APPLIES TO ALL SHIPEMENTS GOING TO Amusement parks, bars, car dealerships, car washes, camps or campgrounds, cemeteries,
+ convenience stores, country clubs (golf, tennis, or other), day cares or preschools, gas stations, grocery warehouses,
+ hospitals, lodging facilities (hotels, motels, resorts, etc.), medical centers, medical clinics, nursing/retirement/assisted living facilities,
+ parks, places of worship ((i.e., churches, synagogues, mosques, temples, etc.); restaurants, RV parks, schools (elementary, middle, high school),
+ college,university,self-storage facilities (warehouses or storage units), ski resorts or other recreational revineyards or wineries,ingle family houses,
+ multi-family houses, duplexes, fourplexes, apartments, flats, condominiums, town homes, cooperatives, manufactured homes, mobile homes, tiny homes, cabins,
+ lake houses, beach houses, farms, estates
+DMS applied to all shipeemnts going to Government sites,Government Building,correctional facilities, natural gas facilities, oil fields,
+ airport,mines,United States Post Office/Canada Post facilities,Military bases and military locations,
+ missile sites,Military and civilian radio, Aviation,electronic stations,Government research stations,Fire stations,
+ police stations,public service stations. State or National Parks, or other park managed by a governmental entity such as a county or municipality,
+ prisons, jails, detention centers`};
+const text2_1 = {text: `FOR THE GIVEN ADDRESS TOYOTA MOTOR MFG TX 15800 APPLEWHITE RD SAN ANTONIO TX  78264 PROVIDE CATEGORY,SUBCATEGORY,SHORT SUMMARY first and on the basis of category an d subcategory can you judge which accessorial should be applied`};
+const text3_1 = {text: `FOR THE GIVEN ADDRESS TOYOTA MOTOR MFG TX 15800 APPLEWHITE RD SAN ANTONIO TX 78264 PROVIDE CATEGORY,SUBCATEGORY,SHORT SUMMARY first and on the basis of category an d subcategory can you judge predict with atmost accuracy  which accessorial should be applied rsd/dms/other`};
+const text5_1 = {text: `COMFORT SUITES AIRPORT     1401 WOODWARD RD SE ALBUQUERQUE NM 87106 provide category, subcategory, accessorial`};
+ 
+const chat = generativeModel.startChat({});
+ 
+async function sendMessage(message) {
+  const streamResult = await chat.sendMessageStream(message);
+  process.stdout.write('stream result: ' + JSON.stringify((await streamResult.response).candidates[0].content) + '\n');
+}
+ 
+async function generateContent() {
+  await sendMessage([
+    text1_1
+  ]);
+  await sendMessage([
+    text2_1
+  ]);
+  await sendMessage([
+    text3_1
+  ]);
+  await sendMessage([
+    {text: `no rsd/dms cannot be applied to this as this is manufacturong facility`}
+  ]);
+  await sendMessage([
+    text5_1
+  ]);
+  await sendMessage([
+    {text: `FERGUSON INTEGRATED SYSTEMS     22541 A ST-STROTHER FIELD WINFIELD KS 67156`}
+  ]);
+  await sendMessage([
+    {text: `MONTANA RESOURCES     600 SHIELDS AVE BUTTE MT 59701`}
+  ]);
+  await sendMessage([
+    {text: `LOCKHEED RMS     6900 MAIN ST STRATFORD CT 06614`}
+  ]);
+}
+ 
+generateContent();
+
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 
