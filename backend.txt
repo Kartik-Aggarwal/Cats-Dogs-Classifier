@@ -1,3 +1,112 @@
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+  const [accessorial, setAccessorial] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleSearch = () => {
+    const combinedString = name + ' ' + address;
+
+        fetch('http://127.0.0.1:5000/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data: combinedString }) // Your data here
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Handle response from backend
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    // Concatenate name and address
+    
+
+    // Here, you would perform the search in your Excel sheet database
+    // and retrieve the corresponding description based on the combined string
+    // For demonstration purposes, let's assume we have a sample database
+    const sampleDatabase = [
+      { combinedString: "John Doe 123 Main St", description: "**Category:** Gas station\n**Subcategory:** Convenience store\n**Accessorial (RSD/DMS):** RSD\n**Phone number:** Not provided" },
+      { combinedString: "Jane Smith 456 Elm St", description: "**Category:** Restaurant\n**Subcategory:** Fast food\n**Accessorial (RSD/DMS):** DMS\n**Phone number:** 123-456-7890" },
+      // Add more entries as needed
+    ];
+
+    // Search the sample database for a matching entry
+    const match = sampleDatabase.find(entry => entry.combinedString === combinedString);
+
+    if (match) {
+      setSearchResult('Match found!');
+      // Extract values from the description
+      let arr = match.description.split('\n').filter(Boolean);
+      arr.forEach(line => {
+        if (line.startsWith('**Category:')) {
+          setCategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Subcategory:')) {
+          setSubcategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Accessorial (RSD/DMS):')) {
+          setAccessorial(line.split(':** ')[1]);
+        } else if (line.startsWith('**Phone number:')) {
+          setPhoneNumber(line.split(':** ')[1]);
+        }
+      });
+    } else {
+      setSearchResult('No matching details found');
+      setCategory('');
+      setSubcategory('');
+      setAccessorial('');
+      setPhoneNumber('');
+    }
+  };
+
+  return (
+    <Box p={2} boxShadow={3} borderRadius={2}>
+      
+        <Grid item xs={12}>
+          <Button variant="contained" color="primary" onClick={handleSearch}>
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+      <Box mt={3}>
+        <Paper elevation={3} variant="outlined">
+          <Box p={2}>
+            <Typography variant="h4">Search Result:</Typography>
+            <Typography>{searchResult}</Typography>
+            {searchResult === 'Match found!' && (
+              <Box mt={4}>
+                <Typography variant="h4">Details:</Typography>
+                <br/>
+                <Typography variant="h5">Category: {category}</Typography>
+                <Typography variant="h5">Subcategory: {subcategory}</Typography>
+                <Typography variant="h5">Accessorial (RSD/DMS): {accessorial}</Typography>
+                <Typography variant="h5">Phone number: {phoneNumber}</Typography>
+              </Box>
+            )}
+          </Box>
+        </Paper>
+      </Box>
+    </Box>
+  );
+};
+
+export default SearchComponent;
+
+
+
+
+
+
+
 Error: TypeError: Failed to fetch
     at handleSearch (SearchComp.jsx:16:1)
     at HTMLUnknownElement.callCallback (react-dom.development.js:4167:1)
