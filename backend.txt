@@ -1,3 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>ACCESS LOCATE</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<nav class="navbar navbar-expand-md" style="background-color: #e6e6e6;">
+
+<!-- <nav class="navbar navbar-expand-lg navbar- lightbg-light" style="background-colour: #bdbdbd;"> -->
+
+<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+
+<ul class="navbar-nav mr-auto">
+
+<li class="nav-item active">
+
+ 
+
+<a> <img class="d-inline-block align-top" src="C:\Users\rishabh188134\Downloads\MicrosoftTeams-image (25).png" alt="" width=50px height=25px ></a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link" href="#" style="padding: 0px 15px">ACCESS LOCATE<img src="pic.jpg" style="padding: 0px 0px 9px 5px" width=40px height=37px></a>
+
+</li>
+
+</ul>
+
+</div>
+
+<style>
+
+       .navbar-collapse a
+
+       {
+
+           float: left;
+
+           color: #000000;
+
+           padding: 0px 0px 0px 0px;;
+
+           font-weight: bold;
+
+           font-size: 18px;
+
+           align:"left";
+
+       }
+
+       </style>
+
+<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+
+<a class="nav-link" href="#"></a>
+
+</li>
+
+<li class="nav-item">
+
+<img src="download.png" >
+
+<a class="nav-link" href="#">Rishabh188134</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+</head>
+
+<body>
+
+<!-- Load an icon library -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The sidebar -->
+
+<div class="sidebar">
+
+<a href="#home"><i class="fa fa-fw fa-home" style="padding: 15px 0px 15px 0px;"></i></a>
+
+<a href="job_queue"><i class="fa fa-fw fa-database" style="padding: 15px 0px 15px 0px;"></i></a>
+
+<a href="result"><i class="fa fa-fw fa-question-circle" style="padding: 15px 0px 15px 0px;"></i></a>
+
+</div>
+
+<style>
+
+/* Style the sidebar - fixed full height */
+
+.sidebar {
+
+  height: 100%;
+
+  width: 65px;
+
+  position: fixed;
+
+  z-index: 0;
+
+  top: 52px;
+
+  left: 0;
+
+  background-color: #fb4e0b;
+
+  overflow-x: hidden;
+
+  padding-top: 150px;
+
+}
+
+/* Style sidebar links */
+
+.sidebar a {
+
+  padding: 6px 8px 6px 16px;
+
+  text-decoration: none;
+
+  font-size: 20px;
+
+  color: #e6e6e6;
+
+  display: block;
+
+}
+
+/* Style links on mouse-over */
+
+.sidebar a:hover {
+
+  color: #000000;
+
+}
+
+/* Style the main content */
+
+.main {
+
+  margin-left: 160px; /* Same as the width of the sidenav */
+
+  padding: 0px 10px;
+
+}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+
+@media screen and (max-height: 450px) {
+
+  .sidebar {padding-top: 15px;}
+
+  .sidebar a {font-size: 18px;}
+
+}
+
+</style>
+
+ 
+
+<form action="/result" method="post">
+
+<div id="box" class="container mt-4">
+
+<label for="name">NAME</label>
+
+<input type="text" class="form-control" id="name" name="name" required  placeholder="Enter Name">
+
+<div class="form-group">
+
+<label for="address">ADDRESS</label>
+
+<input type="text" class="form-control" id="address"  name="address" required placeholder="Enter Address">
+
+</div>
+
+<button type="submit"  class="btn btn-primary" >Submit</button>
+
+</form>
+
+</div>  
+
+<style>
+
+   #box{
+
+   background-color: #e6e6e6;
+
+   width:500px;
+
+   height:200px;
+
+/*This will center it horizontally but not vertically*/
+
+   }
+
+</style>
+
+ 
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
 const handleSearch = () => {
     const combinedString = name + ' ' + address;
 
