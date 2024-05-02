@@ -1,3 +1,26 @@
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+  const [accessorial, setAccessorial] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleSearch = async () => {
+    const combinedString = name + ' ' + address;
+
+    // Call generateContent() function from the other code
+    await generateContent(combinedString);
+  };
+
+  // Your JSX code for the SearchComponent
+};
+
+export default SearchComponent;
 
 
 
