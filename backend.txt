@@ -1,0 +1,196 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
+
+// Define schema for search entries
+const searchEntrySchema = new mongoose.Schema({
+  name: String,
+  address: String,
+  category: String,
+  subcategory: String,
+  accessorial: String,
+  phoneNumber: String,
+  searchResult: String,
+  timestamp: { type: Date, default: Date.now }
+});
+
+const SearchEntry = mongoose.model('SearchEntry', searchEntrySchema);
+
+// Routes for CRUD operations
+app.post('/search', async (req, res) => {
+  try {
+    const newSearchEntry = new SearchEntry(req.body);
+    await newSearchEntry.save();
+    res.status(201).send(newSearchEntry);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+mongoose.connect('mongodb://localhost:27017/your-database-name', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to database');
+    app.listen(3001, () => {
+      console.log('Server is running on port 3001');
+    });
+  })
+  .catch(err => console.error('Error connecting to database:', err));
+
+
+
+
+
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
+
+const SearchComponent = () => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [searchResult, setSearchResult] = useState('');
+  const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
+  const [accessorial, setAccessorial] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const handleSearch = async () => {
+    // Concatenate name and address
+    const combinedString = name + ' ' + address;
+
+    // Here, you would perform the search in your Excel sheet database
+    // and retrieve the corresponding description based on the combined string
+    // For demonstration purposes, let's assume we have a sample database
+    const sampleDatabase = [
+      { combinedString: "John Doe 123 Main St", description: "**Category:** Gas station\n**Subcategory:** Convenience store\n**Accessorial (RSD/DMS):** RSD\n**Phone number:** Not provided" },
+      { combinedString: "Jane Smith 456 Elm St", description: "**Category:** Restaurant\n**Subcategory:** Fast food\n**Accessorial (RSD/DMS):** DMS\n**Phone number:** 123-456-7890" },
+      // Add more entries as needed
+    ];
+
+    // Search the sample database for a matching entry
+    const match = sampleDatabase.find(entry => entry.combinedString === combinedString);
+
+    if (match) {
+      setSearchResult('Match found!');
+      // Extract values from the description
+      let arr = match.description.split('\n').filter(Boolean);
+      arr.forEach(line => {
+        if (line.startsWith('**Category:')) {
+          setCategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Subcategory:')) {
+          setSubcategory(line.split(':** ')[1]);
+        } else if (line.startsWith('**Accessorial (RSD/DMS):')) {
+          setAccessorial(line.split(':** ')[1]);
+        } else if (line.startsWith('**Phone number:')) {
+          setPhoneNumber(line.split(':** ')[1]);
+        }
+      });
+
+      // Save search entry to the backend
+      try {
+        const response = await fetch('http://localhost:3001/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            address,
+            category,
+            subcategory,
+            accessorial,
+            phoneNumber,
+            searchResult
+          })
+        });
+        if (!response.ok) {
+          console.error('Failed to save search entry');
+        }
+      } catch (error) {
+        console.error('Error saving search entry:', error);
+      }
+    } else {
+      setSearchResult('No matching details found');
+      setCategory('');
+      setSubcategory('');
+      setAccessorial('');
+      setPhoneNumber('');
+
+      // Save search entry with no match to the backend
+      try {
+        const response = await fetch('http://localhost:3001/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            address,
+            searchResult
+          })
+        });
+        if (!response.ok) {
+          console.error('Failed to save search entry');
+        }
+      } catch (error) {
+        console.error('Error saving search entry:', error);
+      }
+    }
+  };
+
+  return (
+    <Box p={2} boxShadow={3} borderRadius={2}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Search Component
+      </Typography>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Enter name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Enter address"
+            value={address}
+            onChange={e => setAddress(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Button variant="contained" color="primary" onClick={handleSearch}>
+            Search
+          </Button>
+        </Grid>
+      </Grid>
+      <Box mt={3}>
+        <Paper elevation={3} variant="outlined">
+          <Box p={2}>
+            <Typography variant="h6">Search Result:</Typography>
+            <Typography>{searchResult}</Typography>
+            {searchResult === 'Match found!' && (
+              <Box mt={2}>
+                <Typography variant="h6">Details:</Typography>
+                <Typography>Category: {category}</Typography>
+                <Typography>Subcategory: {subcategory}</Typography>
+                <Typography>Accessorial (RSD/DMS): {accessorial}</Typography>
+                <Typography>Phone number: {phoneNumber}</Typography>
+              </Box>
+            )}
+          </Box>
+        </Paper>
+      </Box>
+    </Box>
+  );
+};
+
+export default SearchComponent;
