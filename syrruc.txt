@@ -1,3 +1,15 @@
+PS C:\Users\rishabh188134\Documents\IDEAS> npx create-react-app webpage1
+npm ERR! code ENOENT
+npm ERR! syscall lstat
+npm ERR! path C:\Users\rishabh188134\AppData\Roaming\npm
+npm ERR! errno -4058
+npm ERR! enoent ENOENT: no such file or directory, lstat 'C:\Users\rishabh188134\AppData\Roaming\npm'  
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent
+ 
+npm ERR! A complete log of this run can be found in: C:\Users\rishabh188134\AppData\Local\npm-cache\_logs\2024-04-30T07_41_19_775Z-debug-0.log
+
+
 import React, { useState } from 'react';
 import { Button, Box, Checkbox, FormControlLabel, CircularProgress } from '@mui/material';
 
