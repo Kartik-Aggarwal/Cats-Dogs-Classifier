@@ -1,26 +1,26 @@
 <div>
-  <h2>Heading 1</h2>
-  <div style={{display:'flex', flexDirection: 'row', gap: '54px', justifyContent: 'space-between', padding: '40px 5px 25px 5px'}}>
-    <div>
-      <h3>Button 1</h3>
-      <Button onClick={() => handleClick("Button 1")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}>
+  <div style={{ display: 'flex', flexDirection: 'row', gap: '54px', justifyContent: 'space-between', padding: '40px 5px 25px 5px' }}>
+    <div style={{ textAlign: 'center' }}>
+      <h2>Heading 1</h2>
+      <Button onClick={() => handleClick("Button 1")} sx={{ width: 410, height: 255, borderRadius: '1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ActionAreaCard2 img={img1} />
       </Button>
     </div>
-    <div>
-      <h3>Button 2</h3>
-      <Button onClick={() => handleClick("Button 2")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}>
+    <div style={{ textAlign: 'center' }}>
+      <h2>Heading 2</h2>
+      <Button onClick={() => handleClick("Button 2")} sx={{ width: 410, height: 255, borderRadius: '1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ActionAreaCard2 img={img2} />
       </Button>
     </div>
-    <div>
-      <h3>Button 3</h3>
-      <Button onClick={() => handleClick("Button 3")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}>
+    <div style={{ textAlign: 'center' }}>
+      <h2>Heading 3</h2>
+      <Button onClick={() => handleClick("Button 3")} sx={{ width: 410, height: 255, borderRadius: '1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <ActionAreaCard2 img={img3} />
       </Button>
     </div>
   </div>
 </div>
+
 
 
 
