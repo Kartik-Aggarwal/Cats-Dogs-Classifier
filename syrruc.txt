@@ -1,3 +1,6 @@
+{selectedOption === 'DC201' && <ExcelTableNS filePath={table1}/><ExcelTableNS filePath={table3}/>}
+
+
 <Button variant="outlined" onClick={handleClick3} size='large' sx={{backgroundColor: '#FFE8E1', transition: 'background-color 0.3s color 0.3s', '&:hover': {boxShadow:4, backgroundColor: '#FF670B', color: 'white'}}}><b>Distribution Centers Details</b></Button>
 
 
