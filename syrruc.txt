@@ -1,3 +1,10 @@
+<div style={{display:'flex', flexDirection: 'row', gap: '54px', justifyContent: 'space-between', padding: '40px 5px 25px 5px'}}>
+<Button onClick={() => handleClick("Button 1")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}><ActionAreaCard2 img={img1} /></Button>
+<Button onClick={() => handleClick("Button 2")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}><ActionAreaCard2 img={img2} /></Button>
+<Button onClick={() => handleClick("Button 3")} sx={{width: 410, height: 255, borderRadius: '1.2rem'}}><ActionAreaCard2 img={img3} /></Button>
+</div>
+
+
 <Button variant="outlined" onClick={handleClickCompute} size='large' style={{fontSize: '16px'}} sx={{width: 310, height: 60 , marginLeft: 2}}><b>{clickedC ? 'Running Route Optimizer...': 'Run Route Optimizer'}</b></Button>
 
 
