@@ -1,60 +1,35 @@
-import React, { useState } from 'react';
 
-function App() {
-  // State to keep track of checked checkboxes
-  const [checkedItems, setCheckedItems] = useState({});
 
-  // Function to handle checkbox change
-  const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    setCheckedItems({ ...checkedItems, [name]: checked });
-  };
 
-  return (
-    <div>
-      <h1>Table with Checkboxes</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Subscribe</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>
-              <input
-                type="checkbox"
-                name="John"
-                checked={checkedItems['John'] || false}
-                onChange={handleCheckboxChange}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Jane Smith</td>
-            <td>jane@example.com</td>
-            <td>
-              <input
-                type="checkbox"
-                name="Jane"
-                checked={checkedItems['Jane'] || false}
-                onChange={handleCheckboxChange}
-              />
-            </td>
-          </tr>
-          {/* Add more rows as needed */}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export default App;
-
+        <React.Fragment>
+        <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <thead style={{ backgroundColor: '#E2ECFF' }}>
+              <tr>
+                {Object.keys(data[0]).map((key, index) => (
+                  <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'center' }}>
+                    {key}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row, index) => (
+                <tr key={index}>
+                  {Object.values(row).map((cell, index) => (
+                    <td key={index} style={{ padding: '1px 0px 0px 10px', border: '1px solid #ddd', whiteSpace: 'pre-wrap', textAlign: 'center' }}>
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          </div>
+          <div style={{ marginTop: '10px', textAlign: 'right', color:'#666' }}>
+            Showing {data.length} of {data.length} rows
+            </div>
+        </React.Fragment>
 
 
 <div>
