@@ -1,3 +1,62 @@
+import React, { useState } from 'react';
+
+function App() {
+  // State to keep track of checked checkboxes
+  const [checkedItems, setCheckedItems] = useState({});
+
+  // Function to handle checkbox change
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    setCheckedItems({ ...checkedItems, [name]: checked });
+  };
+
+  return (
+    <div>
+      <h1>Table with Checkboxes</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subscribe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>
+              <input
+                type="checkbox"
+                name="John"
+                checked={checkedItems['John'] || false}
+                onChange={handleCheckboxChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>jane@example.com</td>
+            <td>
+              <input
+                type="checkbox"
+                name="Jane"
+                checked={checkedItems['Jane'] || false}
+                onChange={handleCheckboxChange}
+              />
+            </td>
+          </tr>
+          {/* Add more rows as needed */}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 <div>
   <div style={{ display: 'flex', flexDirection: 'row', gap: '54px', justifyContent: 'space-between', padding: '40px 5px 25px 5px' }}>
     <div style={{ textAlign: 'center' }}>
