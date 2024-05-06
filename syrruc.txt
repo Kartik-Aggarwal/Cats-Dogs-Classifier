@@ -1,35 +1,57 @@
+import React, { useState } from 'react';
 
+function YourComponent({ data }) {
+  // State to keep track of checked checkboxes
+  const [checkedItems, setCheckedItems] = useState({});
 
+  // Function to handle checkbox change
+  const handleCheckboxChange = (event, rowIndex) => {
+    const { checked } = event.target;
+    setCheckedItems({ ...checkedItems, [rowIndex]: checked });
+  };
 
-        <React.Fragment>
-        <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
-          <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-            <thead style={{ backgroundColor: '#E2ECFF' }}>
-              <tr>
-                {Object.keys(data[0]).map((key, index) => (
-                  <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'center' }}>
-                    {key}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((row, index) => (
-                <tr key={index}>
-                  {Object.values(row).map((cell, index) => (
-                    <td key={index} style={{ padding: '1px 0px 0px 10px', border: '1px solid #ddd', whiteSpace: 'pre-wrap', textAlign: 'center' }}>
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
+  return (
+    <React.Fragment>
+      <div style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+          <thead style={{ backgroundColor: '#E2ECFF' }}>
+            <tr>
+              {Object.keys(data[0]).map((key, index) => (
+                <th key={index} style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'center' }}>
+                  {key}
+                </th>
               ))}
-            </tbody>
-          </table>
-          </div>
-          <div style={{ marginTop: '10px', textAlign: 'right', color:'#666' }}>
-            Showing {data.length} of {data.length} rows
-            </div>
-        </React.Fragment>
+              <th style={{ padding: '8px', border: '1px solid #ddd', textAlign: 'center' }}>Select</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, index) => (
+              <tr key={index}>
+                {Object.values(row).map((cell, cellIndex) => (
+                  <td key={cellIndex} style={{ padding: '1px 0px 0px 10px', border: '1px solid #ddd', whiteSpace: 'pre-wrap', textAlign: 'center' }}>
+                    {cell}
+                  </td>
+                ))}
+                <td style={{ padding: '1px 0px 0px 10px', border: '1px solid #ddd', whiteSpace: 'pre-wrap', textAlign: 'center' }}>
+                  <input
+                    type="checkbox"
+                    checked={checkedItems[index] || false}
+                    onChange={(event) => handleCheckboxChange(event, index)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </React.Fragment>
+  );
+}
+
+export default YourComponent;
+
+
+
 
 
 <div>
