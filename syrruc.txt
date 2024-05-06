@@ -1,3 +1,8 @@
+Cannot read properties of null (reading '0')
+TypeError: Cannot read properties of null (reading '0')
+
+
+
 import React, { useState } from 'react';
 
 function YourComponent({ data }) {
