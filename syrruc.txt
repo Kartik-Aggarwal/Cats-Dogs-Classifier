@@ -1,3 +1,25 @@
+    <Card sx={{ width: 350, height: 255, borderRadius: '1.2rem'}}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="255"//195/295
+          image={img}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h3" component="div">
+            {heading}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {content}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+
+
+
+
 import React, { useState } from 'react';
 
 const ImageBox = () => {
