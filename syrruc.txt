@@ -1,4 +1,38 @@
-    <Card sx={{ width: 350, height: 255, borderRadius: '1.2rem'}}>
+    <Card sx={{ 
+      width: 350, 
+      height: 255, 
+      borderRadius: '1.2rem',
+      '&:hover': {
+        '& .MuiCardMedia-img': {
+          // Your hover image URL or any other styles
+          // For example:
+          content: `url('url_of_hover_image.jpg')`, // Replace with your hover image URL
+        },
+      },
+    }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="255"
+          image={img}
+          alt="Card Image"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h3" component="div">
+            {heading}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {content}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+
+
+
+
+
+<Card sx={{ width: 350, height: 255, borderRadius: '1.2rem'}}>
       <CardActionArea>
         <CardMedia
           component="img"
