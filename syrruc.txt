@@ -1,4 +1,16 @@
-    <Card sx={{ 
+Your objective is to develop a prompt generation system for a conversational AI application using the encoder from the transformer library package. You will use the encoder from the transformer library package to generate prompts for the AI to respond to user queries.
+Tasks:
+Load the transformer model's encoder from the library package.
+Prepare a list of sample user queries related to a specific topic (e.g., weather, news, etc.).
+Encode each query using the encoder model.
+Generate prompts for the AI to respond to based on the encoded queries.
+Display the prompts and the corresponding encoded queries for verification
+
+
+
+
+
+<Card sx={{ 
       width: 350, 
       height: 255, 
       borderRadius: '1.2rem',
