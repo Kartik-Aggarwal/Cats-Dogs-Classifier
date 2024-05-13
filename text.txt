@@ -1,3 +1,40 @@
+Slide 1: Prerequisite
+
+Title: Monthly Performance Analysis
+
+Monthly Volume Sharing
+Timely sharing of actual volume by the first week of every month.
+Used for performance analysis of the model.
+Liable Parties Information
+New Liable Parties:
+Estimated volume contribution with confidence score for upcoming quarter.
+Volume Changes:
+Significant increments or decrements from existing top liable parties.
+Factors Affecting Movement:
+Reasons for shifts in appointments between initials and reschedules.
+Out of Scope Changes
+Notification of changes in Out of Scope liable party volume.
+ 
+
+ 
+
+Slide 2: Way Forward
+
+Title: Forecasting and Model Enhancement
+
+Forecasting Approach
+Provide forecast for the next three months across pod levels.
+Model Analysis and Tuning
+Analyze deviations observed in past months.
+Determine if deviations are due to model failure or new liable party additions.
+Adjust model parameters accordingly for more accurate forecasts.
+Learning and Improvement
+Model learns from more data over time.
+Capturing trends and generating a robust forecasting model.
+Challenges with minor contributors addressed through continuous model enhancement.
+
+
+
 Error reading CSV: TypeError: Failed to fetch
     at readCSV (BarChartFromCsv.jsx:21:1)
     at BarChartFromCsv.jsx:32:1
