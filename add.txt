@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             transition: background-color 0.3s, color 0.3s;
         }
         .container {
@@ -17,7 +17,8 @@
             padding: 20px;
         }
         .logo {
-            width: 150px;
+            
+			max-width: 38%;
             display: block;
             margin: 0 auto;
             background-color: #fff; /* Set background color to white */
@@ -33,8 +34,8 @@
             font-size: 1.5rem; /* Increase font size for main headings */
         }
         .font-size-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
         }
         .font-size-buttons, .theme-switch, .jump-buttons {
             text-align: center;
@@ -58,8 +59,9 @@
             border: none;
             padding: 5px 4px; /* Smaller padding */
             cursor: pointer;
-            margin: 0 3px; /* Smaller margin */
+            margin: 0 5px; /* Smaller margin */
             font-size: 0.8rem; /* Smaller font size */
+			border-radius: 8px;
         }
         .btn-jump:hover {
             background-color: #0056b3;
@@ -68,8 +70,8 @@
         .switch-container {
             display: inline-block;
             position: relative;
-            width: 50px;
-            height: 25px;
+            width: 30px;
+            height: 15px;
         }
         .switch-container input {
             opacity: 0;
@@ -90,8 +92,8 @@
         .switch-slider:before {
             position: absolute;
             content: "";
-            height: 21px;
-            width: 21px;
+            height: 11px;
+            width: 11px;
             left: 2px;
             bottom: 2px;
             background-color: white;
@@ -102,7 +104,7 @@
             background-color: #2196F3;
         }
         input:checked + .switch-slider:before {
-            transform: translateX(25px);
+            transform: translateX(15px);
         }
         /* End iOS style switch */
         .dark-theme {
@@ -119,6 +121,9 @@
             text-align: center; /* Center align table values */
         }
         .dark-theme .highlight {
+            background-color: #44446f;
+        }
+		.dark-theme .card-header {
             background-color: #44446f;
         }
         .light-theme {
@@ -138,8 +143,8 @@
         }
         .theme-heading {
             text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
         }
         .section-heading {
             text-align: center;
@@ -172,37 +177,106 @@
 html {
             scroll-behavior: smooth;
      }
+        .containerMini {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+.card-header {
+
+	padding: 10px 15px;
+	font-size: 18px;
+}
+
+
+
     </style>
 </head>
 <body class="dark-theme">
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container">
         <div class="header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo">
-            <h1>Summary Report</h1>
-            <div class="jump-buttons">
-                <button class="btn-jump" onclick="jumpToOverall()">Overall Speed Metrics</button>
-                <button class="btn-jump" onclick="jumpToPrime()">Prime Speed Metrics</button>
-				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime Speed Metrics</button>
-            </div>
-            
-                    <div class="metrics-block">
-            <div class="theme-heading">Switch Theme</div>
-            <div class="theme-switch">
-                <label class="switch-container">
-                    <input type="checkbox" onclick="switchTheme()">
-                    <span class="switch-slider"></span>
-                </label>
-            </div>
-            
-            
-            
-            <div class="font-size-title">Adjust Font Size:</div>
-            <div class="font-size-buttons">
-                <button class="btn-font-size" onclick="changeFontSize(1)">+</button>
-                <button class="btn-font-size" onclick="changeFontSize(-1)">-</button>
-            </div>
+		
+		
+<div class="containerMini">
+    <div>
+        <div class="theme-heading">Switch Theme</div>
+        <div class="theme-switch">
+            <label class="switch-container">
+                <input type="checkbox" onclick="switchTheme()">
+                <span class="switch-slider"></span>
+            </label>
         </div>
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo">
+    <div>
+        <div class="font-size-title">Adjust Font Size</div>
+        <div class="font-size-buttons">
+            <button class="btn-font-size" onclick="changeFontSize(1)">+</button>
+            <button class="btn-font-size" onclick="changeFontSize(-1)">-</button>
+        </div>
+    </div>
+</div>
+
+		
+			
+			<h1>Summary Report</h1>
+            <div class="jump-buttons">
+                <button class="btn-jump" onclick="jumpToOverall()">Overall Metrics</button>
+                <button class="btn-jump" onclick="jumpToPrime()">Prime Metrics</button>
+				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime Metrics</button>
+            </div>
+            
+
+<div class="card">
+<br>
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <tr class="highlight">
+        <td>Threshold</td>
+        <td>DoD</td>
+        <td>WoW</td>
+        <td>MoM</td>
+        <td>MTD</td>
+        <td>YTD</td>
+    </tr>
+    <tr>
+        <td>Overall</td>
+        <td>59</td>
+        <td>87</td>
+        <td>10</td>
+        <td>98</td>
+        <td>85</td>
+    </tr>
+    <tr>
+        <td>Prime</td>
+        <td>36</td>
+        <td>62</td>
+        <td>71</td>
+        <td>94</td>
+        <td>46</td>
+    </tr>
+    <tr>
+        <td>NonPrime</td>
+        <td>14</td>
+        <td>59</td>
+        <td>77</td>
+        <td>100</td>
+        <td>59</td>
+    </tr>
+</table>
+</div>
+<br>
+
 
         <!-- IN Overall Speed Metrics Section -->
 
@@ -495,7 +569,7 @@ html {
                 </div>
             </div>
         </div>
-
+<br>
         <!-- IN Prime Speed Metrics Section -->
         <div class="metrics-block">
 
@@ -1094,7 +1168,7 @@ html {
         }
 
 function jumpToPrime() {
-    document.querySelector('body > div > div:nth-child(2) > div > div.card-header.section-heading').scrollIntoView({
+    document.querySelector('body > div > div:nth-child(3) > div > div.card-header.section-heading').scrollIntoView({
         behavior: 'smooth'
     });
 }
