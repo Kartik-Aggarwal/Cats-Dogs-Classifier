@@ -218,12 +218,12 @@ html {
 		
 <div class="containerMini">
 
-    <img src="C:/Users/Kartik Aggarwal/Downloads/amazon_logo-removebg-preview.png" alt="Amazon Logo" class="logo">
+    <img src="./amazon_logo-removebg-preview.png" alt="Amazon Logo" class="logo">
     <div>
         <div class="font-size-title">Adjust Font Size</div>
         <div class="font-size-buttons">
-            <button class="btn-font-size" onclick="changeFontSize(1)">-</button>
-            <button class="btn-font-size" onclick="changeFontSize(-1)">+</button>
+            <button class="btn-font-size" onclick="changeFontSize(-1)">-</button>
+            <button class="btn-font-size" onclick="changeFontSize(1)">+</button>
         </div>
     </div>
 </div>
@@ -235,7 +235,7 @@ html {
                 <button class="btn-jump" onclick="jumpToOverall()">Overall</button>
                 <button class="btn-jump" onclick="jumpToPrime()">Prime</button>
 				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime</button>
-				<button class="btn-jump1" onclick="jumpToOverall()">Threshold</button>
+				<button class="btn-jump1" onclick="jumpToThreshold()">Threshold</button>
             </div>
             
 
@@ -543,7 +543,7 @@ html {
                 <div class="card-body">
                     <div class="table-container">
 
-						<h6 align="center">DoD Metrics</h6>	
+						<h6 align="center"><strong>DoD Metrics</strong></h6>	
 						<table class="table table-bordered table-sm">
 						  <colgroup>
 							<col class="highlight">
@@ -596,7 +596,7 @@ html {
 								<tr>
 									<th>4</th>
 									<td>1D GVS AFN</td>
-									<td>104</td>
+									<td bgcolor="lightgreen">104</td>
 									<td>36.4%</td>
 									<td>35.4%</td>
 									<td>41.7%</td>
@@ -605,7 +605,7 @@ html {
 								<tr>
 									<th>5</th>
 									<td>1D GVS Top57*</td>
-									<td>105</td>
+									<td bgcolor="lightgreen">105</td>
 									<td>33.1%</td>
 									<td>32.0%</td>
 									<td>38.0%</td>
@@ -614,7 +614,7 @@ html {
 								<tr>
 									<th>6</th>
 									<td>1D GVS Top57 AFN</td>
-									<td>142</td>
+									<td bgcolor="lightgreen">142</td>
 									<td>42.5%</td>
 									<td>41.1%</td>
 									<td>48.8%</td>
@@ -623,7 +623,7 @@ html {
 								<tr>
 									<th>7</th>
 									<td>2D GVS3</td>
-									<td>241</td>
+									<td bgcolor="lightgreen">241</td>
 									<td>43.9%</td>
 									<td>41.5%</td>
 									<td>43.4%</td>
@@ -632,7 +632,7 @@ html {
 								<tr>
 									<th>8</th>
 									<td>2D GVS Top57*</td>
-									<td>269</td>
+									<td bgcolor="lightgreen">269</td>
 									<td>49.6%</td>
 									<td>46.9%</td>
 									<td>49.1%</td>
@@ -641,7 +641,7 @@ html {
 							</tbody>
 						</table>
 		<br>				
-		<h6 align="center">WoW Metrics</h6>				
+		<h6 align="center"><strong>WoW Metrics</strong></h6>				
 <table class="table table-bordered table-sm">
   <colgroup>
 	<col class="highlight">
@@ -663,63 +663,63 @@ html {
         <tr>
             <th>1</th>
             <td>0D GVS1</td>
-            <td>-206</td>
+            <td bgcolor='#F37E7F'>-206</td>
             <td>12.1%</td>
             <td>44.2%</td>
         </tr>
         <tr>
             <th>2</th>
             <td>0D T20 GVS</td>
-            <td>-351</td>
+            <td bgcolor='#F37E7F'>-351</td>
             <td>16.8%</td>
             <td>50.3%</td>
         </tr>
         <tr>
             <th>3</th>
             <td>1D GVS2</td>
-            <td>-500</td>
+            <td bgcolor='#F37E7F'>-500</td>
             <td>29.3%</td>
             <td>64.3%</td>
         </tr>
         <tr>
             <th>4</th>
             <td>1D GVS AFN</td>
-            <td>-626</td>
+            <td bgcolor='#F37E7F'>-626</td>
             <td>36.5%</td>
             <td>72.8%</td>
         </tr>
         <tr>
             <th>5</th>
             <td>1D GVS Top57*</td>
-            <td>-578</td>
+            <td bgcolor='#F37E7F'>-578</td>
             <td>34.4%</td>
             <td>70.2%</td>
         </tr>
         <tr>
             <th>6</th>
             <td>1D GVS Top57 AFN</td>
-            <td>-722</td>
+            <td bgcolor='#F37E7F'>-722</td>
             <td>43.2%</td>
             <td>80.4%</td>
         </tr>
         <tr>
             <th>7</th>
             <td>2D GVS3</td>
-            <td>-384</td>
+            <td bgcolor='#F37E7F'>-384</td>
             <td>44.4%</td>
             <td>78.2%</td>
         </tr>
         <tr>
             <th>8</th>
             <td>2D GVS Top57*</td>
-            <td>-392</td>
+            <td bgcolor='#F37E7F'>-392</td>
             <td>50.6%</td>
             <td>84.5%</td>
         </tr>
     </tbody>
 </table>	
 <br>				
-			<h6 align="center">MoM , MTD & YTD Metrics</h6>			
+			<h6 align="center"><strong>MoM , MTD & YTD Metrics</strong></h6>			
 <table class="table table-bordered table-sm">
   <colgroup>
 	<col class="highlight">
@@ -745,8 +745,8 @@ html {
         <tr>
             <th>1</th>
             <td>0D GVS1</td>
-            <td>-130</td>
-            <td>15.8%</td>
+            <td bgcolor='#F37E7F'>-130</td>
+            <td bgcolor="lightgreen">15.8%</td>
             <td>25.1%</td>
             <td>26.0%</td>
             <td>16.1%</td>
@@ -754,17 +754,17 @@ html {
         <tr>
             <th>2</th>
             <td>0D T20 GVS</td>
-            <td>-192</td>
-            <td>20.9%</td>
+            <td bgcolor='#F37E7F'>-192</td>
+            <td bgcolor="lightgreen">20.9%</td>
             <td>30.8%</td>
             <td>32.4%</td>
-            <td>21.9%</td>
+            <td bgcolor="lightgreen">21.9%</td>
         </tr>
         <tr>
             <th>3</th>
             <td>1D GVS2</td>
-            <td>-209</td>
-            <td>33.7%</td>
+            <td bgcolor='#F37E7F'>-209</td>
+            <td bgcolor="lightgreen">33.7%</td>
             <td>43.8%</td>
             <td>46.2%</td>
             <td>35.7%</td>
@@ -772,17 +772,17 @@ html {
         <tr>
             <th>4</th>
             <td>1D GVS AFN</td>
-            <td>-437</td>
-            <td>41.2%</td>
+            <td bgcolor='#F37E7F'>-437</td>
+            <td bgcolor="lightgreen">41.2%</td>
             <td>53.6%</td>
             <td>56.1%</td>
-            <td>45.2%</td>
+            <td bgcolor="lightgreen">45.2%</td>
         </tr>
         <tr>
             <th>5</th>
             <td>1D GVS Top57*</td>
-            <td>-204</td>
-            <td>39.0%</td>
+            <td bgcolor='#F37E7F'>-204</td>
+            <td bgcolor="lightgreen">39.0%</td>
             <td>49.0%</td>
             <td>51.8%</td>
             <td>41.1%</td>
@@ -790,8 +790,8 @@ html {
         <tr>
             <th>6</th>
             <td>1D GVS Top57 AFN</td>
-            <td>-453</td>
-            <td>48.0%</td>
+            <td bgcolor='#F37E7F'>-453</td>
+            <td bgcolor="lightgreen">48.0%</td>
             <td>60.6%</td>
             <td>63.5%</td>
             <td>52.4%</td>
@@ -799,8 +799,8 @@ html {
         <tr>
             <th>7</th>
             <td>2D GVS3</td>
-            <td>-114</td>
-            <td>48.4%</td>
+            <td bgcolor='#F37E7F'>-114</td>
+            <td bgcolor="lightgreen">48.4%</td>
             <td>57.6%</td>
             <td>59.2%</td>
             <td>48.9%</td>
@@ -808,8 +808,8 @@ html {
         <tr>
             <th>8</th>
             <td>2D GVS Top57*</td>
-            <td>-55</td>
-            <td>54.6%</td>
+            <td bgcolor='#F37E7F'>-55</td>
+            <td bgcolor="lightgreen">54.6%</td>
             <td>63.2%</td>
             <td>65.0%</td>
             <td>54.7%</td>
@@ -834,7 +834,7 @@ html {
                     <div class="table-container">
 
 
-<h6 align="center">DoD Metrics</h6>			
+<h6 align="center"><strong>DoD Metrics</strong></h6>			
 <table class="table table-bordered table-sm">
   <colgroup>
 	<col class="highlight">
@@ -887,7 +887,7 @@ html {
         <tr>
             <th>4</th>
             <td>1D GVS AFN</td>
-            <td>102</td>
+            <td bgcolor="lightgreen">102</td>
             <td>25.9%</td>
             <td>24.9%</td>
             <td>27.0%</td>
@@ -896,7 +896,7 @@ html {
         <tr>
             <th>5</th>
             <td>1D GVS Top57*</td>
-            <td>126</td>
+            <td bgcolor="lightgreen">126</td>
             <td>27.2%</td>
             <td>26.0%</td>
             <td>28.5%</td>
@@ -905,7 +905,7 @@ html {
         <tr>
             <th>6</th>
             <td>1D GVS Top57 AFN</td>
-            <td>177</td>
+            <td bgcolor="lightgreen">177</td>
             <td>35.9%</td>
             <td>34.1%</td>
             <td>37.6%</td>
@@ -914,7 +914,7 @@ html {
         <tr>
             <th>7</th>
             <td>2D GVS3</td>
-            <td>195</td>
+            <td bgcolor="lightgreen">195</td>
             <td>33.4%</td>
             <td>31.4%</td>
             <td>31.6%</td>
@@ -923,7 +923,7 @@ html {
         <tr>
             <th>8</th>
             <td>2D GVS Top57*</td>
-            <td>234</td>
+            <td bgcolor="lightgreen">234</td>
             <td>43.3%</td>
             <td>40.9%</td>
             <td>41.3%</td>
@@ -932,7 +932,7 @@ html {
     </tbody>
 </table>	
 <br>
-<h6 align="center">WoW Metrics</h6>			
+<h6 align="center"><strong>WoW Metrics</strong></h6>			
 <table class="table table-bordered table-sm">
   <colgroup>
 	<col class="highlight">
@@ -954,56 +954,56 @@ html {
         <tr>
             <th>1</th>
             <td>0D GVS1</td>
-            <td>-101</td>
+            <td bgcolor='#F37E7F'>-101</td>
             <td>8.9%</td>
             <td>40.0%</td>
         </tr>
         <tr>
             <th>2</th>
             <td>0D T20 GVS</td>
-            <td>-281</td>
+            <td bgcolor='#F37E7F'>-281</td>
             <td>15.5%</td>
             <td>48.3%</td>
         </tr>
         <tr>
             <th>3</th>
             <td>1D GVS2</td>
-            <td>-316</td>
+            <td bgcolor='#F37E7F'>-316</td>
             <td>19.9%</td>
             <td>53.1%</td>
         </tr>
         <tr>
             <th>4</th>
             <td>1D GVS AFN</td>
-            <td>-425</td>
+            <td bgcolor='#F37E7F'>-425</td>
             <td>25.1%</td>
             <td>59.4%</td>
         </tr>
         <tr>
             <th>5</th>
             <td>1D GVS Top57*</td>
-            <td>-434</td>
+            <td bgcolor='#F37E7F'>-434</td>
             <td>27.4%</td>
             <td>61.7%</td>
         </tr>
         <tr>
             <th>6</th>
             <td>1D GVS Top57 AFN</td>
-            <td>-580</td>
+            <td bgcolor='#F37E7F'>-580</td>
             <td>35.1%</td>
             <td>70.9%</td>
         </tr>
         <tr>
             <th>7</th>
             <td>2D GVS3</td>
-            <td>-338</td>
+            <td bgcolor='#F37E7F'>-338</td>
             <td>32.8%</td>
             <td>66.2%</td>
         </tr>
         <tr>
             <th>8</th>
             <td>2D GVS Top57*</td>
-            <td>-364</td>
+            <td bgcolor='#F37E7F'>-364</td>
             <td>43.4%</td>
             <td>77.0%</td>
         </tr>
@@ -1011,7 +1011,7 @@ html {
 </table>		
 
 <br>
-<h6 align="center">MoM , MTD & YTD Metrics</h6>			
+<h6 align="center"><strong>MoM , MTD & YTD Metrics</strong></h6>			
 <table class="table table-bordered table-sm">
   <colgroup>
 	<col class="highlight">
@@ -1037,8 +1037,8 @@ html {
         <tr>
             <th>1</th>
             <td>0D GVS1</td>
-            <td>-64</td>
-            <td>12.2%</td>
+            <td bgcolor='#F37E7F'>-64</td>
+            <td bgcolor="lightgreen">12.2%</td>
             <td>20.9%</td>
             <td>13.3%</td>
             <td>11.8%</td>
@@ -1046,8 +1046,8 @@ html {
         <tr>
             <th>2</th>
             <td>0D T20 GVS</td>
-            <td>-153</td>
-            <td>19.3%</td>
+            <td bgcolor='#F37E7F'>-153</td>
+            <td bgcolor="lightgreen">19.3%</td>
             <td>28.9%</td>
             <td>22.1%</td>
             <td>19.8%</td>
@@ -1055,8 +1055,8 @@ html {
         <tr>
             <th>3</th>
             <td>1D GVS2</td>
-            <td>-149</td>
-            <td>23.9%</td>
+            <td bgcolor='#F37E7F'>-149</td>
+            <td bgcolor="lightgreen">23.9%</td>
             <td>33.4%</td>
             <td>26.6%</td>
             <td>24.8%</td>
@@ -1064,8 +1064,8 @@ html {
         <tr>
             <th>4</th>
             <td>1D GVS AFN</td>
-            <td>-312</td>
-            <td>29.4%</td>
+            <td bgcolor='#F37E7F'>-312</td>
+            <td bgcolor="lightgreen">29.4%</td>
             <td>40.5%</td>
             <td>33.8%</td>
             <td>31.7%</td>
@@ -1073,8 +1073,8 @@ html {
         <tr>
             <th>5</th>
             <td>1D GVS Top57*</td>
-            <td>-182</td>
-            <td>31.6%</td>
+            <td bgcolor='#F37E7F'>-182</td>
+            <td bgcolor="lightgreen">31.6%</td>
             <td>41.4%</td>
             <td>35.4%</td>
             <td>33.2%</td>
@@ -1082,8 +1082,8 @@ html {
         <tr>
             <th>6</th>
             <td>1D GVS Top57 AFN</td>
-            <td>-399</td>
-            <td>39.7%</td>
+            <td bgcolor='#F37E7F'>-399</td>
+            <td bgcolor="lightgreen">39.7%</td>
             <td>51.7%</td>
             <td>45.9%</td>
             <td>43.3%</td>
@@ -1091,8 +1091,8 @@ html {
         <tr>
             <th>7</th>
             <td>2D GVS3</td>
-            <td>-148</td>
-            <td>36.8%</td>
+            <td bgcolor='#F37E7F'>-148</td>
+            <td bgcolor="lightgreen">36.8%</td>
             <td>46.3%</td>
             <td>39.0%</td>
             <td>37.0%</td>
@@ -1100,8 +1100,8 @@ html {
         <tr>
             <th>8</th>
             <td>2D GVS Top57*</td>
-            <td>-97</td>
-            <td>47.4%</td>
+            <td bgcolor='#F37E7F'>-97</td>
+            <td bgcolor="lightgreen">47.4%</td>
             <td>56.3%</td>
             <td>49.7%</td>
             <td>47.6%</td>
@@ -1127,15 +1127,15 @@ html {
 	<col>
   </colgroup>
     <tr class="highlight">
-        <td>Threshold</td>
-        <td>DoD</td>
-        <td>WoW</td>
-        <td>MoM</td>
-        <td>MTD</td>
-        <td>YTD</td>
+        <td><b>Threshold</b></td>
+        <td><b>DoD</b></td>
+        <td><b>WoW</b></td>
+        <td><b>MoM</b></td>
+        <td><b>MTD</b></td>
+        <td><b>YTD</b></td>
     </tr>
     <tr>
-        <td>Overall</td>
+        <td><b>Overall</b></td>
         <td>59</td>
         <td>87</td>
         <td>10</td>
@@ -1143,7 +1143,7 @@ html {
         <td>85</td>
     </tr>
     <tr>
-        <td>Prime</td>
+        <td><b>Prime</b></td>
         <td>36</td>
         <td>62</td>
         <td>71</td>
@@ -1151,7 +1151,7 @@ html {
         <td>46</td>
     </tr>
     <tr>
-        <td>NonPrime</td>
+        <td><b>NonPrime</b></td>
         <td>14</td>
         <td>59</td>
         <td>77</td>
@@ -1188,6 +1188,12 @@ function jumpToOverall() {
 }
 function jumpToNonPrime() {
     document.querySelector('body > div > div:nth-child(3) > div > div.card-header.section-heading').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+function jumpToThreshold() {
+    document.querySelector('body > div > div.card').scrollIntoView({
         behavior: 'smooth'
     });
 }
