@@ -1,16 +1,3 @@
-*Top57 cities include list of 75 cities as defined by marketing and speed teams.
-**Color Formatting MTD, YTD: Each value is compared to their corresponding OP2 goal (wherever applicable) and Last year same month. If it is below than any one of the two then Red else Green
-**Color Formatting GVs WoW & MoM: Color code Green or Red if the number is better/worse more than 50 bps
-**Color Formatting GVs DoD: Color code Grren or Red if the number is better/worse more than 100 bps
-**Color Formatting for c2p DoD, WoW, MoM: Color coded Green or Red basis if number is better/worse than 0.4 days
-How to Read the table: Each value in the cell represents number of cities that have GVS values in the respective bucket. For example, X number of cities have 1D GVS in the 5% to 10% range.
-Key Definitions
-1. 0D GVS: Glance views with 0D fastest promises/Total Glance views
-2. 1D GVS: Glance views with <=1D fastest promises/Total Glance views
-3. 2D GVS: Glance views with <=2D fastest promises/Total Glance views
-4.Overall C2P (line 9) is neutralized for contingency impact
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,6 +205,15 @@ html {
 	background-color: #21201E;
 	
 }
+        .text-container {
+            font-style: italic;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
 
 
 
@@ -1173,9 +1169,26 @@ html {
     </tr>
 </table>
 </div>
-		
+
+<br>
+<div class="text-container">
+<strong>Notes</strong><br>
+<b>*</b>Top57 cities include list of 75 cities as defined by marketing and speed teams.
+<br><b>**</b>Color Formatting MTD, YTD: Each value is compared to their corresponding OP2 goal (wherever applicable) and Last year same month. If it is below than any one of the two then Red else Green
+<br><b>**</b>Color Formatting GVs WoW & MoM: Color code Green or Red if the number is better/worse more than 50 bps
+<br><b>**</b>Color Formatting GVs DoD: Color code Grren or Red if the number is better/worse more than 100 bps
+<br><b>**</b>Color Formatting for c2p DoD, WoW, MoM: Color coded Green or Red basis if number is better/worse than 0.4 days
+<br>How to Read the table: Each value in the cell represents number of cities that have GVS values in the respective bucket. For example, X number of cities have 1D GVS in the 5% to 10% range.
+<br><b>Key Definitions</b>
+<br><b>1.</b> 0D GVS: Glance views with 0D fastest promises/Total Glance views
+<br><b>2.</b> 1D GVS: Glance views with <=1D fastest promises/Total Glance views
+<br><b>3.</b> 2D GVS: Glance views with <=2D fastest promises/Total Glance views
+<br><b>4.</b>Overall C2P (line 9) is neutralized for contingency impact
+</div>		
 		
     </div>
+
+
 
     <script>
         function changeFontSize(delta) {
