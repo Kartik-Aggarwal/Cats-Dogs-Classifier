@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            font-size: 1rem;
+            font-size: 0.8rem;
             transition: background-color 0.3s, color 0.3s;
         }
         .container {
@@ -56,9 +56,9 @@
             background-color: #007bff;
             color: #fff;
             border: none;
-            padding: 5px 10px; /* Smaller padding */
+            padding: 5px 4px; /* Smaller padding */
             cursor: pointer;
-            margin: 0 5px; /* Smaller margin */
+            margin: 0 3px; /* Smaller margin */
             font-size: 0.8rem; /* Smaller font size */
         }
         .btn-jump:hover {
@@ -149,9 +149,30 @@
         .metrics-block {
             margin-bottom: 40px;
         }
+		tr:hover {background-color: #6767A3;}
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 99;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background-color: #7171A8;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+#myBtn:hover {
+  background-color: #535388;
+}
     </style>
 </head>
 <body class="dark-theme">
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container">
         <div class="header">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo">
@@ -159,6 +180,7 @@
             <div class="jump-buttons">
                 <button class="btn-jump" onclick="jumpToOverall()">Overall Speed Metrics</button>
                 <button class="btn-jump" onclick="jumpToPrime()">Prime Speed Metrics</button>
+				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime Speed Metrics</button>
             </div>
             
                     <div class="metrics-block">
@@ -181,120 +203,291 @@
 
         <!-- IN Overall Speed Metrics Section -->
 
-
             <div class="card">
                 <div class="card-header section-heading">
-                    IN Overall Speed Metrics
+                    IN Overall Speed Metrics							
                 </div>
                 <div class="card-body">
                     <div class="table-container">
-                        <table class="table table-bordered table-sm">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Metrics</th>
-                                    <th>Unit</th>
-                                    <th>09-May-24</th>
-                                    <th>10-May-24</th>
-                                    <th>11-May-24</th>
-                                    <th>12-May-24</th>
-                                    <th>13-May-24</th>
-                                    <th>DoD (BPS)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>0D GVS<sup>1</sup></td>
-                                    <td>%</
-                                    <td>0D GVS<sup>1</sup></td>
-                                    <td>%</td>
-                                    <td>10.1%</td>
-                                    <td>9.5%</td>
-                                    <td>11.7%</td>
-                                    <td>40.0%</td>
-                                    <td>10.3%</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>0D T20 GVS</td>
-                                    <td>%</td>
-                                    <td>16.6%</td>
-                                    <td>17.3%</td>
-                                    <td>20.0%</td>
-                                    <td>46.1%</td>
-                                    <td>16.9%</td>
-                                    <td>-39</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>1D GVwitch<sup>2</sup></td>
-                                    <td>%</td>
-                                    <td>24.2%</td>
-                                    <td>22.4%</td>
-                                    <td>24.7%</td>
-                                    <td>53.0%</td>
-                                    <td>22.8%</td>
-                                    <td>65</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>1D GVS AFN</td>
-                                    <td>%</td>
-                                    <td>31.0%</td>
-                                    <td>29.2%</td>
-                                    <td>32.0%</td>
-                                    <td>59.0%</td>
-                                    <td>29.4%</td>
-                                    <td>90</td>
-                                </tr>
-                                <tr class="highlight">
-                                    <td>5</td>
-                                    <td>1D GVS Top57*</td>
-                                    <td>%</td>
-                                    <td>31.7%</td>
-                                    <td>30.7%</td>
-                                    <td>32.2%</td>
-                                    <td>60.1%</td>
-                                    <td>29.5%</td>
-                                    <td>110</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>1D GVS Top57 AFN</td>
-                                    <td>%</td>
-                                    <td>40.9%</td>
-                                    <td>40.8%</td>
-                                    <td>42.1%</td>
-                                    <td>68.4%</td>
-                                    <td>38.5%</td>
-                                    <td>154</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>2D GVS<sup>3</sup></td>
-                                    <td>%</td>
-                                    <td>37.4%</td>
-                                    <td>31.7%</td>
-                                    <td>35.5%</td>
-                                    <td>66.7%</td>
-                                    <td>36.8%</td>
-                                    <td>198</td>
-                                </tr>
-                                <tr class="highlight">
-                                    <td>8</td>
-                                    <td>2D GVS Top57*</td>
-                                    <td>%</td>
-                                    <td>47.1%</td>
-                                    <td>42.2%</td>
-                                    <td>44.4%</td>
-                                    <td>76.2%</td>
-                                    <td>45.7%</td>
-                                    <td>239</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        
+						
+				<h6>DoD Metrics</h6>
+				<table class="table table-bordered table-sm">
+						  <colgroup>
+							<col class="highlight">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+						  </colgroup>
+					<thead> 
+					<tr class="highlight">
+						<td>#</td>
+						<td>Metrics</td>
+						<td>DoD (BPS)</td>
+						<td>13-May-24</td>
+						<td>12-May-24</td>
+						<td>11-May-24</td>
+						<td>10-May-24</td>
+					</tr>
+					</thead>
+					<tr>
+						<td>1</td>
+						<td>0D GVS1</td>
+						<td>-19</td>
+						<td>10.30%</td>
+						<td>40.00%</td>
+						<td>11.70%</td>
+						<td>9.50%</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>0D T20 GVS</td>
+						<td>-39</td>
+						<td>16.90%</td>
+						<td>46.10%</td>
+						<td>20.00%</td>
+						<td>17.30%</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>1D GVS2</td>
+						<td>65</td>
+						<td>22.80%</td>
+						<td>53.00%</td>
+						<td>24.70%</td>
+						<td>22.40%</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>1D GVS AFN</td>
+						<td>90</td>
+						<td>29.40%</td>
+						<td>59.00%</td>
+						<td>32.00%</td>
+						<td>29.20%</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>1D GVS Top57*</td>
+						<td>110</td>
+						<td>29.50%</td>
+						<td>60.10%</td>
+						<td>32.20%</td>
+						<td>30.70%</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>1D GVS Top57 AFN</td>
+						<td>154</td>
+						<td>38.50%</td>
+						<td>68.40%</td>
+						<td>42.10%</td>
+						<td>40.80%</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>2D GVS3</td>
+						<td>198</td>
+						<td>36.80%</td>
+						<td>66.70%</td>
+						<td>35.50%</td>
+						<td>31.70%</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>2D GVS Top57*</td>
+						<td>239</td>
+						<td>45.70%</td>
+						<td>76.20%</td>
+						<td>44.40%</td>
+						<td>42.20%</td>
+					</tr>
+				</table>
+				<br>
+				<h6>WoW Metrics</h6>
+				<table class="table table-bordered table-sm">
+						  <colgroup>
+							<col class="highlight">
+							<col>
+							<col>
+							<col>
+							<col>
+						  </colgroup>
+					<thead>
+						<tr class="highlight">
+							<th>#</th>
+							<th>Metrics</th>
+							<th>WoW (BPS)</th>
+							<th>Week 19</th>
+							<th>Week 18</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>1</th>
+							<td>0D GVS1</td>
+							<td>-136</td>
+							<td>10.00%</td>
+							<td>41.40%</td>
+						</tr>
+						<tr>
+							<th>2</th>
+							<td>0D T20 GVS</td>
+							<td>-313</td>
+							<td>16.10%</td>
+							<td>49.20%</td>
+						</tr>
+						<tr>
+							<th>3</th>
+							<td>1D GVS2</td>
+							<td>-377</td>
+							<td>23.00%</td>
+							<td>56.80%</td>
+						</tr>
+						<tr>
+							<th>4</th>
+							<td>1D GVS AFN</td>
+							<td>-495</td>
+							<td>29.00%</td>
+							<td>64.00%</td>
+						</tr>
+						<tr>
+							<th>5</th>
+							<td>1D GVS Top57*</td>
+							<td>-490</td>
+							<td>30.10%</td>
+							<td>65.00%</td>
+						</tr>
+						<tr>
+							<th>6</th>
+							<td>1D GVS Top57 AFN</td>
+							<td>-637</td>
+							<td>38.40%</td>
+							<td>74.70%</td>
+						</tr>
+						<tr>
+							<th>7</th>
+							<td>2D GVS3</td>
+							<td>-354</td>
+							<td>36.70%</td>
+							<td>70.20%</td>
+						</tr>
+						<tr>
+							<th>8</th>
+							<td>2D GVS Top57*</td>
+							<td>-374</td>
+							<td>46.20%</td>
+							<td>80.00%</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<h6>MoM , MTD & YTD Metrics</h6>
+				<table class="table table-bordered table-sm">
+						  <colgroup>
+							<col class="highlight">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+						  </colgroup>
+					<thead>
+						<tr class="highlight">
+							<th>#</th>
+							<th>Metrics</th>
+							<th>MoM (BPS)</th>
+							<th>MTD</th>
+							<th>Apr-24</th>
+							<th>Mar-24</th>
+							<th>YTD (Apr-24)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>1</th>
+							<td>0D GVS1</td>
+							<td>-81</td>
+							<td>13.40%</td>
+							<td>22.20%</td>
+							<td>22.80%</td>
+							<td>13.20%</td>
+						</tr>
+						<tr>
+							<th>2</th>
+							<td>0D T20 GVS</td>
+							<td>-168</td>
+							<td>20.10%</td>
+							<td>29.80%</td>
+							<td>31.10%</td>
+							<td>20.80%</td>
+						</tr>
+						<tr>
+							<th>3</th>
+							<td>1D GVS2</td>
+							<td>-156</td>
+							<td>27.20%</td>
+							<td>36.70%</td>
+							<td>38.30%</td>
+							<td>28.20%</td>
+						</tr>
+						<tr>
+							<th>4</th>
+							<td>1D GVS AFN</td>
+							<td>-340</td>
+							<td>33.40%</td>
+							<td>44.80%</td>
+							<td>46.50%</td>
+							<td>36.10%</td>
+						</tr>
+						<tr>
+							<th>5</th>
+							<td>1D GVS Top57*</td>
+							<td>-182</td>
+							<td>34.50%</td>
+							<td>44.40%</td>
+							<td>46.60%</td>
+							<td>36.20%</td>
+						</tr>
+						<tr>
+							<th>6</th>
+							<td>1D GVS Top57 AFN</td>
+							<td>-411</td>
+							<td>43.10%</td>
+							<td>55.20%</td>
+							<td>57.60%</td>
+							<td>46.90%</td>
+						</tr>
+						<tr>
+							<th>7</th>
+							<td>2D GVS3</td>
+							<td>-124</td>
+							<td>40.70%</td>
+							<td>49.90%</td>
+							<td>50.80%</td>
+							<td>40.80%</td>
+						</tr>
+						<tr>
+							<th>8</th>
+							<td>2D GVS Top57*</td>
+							<td>-72</td>
+							<td>50.20%</td>
+							<td>59.00%</td>
+							<td>60.40%</td>
+							<td>50.30%</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				
+
+					
+						
+						
                     </div>
                 </div>
             </div>
@@ -306,53 +499,584 @@
 
             <div class="card">
                 <div class="card-header section-heading">
-                    IN Prime Speed Metrics
+                    IN Prime Speed Metrics							
                 </div>
                 <div class="card-body">
                     <div class="table-container">
-                        <table class="table table-bordered table-sm">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Metrics</th>
-                                    <th>Unit</th>
-                                    <th>09-May-24</th>
-                                    <th>10-May-24</th>
-                                    <th>11-May-24</th>
-                                    <th>12-May-24</th>
-                                    <th>13-May-24</th>
-                                    <th>DoD (BPS)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>9</td>
-                                    <td>c2p<sup>4</sup></td>
-                                    <td>Days</td>
-                                    <td>10.0</td>
-                                    <td>9.9</td>
-                                    <td>9.7</td>
-                                    <td>9.6</td>
-                                    <td>9.5</td>
-                                    <td>-0.1</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Top57*</td>
-                                    <td>Days</td>
-                                    <td>9.3</td>
-                                    <td>9.2</td>
-                                    <td>9.0</td>
-                                    <td>8.9</td>
-                                    <td>8.9</td>
-                                    <td>-0.2</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+						<h6 align="center">DoD Metrics</h6>	
+						<table class="table table-bordered table-sm">
+						  <colgroup>
+							<col class="highlight">
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+							<col>
+						  </colgroup>
+							<thead>
+								<tr class="highlight">
+									<th>#</th>
+									<th>Metrics</th>
+									<th>DoD (BPS)</th>
+									<th>13-May-24</th>
+									<th>12-May-24</th>
+									<th>11-May-24</th>
+									<th>10-May-24</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>1</th>
+									<td>0D GVS1</td>
+									<td>-39</td>
+									<td>12.6%</td>
+									<td>13.0%</td>
+									<td>15.0%</td>
+									<td>13.4%</td>
+								</tr>
+								<tr>
+									<th>2</th>
+									<td>0D T20 GVS</td>
+									<td>-62</td>
+									<td>17.6%</td>
+									<td>18.2%</td>
+									<td>21.6%</td>
+									<td>19.1%</td>
+								</tr>
+								<tr>
+									<th>3</th>
+									<td>1D GVS2</td>
+									<td>78</td>
+									<td>28.5%</td>
+									<td>27.7%</td>
+									<td>32.6%</td>
+									<td>33.0%</td>
+								</tr>
+								<tr>
+									<th>4</th>
+									<td>1D GVS AFN</td>
+									<td>104</td>
+									<td>36.4%</td>
+									<td>35.4%</td>
+									<td>41.7%</td>
+									<td>42.3%</td>
+								</tr>
+								<tr>
+									<th>5</th>
+									<td>1D GVS Top57*</td>
+									<td>105</td>
+									<td>33.1%</td>
+									<td>32.0%</td>
+									<td>38.0%</td>
+									<td>38.6%</td>
+								</tr>
+								<tr>
+									<th>6</th>
+									<td>1D GVS Top57 AFN</td>
+									<td>142</td>
+									<td>42.5%</td>
+									<td>41.1%</td>
+									<td>48.8%</td>
+									<td>49.8%</td>
+								</tr>
+								<tr>
+									<th>7</th>
+									<td>2D GVS3</td>
+									<td>241</td>
+									<td>43.9%</td>
+									<td>41.5%</td>
+									<td>43.4%</td>
+									<td>44.1%</td>
+								</tr>
+								<tr>
+									<th>8</th>
+									<td>2D GVS Top57*</td>
+									<td>269</td>
+									<td>49.6%</td>
+									<td>46.9%</td>
+									<td>49.1%</td>
+									<td>50.3%</td>
+								</tr>
+							</tbody>
+						</table>
+		<br>				
+		<h6 align="center">WoW Metrics</h6>				
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <thead>
+        <tr class="highlight">
+            <th>#</th>
+            <th>Metrics</th>
+            <th>WoW (BPS)</th>
+            <th>Week 19</th>
+            <th>Week 18</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>0D GVS1</td>
+            <td>-206</td>
+            <td>12.1%</td>
+            <td>44.2%</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>0D T20 GVS</td>
+            <td>-351</td>
+            <td>16.8%</td>
+            <td>50.3%</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>1D GVS2</td>
+            <td>-500</td>
+            <td>29.3%</td>
+            <td>64.3%</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1D GVS AFN</td>
+            <td>-626</td>
+            <td>36.5%</td>
+            <td>72.8%</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1D GVS Top57*</td>
+            <td>-578</td>
+            <td>34.4%</td>
+            <td>70.2%</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>1D GVS Top57 AFN</td>
+            <td>-722</td>
+            <td>43.2%</td>
+            <td>80.4%</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2D GVS3</td>
+            <td>-384</td>
+            <td>44.4%</td>
+            <td>78.2%</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>2D GVS Top57*</td>
+            <td>-392</td>
+            <td>50.6%</td>
+            <td>84.5%</td>
+        </tr>
+    </tbody>
+</table>	
+<br>				
+			<h6 align="center">MoM , MTD & YTD Metrics</h6>			
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <thead>
+        <tr class="highlight">
+            <th>#</th>
+            <th>Metrics</th>
+            <th>MoM (BPS)</th>
+            <th>MTD</th>
+            <th>Apr-24</th>
+            <th>Mar-24</th>
+            <th>YTD (Apr-24)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>0D GVS1</td>
+            <td>-130</td>
+            <td>15.8%</td>
+            <td>25.1%</td>
+            <td>26.0%</td>
+            <td>16.1%</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>0D T20 GVS</td>
+            <td>-192</td>
+            <td>20.9%</td>
+            <td>30.8%</td>
+            <td>32.4%</td>
+            <td>21.9%</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>1D GVS2</td>
+            <td>-209</td>
+            <td>33.7%</td>
+            <td>43.8%</td>
+            <td>46.2%</td>
+            <td>35.7%</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1D GVS AFN</td>
+            <td>-437</td>
+            <td>41.2%</td>
+            <td>53.6%</td>
+            <td>56.1%</td>
+            <td>45.2%</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1D GVS Top57*</td>
+            <td>-204</td>
+            <td>39.0%</td>
+            <td>49.0%</td>
+            <td>51.8%</td>
+            <td>41.1%</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>1D GVS Top57 AFN</td>
+            <td>-453</td>
+            <td>48.0%</td>
+            <td>60.6%</td>
+            <td>63.5%</td>
+            <td>52.4%</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2D GVS3</td>
+            <td>-114</td>
+            <td>48.4%</td>
+            <td>57.6%</td>
+            <td>59.2%</td>
+            <td>48.9%</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>2D GVS Top57*</td>
+            <td>-55</td>
+            <td>54.6%</td>
+            <td>63.2%</td>
+            <td>65.0%</td>
+            <td>54.7%</td>
+        </tr>
+    </tbody>
+</table>					
+
                     </div>
                 </div>
             </div>
         </div>
+		
+		
+        <div class="metrics-block">
+
+
+            <div class="card">
+                <div class="card-header section-heading">
+                    IN NonPrime Speed Metrics							
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+
+
+<h6 align="center">DoD Metrics</h6>			
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <thead>
+        <tr class="highlight">
+            <th>#</th>
+            <th>Metrics</th>
+            <th>DoD (BPS)</th>
+            <th>13-May-24</th>
+            <th>12-May-24</th>
+            <th>11-May-24</th>
+            <th>10-May-24</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>0D GVS1</td>
+            <td>-3</td>
+            <td>9.2%</td>
+            <td>9.2%</td>
+            <td>10.1%</td>
+            <td>9.5%</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>0D T20 GVS</td>
+            <td>-16</td>
+            <td>16.3%</td>
+            <td>16.4%</td>
+            <td>18.8%</td>
+            <td>17.3%</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>1D GVS2</td>
+            <td>74</td>
+            <td>20.1%</td>
+            <td>19.3%</td>
+            <td>20.8%</td>
+            <td>22.4%</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1D GVS AFN</td>
+            <td>102</td>
+            <td>25.9%</td>
+            <td>24.9%</td>
+            <td>27.0%</td>
+            <td>29.2%</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1D GVS Top57*</td>
+            <td>126</td>
+            <td>27.2%</td>
+            <td>26.0%</td>
+            <td>28.5%</td>
+            <td>30.7%</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>1D GVS Top57 AFN</td>
+            <td>177</td>
+            <td>35.9%</td>
+            <td>34.1%</td>
+            <td>37.6%</td>
+            <td>40.8%</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2D GVS3</td>
+            <td>195</td>
+            <td>33.4%</td>
+            <td>31.4%</td>
+            <td>31.6%</td>
+            <td>31.7%</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>2D GVS Top57*</td>
+            <td>234</td>
+            <td>43.3%</td>
+            <td>40.9%</td>
+            <td>41.3%</td>
+            <td>42.2%</td>
+        </tr>
+    </tbody>
+</table>	
+<br>
+<h6 align="center">WoW Metrics</h6>			
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <thead>
+        <tr class="highlight">
+            <th>#</th>
+            <th>Metrics</th>
+            <th>WoW (BPS)</th>
+            <th>Week 19</th>
+            <th>Week 18</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>0D GVS1</td>
+            <td>-101</td>
+            <td>8.9%</td>
+            <td>40.0%</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>0D T20 GVS</td>
+            <td>-281</td>
+            <td>15.5%</td>
+            <td>48.3%</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>1D GVS2</td>
+            <td>-316</td>
+            <td>19.9%</td>
+            <td>53.1%</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1D GVS AFN</td>
+            <td>-425</td>
+            <td>25.1%</td>
+            <td>59.4%</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1D GVS Top57*</td>
+            <td>-434</td>
+            <td>27.4%</td>
+            <td>61.7%</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>1D GVS Top57 AFN</td>
+            <td>-580</td>
+            <td>35.1%</td>
+            <td>70.9%</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2D GVS3</td>
+            <td>-338</td>
+            <td>32.8%</td>
+            <td>66.2%</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>2D GVS Top57*</td>
+            <td>-364</td>
+            <td>43.4%</td>
+            <td>77.0%</td>
+        </tr>
+    </tbody>
+</table>		
+
+<br>
+<h6 align="center">MoM , MTD & YTD Metrics</h6>			
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <thead>
+        <tr class="highlight">
+            <th>#</th>
+            <th>Metrics</th>
+            <th>MoM (BPS)</th>
+            <th>MTD</th>
+            <th>Apr-24</th>
+            <th>Mar-24</th>
+            <th>YTD (Apr-24)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>0D GVS1</td>
+            <td>-64</td>
+            <td>12.2%</td>
+            <td>20.9%</td>
+            <td>13.3%</td>
+            <td>11.8%</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>0D T20 GVS</td>
+            <td>-153</td>
+            <td>19.3%</td>
+            <td>28.9%</td>
+            <td>22.1%</td>
+            <td>19.8%</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>1D GVS2</td>
+            <td>-149</td>
+            <td>23.9%</td>
+            <td>33.4%</td>
+            <td>26.6%</td>
+            <td>24.8%</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>1D GVS AFN</td>
+            <td>-312</td>
+            <td>29.4%</td>
+            <td>40.5%</td>
+            <td>33.8%</td>
+            <td>31.7%</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>1D GVS Top57*</td>
+            <td>-182</td>
+            <td>31.6%</td>
+            <td>41.4%</td>
+            <td>35.4%</td>
+            <td>33.2%</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>1D GVS Top57 AFN</td>
+            <td>-399</td>
+            <td>39.7%</td>
+            <td>51.7%</td>
+            <td>45.9%</td>
+            <td>43.3%</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>2D GVS3</td>
+            <td>-148</td>
+            <td>36.8%</td>
+            <td>46.3%</td>
+            <td>39.0%</td>
+            <td>37.0%</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>2D GVS Top57*</td>
+            <td>-97</td>
+            <td>47.4%</td>
+            <td>56.3%</td>
+            <td>49.7%</td>
+            <td>47.6%</td>
+        </tr>
+    </tbody>
+</table>
+		
+
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		
     </div>
 
     <script>
@@ -367,21 +1091,40 @@
         }
 
 function jumpToPrime() {
-    document.querySelector('.metrics-block:nth-of-type(2)').scrollIntoView({
+    document.querySelector('body > div > div:nth-child(2) > div > div.card-header.section-heading').scrollIntoView({
         behavior: 'smooth'
     });
+}
+function jumpToOverall() {
+    document.querySelector('body > div > div.header > div.card > div.card-header.section-heading').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+function jumpToNonPrime() {
+    document.querySelector('body > div > div:nth-child(3) > div > div.card-header.section-heading').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 </script>
 </body>
 </html>
 
-           
-
-
-
-
-USPS RICHMOND 183L78	6892 MAIN ST	GLOUCESTER	VA	23061	6892 MAIN ST,GLOUCESTER,VA,23061
-CP SAINT PAUL CSP	1000 SHOP RD	SAINT PAUL	MN	55106	1000 SHOP RD,SAINT PAUL,MN,55106
-CULVER POWER EQUIPMENT	18591 STATE ROAD 10	CULVER	IN	46511
-VORWALLER & BROOKS INC - 14035 KIRKHAM WAY STE 103,POWAY,CA,92064  
-https://www.kaggle.com/code/mohamedkhaledidris/skin-cancer-classification-cnn-tensorflow/comments
