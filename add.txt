@@ -18,10 +18,10 @@
         }
         .logo {
             
-			max-width: 38%;
+			max-width: 48%;
             display: block;
-            margin: 0 auto;
-            background-color: #fff; /* Set background color to white */
+            margin: 0 10px;
+            background-color: #f8f9fa; /* Set background color to white */
             padding: 10px; /* Add some padding for better visibility */
             border-radius: 5px; /* Add border radius for aesthetics */
         }
@@ -44,10 +44,11 @@
         .btn-font-size {
             background-color: #44446f;
             color: #fff;
+			width: 30px;
             border: none;
             padding: 5px 10px; /* Smaller padding */
             cursor: pointer;
-            margin: 0 5px; /* Smaller margin */
+            margin: 0 2px; /* Smaller margin */
             font-size: 0.8rem; /* Smaller font size */
         }
         .btn-font-size:hover {
@@ -55,6 +56,18 @@
         }
         .btn-jump {
             background-color: #007bff;
+			width: 80px;
+            color: #fff;
+            border: none;
+            padding: 5px 4px; /* Smaller padding */
+            cursor: pointer;
+            margin: 0 5px; /* Smaller margin */
+            font-size: 0.8rem; /* Smaller font size */
+			border-radius: 8px;
+        }
+		.btn-jump1 {
+            background-color: #6A6E72;
+			width: 80px;
             color: #fff;
             border: none;
             padding: 5px 4px; /* Smaller padding */
@@ -154,7 +167,7 @@
         .metrics-block {
             margin-bottom: 40px;
         }
-		tr:hover {background-color: #6767A3;}
+		tr:hover {background-color: #6A6E72;}
 #myBtn {
   display: none;
   position: fixed;
@@ -164,7 +177,7 @@
   font-size: 15px;
   border: none;
   outline: none;
-  background-color: #7171A8;
+  background-color: #6A6E72;
   color: white;
   cursor: pointer;
   padding: 8px;
@@ -180,7 +193,7 @@ html {
         .containerMini {
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             padding: 10px;
         }
 
@@ -188,34 +201,29 @@ html {
 
 	padding: 10px 15px;
 	font-size: 18px;
+	color: white;
+	background-color: #21201E;
+	
 }
 
 
 
     </style>
 </head>
-<body class="dark-theme">
+<body class="light-theme">
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <div class="container">
         <div class="header">
 		
 		
 <div class="containerMini">
-    <div>
-        <div class="theme-heading">Switch Theme</div>
-        <div class="theme-switch">
-            <label class="switch-container">
-                <input type="checkbox" onclick="switchTheme()">
-                <span class="switch-slider"></span>
-            </label>
-        </div>
-    </div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo" class="logo">
+
+    <img src="C:/Users/Kartik Aggarwal/Downloads/amazon_logo-removebg-preview.png" alt="Amazon Logo" class="logo">
     <div>
         <div class="font-size-title">Adjust Font Size</div>
         <div class="font-size-buttons">
-            <button class="btn-font-size" onclick="changeFontSize(1)">+</button>
-            <button class="btn-font-size" onclick="changeFontSize(-1)">-</button>
+            <button class="btn-font-size" onclick="changeFontSize(1)">-</button>
+            <button class="btn-font-size" onclick="changeFontSize(-1)">+</button>
         </div>
     </div>
 </div>
@@ -224,57 +232,14 @@ html {
 			
 			<h1>Summary Report</h1>
             <div class="jump-buttons">
-                <button class="btn-jump" onclick="jumpToOverall()">Overall Metrics</button>
-                <button class="btn-jump" onclick="jumpToPrime()">Prime Metrics</button>
-				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime Metrics</button>
+                <button class="btn-jump" onclick="jumpToOverall()">Overall</button>
+                <button class="btn-jump" onclick="jumpToPrime()">Prime</button>
+				<button class="btn-jump" onclick="jumpToNonPrime()">Non Prime</button>
+				<button class="btn-jump1" onclick="jumpToOverall()">Threshold</button>
             </div>
             
 
-<div class="card">
-<br>
-<table class="table table-bordered table-sm">
-  <colgroup>
-	<col class="highlight">
-	<col>
-	<col>
-	<col>
-	<col>
-	<col>
-  </colgroup>
-    <tr class="highlight">
-        <td>Threshold</td>
-        <td>DoD</td>
-        <td>WoW</td>
-        <td>MoM</td>
-        <td>MTD</td>
-        <td>YTD</td>
-    </tr>
-    <tr>
-        <td>Overall</td>
-        <td>59</td>
-        <td>87</td>
-        <td>10</td>
-        <td>98</td>
-        <td>85</td>
-    </tr>
-    <tr>
-        <td>Prime</td>
-        <td>36</td>
-        <td>62</td>
-        <td>71</td>
-        <td>94</td>
-        <td>46</td>
-    </tr>
-    <tr>
-        <td>NonPrime</td>
-        <td>14</td>
-        <td>59</td>
-        <td>77</td>
-        <td>100</td>
-        <td>59</td>
-    </tr>
-</table>
-</div>
+
 <br>
 
 
@@ -286,9 +251,7 @@ html {
                 </div>
                 <div class="card-body">
                     <div class="table-container">
-                        
-						
-				<h6>DoD Metrics</h6>
+				<h6><strong>DoD Metrics</strong></h6>
 				<table class="table table-bordered table-sm">
 						  <colgroup>
 							<col class="highlight">
@@ -301,18 +264,18 @@ html {
 						  </colgroup>
 					<thead> 
 					<tr class="highlight">
-						<td>#</td>
-						<td>Metrics</td>
-						<td>DoD (BPS)</td>
-						<td>13-May-24</td>
-						<td>12-May-24</td>
-						<td>11-May-24</td>
-						<td>10-May-24</td>
+						<td><b>#</b></td>
+						<td><b>Metrics</b></td>
+						<td><b>DoD</b></td>
+						<td><b>13-May</b></td>
+						<td><b>12-May</b></td>
+						<td><b>11-May</b></td>
+						<td><b>10-May</b></td>
 					</tr>
 					</thead>
 					<tr>
-						<td>1</td>
-						<td>0D GVS1</td>
+						<td><b>1</b></td>
+						<td>0D GVS<sup>1</sup></td>
 						<td>-19</td>
 						<td>10.30%</td>
 						<td>40.00%</td>
@@ -320,7 +283,7 @@ html {
 						<td>9.50%</td>
 					</tr>
 					<tr>
-						<td>2</td>
+						<td><b>2</b></td>
 						<td>0D T20 GVS</td>
 						<td>-39</td>
 						<td>16.90%</td>
@@ -329,8 +292,8 @@ html {
 						<td>17.30%</td>
 					</tr>
 					<tr>
-						<td>3</td>
-						<td>1D GVS2</td>
+						<td><b>3</b></td>
+						<td>1D GVS<sup>2</sup></td>
 						<td>65</td>
 						<td>22.80%</td>
 						<td>53.00%</td>
@@ -338,7 +301,7 @@ html {
 						<td>22.40%</td>
 					</tr>
 					<tr>
-						<td>4</td>
+						<td><b>4</b></td>
 						<td>1D GVS AFN</td>
 						<td>90</td>
 						<td>29.40%</td>
@@ -347,44 +310,43 @@ html {
 						<td>29.20%</td>
 					</tr>
 					<tr>
-						<td>5</td>
+						<td><b>5</b></td>
 						<td>1D GVS Top57*</td>
-						<td>110</td>
+						<td bgcolor="lightgreen">110</td>
 						<td>29.50%</td>
 						<td>60.10%</td>
 						<td>32.20%</td>
 						<td>30.70%</td>
 					</tr>
 					<tr>
-						<td>6</td>
+						<td><b>6</b></td>
 						<td>1D GVS Top57 AFN</td>
-						<td>154</td>
+						<td bgcolor="lightgreen">154</td>
 						<td>38.50%</td>
 						<td>68.40%</td>
 						<td>42.10%</td>
 						<td>40.80%</td>
 					</tr>
 					<tr>
-						<td>7</td>
-						<td>2D GVS3</td>
-						<td>198</td>
+						<td><b>7</b></td>
+						<td>2D GVS<sup>3</sup></td>
+						<td bgcolor="lightgreen">198</td>
 						<td>36.80%</td>
 						<td>66.70%</td>
 						<td>35.50%</td>
 						<td>31.70%</td>
 					</tr>
 					<tr>
-						<td>8</td>
+						<td><b>8</b></td>
 						<td>2D GVS Top57*</td>
-						<td>239</td>
+						<td bgcolor="lightgreen">239</td>
 						<td>45.70%</td>
 						<td>76.20%</td>
 						<td>44.40%</td>
 						<td>42.20%</td>
 					</tr>
 				</table>
-				<br>
-				<h6>WoW Metrics</h6>
+				<h6><strong>WoW Metrics</strong></h6>
 				<table class="table table-bordered table-sm">
 						  <colgroup>
 							<col class="highlight">
@@ -397,7 +359,7 @@ html {
 						<tr class="highlight">
 							<th>#</th>
 							<th>Metrics</th>
-							<th>WoW (BPS)</th>
+							<th>WoW</th>
 							<th>Week 19</th>
 							<th>Week 18</th>
 						</tr>
@@ -405,64 +367,64 @@ html {
 					<tbody>
 						<tr>
 							<th>1</th>
-							<td>0D GVS1</td>
-							<td>-136</td>
+							<td>0D GVS<sup>1</sup></td>
+							<td bgcolor='#F37E7F'>-136</td>
 							<td>10.00%</td>
 							<td>41.40%</td>
 						</tr>
 						<tr>
 							<th>2</th>
 							<td>0D T20 GVS</td>
-							<td>-313</td>
+							<td bgcolor='#F37E7F'>-313</td>
 							<td>16.10%</td>
 							<td>49.20%</td>
 						</tr>
 						<tr>
 							<th>3</th>
-							<td>1D GVS2</td>
-							<td>-377</td>
+							<td>1D GVS<sup>2</sup></td>
+							<td bgcolor='#F37E7F'>-377</td>
 							<td>23.00%</td>
 							<td>56.80%</td>
 						</tr>
 						<tr>
 							<th>4</th>
 							<td>1D GVS AFN</td>
-							<td>-495</td>
+							<td bgcolor='#F37E7F'>-495</td>
 							<td>29.00%</td>
 							<td>64.00%</td>
 						</tr>
 						<tr>
 							<th>5</th>
 							<td>1D GVS Top57*</td>
-							<td>-490</td>
+							<td bgcolor='#F37E7F'>-490</td>
 							<td>30.10%</td>
 							<td>65.00%</td>
 						</tr>
 						<tr>
 							<th>6</th>
 							<td>1D GVS Top57 AFN</td>
-							<td>-637</td>
+							<td bgcolor='#F37E7F'>-637</td>
 							<td>38.40%</td>
 							<td>74.70%</td>
 						</tr>
 						<tr>
 							<th>7</th>
-							<td>2D GVS3</td>
-							<td>-354</td>
+							<td>2D GVS<sup>3</sup></td>
+							<td bgcolor='#F37E7F'>-354</td>
 							<td>36.70%</td>
 							<td>70.20%</td>
 						</tr>
 						<tr>
 							<th>8</th>
 							<td>2D GVS Top57*</td>
-							<td>-374</td>
+							<td bgcolor='#F37E7F'>-374</td>
 							<td>46.20%</td>
 							<td>80.00%</td>
 						</tr>
 					</tbody>
 				</table>
-				<br>
-				<h6>MoM , MTD & YTD Metrics</h6>
+				
+				<h6><strong>MoM , MTD & YTD Metrics</strong></h6>
 				<table class="table table-bordered table-sm">
 						  <colgroup>
 							<col class="highlight">
@@ -477,19 +439,19 @@ html {
 						<tr class="highlight">
 							<th>#</th>
 							<th>Metrics</th>
-							<th>MoM (BPS)</th>
+							<th>MoM</th>
 							<th>MTD</th>
-							<th>Apr-24</th>
-							<th>Mar-24</th>
+							<th>Apr</th>
+							<th>Mar</th>
 							<th>YTD (Apr-24)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<th>1</th>
-							<td>0D GVS1</td>
-							<td>-81</td>
-							<td>13.40%</td>
+							<td>0D GVS<sup>1</sup></td>
+							<td bgcolor='#F37E7F'>-81</td>
+							<td bgcolor="lightgreen">13.40%</td>
 							<td>22.20%</td>
 							<td>22.80%</td>
 							<td>13.20%</td>
@@ -497,26 +459,26 @@ html {
 						<tr>
 							<th>2</th>
 							<td>0D T20 GVS</td>
-							<td>-168</td>
-							<td>20.10%</td>
+							<td bgcolor='#F37E7F'>-168</td>
+							<td bgcolor="lightgreen">20.10%</td>
 							<td>29.80%</td>
 							<td>31.10%</td>
 							<td>20.80%</td>
 						</tr>
 						<tr>
 							<th>3</th>
-							<td>1D GVS2</td>
-							<td>-156</td>
-							<td>27.20%</td>
+							<td>1D GVS<sup>2</sup></td>
+							<td bgcolor='#F37E7F'>-156</td>
+							<td bgcolor="lightgreen">27.20%</td>
 							<td>36.70%</td>
 							<td>38.30%</td>
-							<td>28.20%</td>
+							<td bgcolor="lightgreen">28.20%</td>
 						</tr>
 						<tr>
 							<th>4</th>
 							<td>1D GVS AFN</td>
-							<td>-340</td>
-							<td>33.40%</td>
+							<td bgcolor='#F37E7F'>-340</td>
+							<td bgcolor="lightgreen">33.40%</td>
 							<td>44.80%</td>
 							<td>46.50%</td>
 							<td>36.10%</td>
@@ -524,35 +486,35 @@ html {
 						<tr>
 							<th>5</th>
 							<td>1D GVS Top57*</td>
-							<td>-182</td>
-							<td>34.50%</td>
+							<td bgcolor='#F37E7F'>-182</td>
+							<td bgcolor="lightgreen">34.50%</td>
 							<td>44.40%</td>
 							<td>46.60%</td>
-							<td>36.20%</td>
+							<td bgcolor="lightgreen">36.20%</td>
 						</tr>
 						<tr>
 							<th>6</th>
 							<td>1D GVS Top57 AFN</td>
-							<td>-411</td>
-							<td>43.10%</td>
+							<td bgcolor='#F37E7F'>-411</td>
+							<td bgcolor="lightgreen">43.10%</td>
 							<td>55.20%</td>
 							<td>57.60%</td>
 							<td>46.90%</td>
 						</tr>
 						<tr>
 							<th>7</th>
-							<td>2D GVS3</td>
-							<td>-124</td>
-							<td>40.70%</td>
+							<td>2D GVS<sup>3</sup></td>
+							<td bgcolor='#F37E7F'>-124</td>
+							<td bgcolor="lightgreen">40.70%</td>
 							<td>49.90%</td>
 							<td>50.80%</td>
-							<td>40.80%</td>
+							<td bgcolor="lightgreen">40.80%</td>
 						</tr>
 						<tr>
 							<th>8</th>
 							<td>2D GVS Top57*</td>
-							<td>-72</td>
-							<td>50.20%</td>
+							<td bgcolor='#F37E7F'>-72</td>
+							<td bgcolor="lightgreen">50.20%</td>
 							<td>59.00%</td>
 							<td>60.40%</td>
 							<td>50.30%</td>
@@ -596,11 +558,11 @@ html {
 								<tr class="highlight">
 									<th>#</th>
 									<th>Metrics</th>
-									<th>DoD (BPS)</th>
-									<th>13-May-24</th>
-									<th>12-May-24</th>
-									<th>11-May-24</th>
-									<th>10-May-24</th>
+									<th>DoD</th>
+									<th>13-May</th>
+									<th>12-May</th>
+									<th>11-May</th>
+									<th>10-May</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -608,10 +570,10 @@ html {
 									<th>1</th>
 									<td>0D GVS1</td>
 									<td>-39</td>
-									<td>12.6%</td>
-									<td>13.0%</td>
-									<td>15.0%</td>
-									<td>13.4%</td>
+									<td>12.60%</td>
+									<td>13.00%</td>
+									<td>15.00%</td>
+									<td>13.40%</td>
 								</tr>
 								<tr>
 									<th>2</th>
@@ -692,7 +654,7 @@ html {
         <tr class="highlight">
             <th>#</th>
             <th>Metrics</th>
-            <th>WoW (BPS)</th>
+            <th>WoW</th>
             <th>Week 19</th>
             <th>Week 18</th>
         </tr>
@@ -772,10 +734,10 @@ html {
         <tr class="highlight">
             <th>#</th>
             <th>Metrics</th>
-            <th>MoM (BPS)</th>
+            <th>MoM</th>
             <th>MTD</th>
-            <th>Apr-24</th>
-            <th>Mar-24</th>
+            <th>Apr</th>
+            <th>Mar</th>
             <th>YTD (Apr-24)</th>
         </tr>
     </thead>
@@ -887,11 +849,11 @@ html {
         <tr class="highlight">
             <th>#</th>
             <th>Metrics</th>
-            <th>DoD (BPS)</th>
-            <th>13-May-24</th>
-            <th>12-May-24</th>
-            <th>11-May-24</th>
-            <th>10-May-24</th>
+            <th>DoD</th>
+            <th>13-May</th>
+            <th>12-May</th>
+            <th>11-May</th>
+            <th>10-May</th>
         </tr>
     </thead>
     <tbody>
@@ -899,19 +861,19 @@ html {
             <th>1</th>
             <td>0D GVS1</td>
             <td>-3</td>
-            <td>9.2%</td>
-            <td>9.2%</td>
-            <td>10.1%</td>
-            <td>9.5%</td>
+            <td>9.20%</td>
+            <td>9.20%</td>
+            <td>10.10%</td>
+            <td>9.50%</td>
         </tr>
         <tr>
             <th>2</th>
             <td>0D T20 GVS</td>
             <td>-16</td>
-            <td>16.3%</td>
-            <td>16.4%</td>
+            <td>16.30%</td>
+            <td>16.40%</td>
             <td>18.8%</td>
-            <td>17.3%</td>
+            <td>17.30%</td>
         </tr>
         <tr>
             <th>3</th>
@@ -983,7 +945,7 @@ html {
         <tr class="highlight">
             <th>#</th>
             <th>Metrics</th>
-            <th>WoW (BPS)</th>
+            <th>WoW</th>
             <th>Week 19</th>
             <th>Week 18</th>
         </tr>
@@ -1064,10 +1026,10 @@ html {
         <tr class="highlight">
             <th>#</th>
             <th>Metrics</th>
-            <th>MoM (BPS)</th>
+            <th>MoM</th>
             <th>MTD</th>
-            <th>Apr-24</th>
-            <th>Mar-24</th>
+            <th>Apr</th>
+            <th>Mar </th>
             <th>YTD (Apr-24)</th>
         </tr>
     </thead>
@@ -1152,6 +1114,52 @@ html {
                 </div>
             </div>
         </div>
+
+<div class="card">
+<br>
+<table class="table table-bordered table-sm">
+  <colgroup>
+	<col class="highlight">
+	<col>
+	<col>
+	<col>
+	<col>
+	<col>
+  </colgroup>
+    <tr class="highlight">
+        <td>Threshold</td>
+        <td>DoD</td>
+        <td>WoW</td>
+        <td>MoM</td>
+        <td>MTD</td>
+        <td>YTD</td>
+    </tr>
+    <tr>
+        <td>Overall</td>
+        <td>59</td>
+        <td>87</td>
+        <td>10</td>
+        <td>98</td>
+        <td>85</td>
+    </tr>
+    <tr>
+        <td>Prime</td>
+        <td>36</td>
+        <td>62</td>
+        <td>71</td>
+        <td>94</td>
+        <td>46</td>
+    </tr>
+    <tr>
+        <td>NonPrime</td>
+        <td>14</td>
+        <td>59</td>
+        <td>77</td>
+        <td>100</td>
+        <td>59</td>
+    </tr>
+</table>
+</div>
 		
 		
     </div>
@@ -1163,8 +1171,9 @@ html {
         }
 
         function switchTheme() {
+			document.body.classList.toggle('light-theme');
             document.body.classList.toggle('dark-theme');
-            document.body.classList.toggle('light-theme');
+            
         }
 
 function jumpToPrime() {
@@ -1204,4 +1213,3 @@ function topFunction() {
 </script>
 </body>
 </html>
-
