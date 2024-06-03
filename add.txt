@@ -215,7 +215,31 @@ html {
             font-family: Arial, sans-serif;
         }
 
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3px 0;
+        }
 
+        .size-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            margin: 0 2px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .size-button:hover {
+            background-color: #e0e0e0;
+        }
 
     </style>
 </head>
@@ -230,10 +254,17 @@ html {
     <img src="./amazon_logo-removebg-preview.png" alt="Amazon Logo" class="logo">
     <div>
         <div class="font-size-title">Adjust Font Size</div>
-        <div class="font-size-buttons">
+
+<div class="button-container">
+    <div class="size-button" onclick="changeFontSize(1)">&#9650;</div> <!-- Up arrow -->
+    <div class="size-button" onclick="changeFontSize(-1)">&#9660;</div> <!-- Down arrow -->
+</div>
+
+<!--        <div class="font-size-buttons">
             <button class="btn-font-size" onclick="changeFontSize(-1)">-</button>
             <button class="btn-font-size" onclick="changeFontSize(1)">+</button>
         </div>
+-->
     </div>
 </div>
 
