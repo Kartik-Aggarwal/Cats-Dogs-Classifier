@@ -1,4 +1,54 @@
 import React, { useState } from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { TextField, Box, Typography } from '@mui/material';
+import { format } from 'date-fns';
+
+const DatePickerComponent = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const handleChange = (date) => {
+    setSelectedDate(date);
+  };
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Box 
+        display="flex" 
+        flexDirection="column" 
+        alignItems="center" 
+        margin={2}
+      >
+        <DatePicker
+          label="Select a date"
+          value={selectedDate}
+          onChange={handleChange}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        {selectedDate && (
+          <Box 
+            marginTop={2} 
+            padding={2} 
+            borderRadius={1} 
+            bgcolor="#f9f9f9" 
+            boxShadow={2}
+          >
+            <Typography variant="h6">
+              Selected Date: {selectedDate ? format(new Date(selectedDate), 'PPP') : ''}
+            </Typography>
+          </Box>
+        )}
+      </Box>
+    </LocalizationProvider>
+  );
+};
+
+export default DatePickerComponent;
+
+
+
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
