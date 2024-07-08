@@ -1,4 +1,55 @@
-  const handleFileUpload = (event) => {
+import React from 'react';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
+const LineChartComponent = ({ data }) => {
+  const chartData = {
+    labels: data.map((item) => item.date),
+    datasets: [
+      {
+        label: 'Values',
+        data: data.map((item) => item.value),
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          unit: 'day',
+          tooltipFormat: 'YYYY-MM-DD',
+          displayFormats: {
+            day: 'YYYY-MM-DD',
+          },
+        },
+        title: {
+          display: true,
+          text: 'Date',
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value',
+        },
+      },
+    },
+  };
+
+  return <Line data={chartData} options={options} />;
+};
+
+export default LineChartComponent;
+
+
+
+const handleFileUpload = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (e) => {
