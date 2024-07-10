@@ -1,3 +1,85 @@
+import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Line } from 'react-chartjs-2';
+import * as XLSX from 'xlsx';
+
+const TimeSeriesGraph = () => {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const binaryStr = event.target.result;
+      const workbook = XLSX.read(binaryStr, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      const formattedData = jsonData.slice(1).map(row => ({
+        date: new Date(row[0]),
+        value: row[1],
+      }));
+      setData(formattedData);
+    };
+    reader.readAsBinaryString(file);
+  };
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      const filtered = data.filter(item => item.date >= startDate && item.date <= endDate);
+      setFilteredData(filtered);
+    }
+  }, [startDate, endDate, data]);
+
+  const chartData = {
+    labels: filteredData.map(item => item.date.toDateString()),
+    datasets: [
+      {
+        label: 'Time Series Data',
+        data: filteredData.map(item => item.value),
+        fill: false,
+        borderColor: 'rgba(75,192,192,1)',
+      },
+    ],
+  };
+
+  return (
+    <div>
+      <h1>Time Series Graph</h1>
+      <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
+      <div>
+        <DatePicker
+          selected={startDate}
+          onChange={date => setStartDate(date)}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          placeholderText="Select start date"
+        />
+        <DatePicker
+          selected={endDate}
+          onChange={date => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          placeholderText="Select end date"
+        />
+      </div>
+      <Line data={chartData} />
+    </div>
+  );
+};
+
+export default TimeSeriesGraph;
+
+
+
+
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Container, Typography, CssBaseline, Button } from '@mui/material';
