@@ -1,3 +1,40 @@
+useEffect(() => {
+    const fetchKnownFile = async () => {
+      const response = await fetch(knownFilePath);
+      const blob = await response.blob();
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const arrayBuffer = event.target.result;
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        const formattedData = jsonData.slice(1).map(row => {
+          const rawDate = row[0];
+          let jsDate;
+          if (typeof rawDate === 'number') {
+            const parsedDate = XLSX.SSF.parse_date_code(rawDate);
+            jsDate = new Date(parsedDate.y, parsedDate.m - 1, parsedDate.d);
+          } else {
+            jsDate = new Date(rawDate);
+          }
+          return {
+            date: jsDate,
+            value: row[1],
+          };
+        });
+        setAdditionalData(formattedData);
+        console.log("Additional Time Series Data:", formattedData);
+      };
+      reader.readAsArrayBuffer(blob);
+    };
+
+    fetchKnownFile();
+  }, []);
+
+
+
+
 const formattedData = jsonData.slice(1).map(row => {
         const rawDate = row[0];
         const parsedDate = typeof rawDate === 'number' ? XLSX.SSF.parse_date_code(rawDate) : new Date(rawDate);
