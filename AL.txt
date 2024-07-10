@@ -1,3 +1,15 @@
+const formattedData = jsonData.slice(1).map(row => {
+        const rawDate = row[0];
+        const parsedDate = typeof rawDate === 'number' ? XLSX.SSF.parse_date_code(rawDate) : new Date(rawDate);
+        const jsDate = new Date(parsedDate.y, parsedDate.m - 1, parsedDate.d);
+        return {
+          date: jsDate,
+          value: row[1],
+        };
+      });
+
+
+
 Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
 
 
