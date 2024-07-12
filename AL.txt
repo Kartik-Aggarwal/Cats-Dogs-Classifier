@@ -1,3 +1,39 @@
+.zoom-element {
+  /* Initial styles for your element */
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  margin: 50px auto;
+  animation: zoom infinite alternate;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+  /* Animation duration and delay */
+  0% {
+    animation-timing-function: ease-in-out;
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+  }
+  /* Pause between iterations */
+  100% {
+    animation-timing-function: steps(1, end);
+  }
+  from 100% + 5s to 100% + 5.1s {
+    animation-timing-function: steps(1, start);
+  }
+}
+
+
+
+
+
 .nav-elements {
 }
 
