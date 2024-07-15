@@ -1,3 +1,22 @@
+const chartData = {
+  labels: [...new Set([...filteredAdditionalData.map(item => item.date.toDateString())], ...filteredData.map(item => item.date.toDateString()))],
+  datasets: [
+    {
+      label: 'Additional Time Series Data',
+      data: filteredAdditionalData.map(item => item.value),
+      fill: false,
+      borderColor: 'rgba(255,99,132,1)',
+    },
+    {
+      label: 'Selected Time Series Data',
+      data: filteredData.map(item => item.value),
+      fill: false,
+      borderColor: 'rgba(155,100,100,1)',
+    }
+  ],
+};
+
+
 You are expert in ReactJs, HTML and css.
 I have received this error message
 Cannot access 'chartData' before initialization
