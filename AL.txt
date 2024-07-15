@@ -1,3 +1,39 @@
+You are expert in ReactJs, HTML and css.
+I have received this error message
+Cannot access 'chartData' before initialization
+ReferenceError: Cannot access 'chartData' before initialization
+
+This is the reactjs code.
+const chartData = {
+  labels: [...new Set([
+    ...filteredAdditionalData.map(item => item.date.toDateString()), 
+    ...filteredData.map(item => item.date.toDateString())
+  ])],
+  datasets: [
+    {
+      label: 'Additional Time Series Data',
+      data: alignDataWithLabels(filteredAdditionalData, chartData.labels),
+      fill: false,
+      borderColor: 'rgba(255,99,132,1)',
+    },
+    {
+      label: 'Selected Time Series Data',
+      data: alignDataWithLabels(filteredData, chartData.labels),
+      fill: false,
+      borderColor: 'rgba(155,100,100,1)',
+    }
+  ],
+};
+
+function alignDataWithLabels(data, labels) {
+  // Create a map for fast lookup of data values based on date
+  const dataMap = new Map(data.map(item => [item.date.toDateString(), item.value]));
+
+  // Map labels to corresponding data values; use 0 if no match found (or handle as needed)
+  return labels.map(label => dataMap.get(label) || 0);
+}
+
+
 .zoom-element {
   /* Initial styles for your element */
   width: 100px;
