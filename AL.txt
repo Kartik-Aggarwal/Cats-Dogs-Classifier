@@ -1,3 +1,75 @@
+import React, { useEffect, useState } from 'react';
+import * as XLSX from 'xlsx';
+
+const ExcelToJSDate = ({ path }) => {
+  const [jsonResult, setJsonResult] = useState(null);
+
+  useEffect(() => {
+    const excelDateToJSDate = (serial) => {
+      const utcDays = Math.floor(serial - 25569);
+      const utcValue = utcDays * 86400;
+      const dateInfo = new Date(utcValue * 1000);
+
+      const year = dateInfo.getUTCFullYear();
+      const month = ('0' + (dateInfo.getUTCMonth() + 1)).slice(-2);
+      const day = ('0' + dateInfo.getUTCDate()).slice(-2);
+
+      return `${year}-${month}-${day}`;
+    };
+
+    const excelToJson = (file) => {
+      const workbook = XLSX.read(file, { type: 'binary' });
+
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+
+      const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+      const headers = jsonData[0];
+      jsonData.shift();
+
+      const result = headers.slice(1).map((podId, index) => {
+        return {
+          id: `POD${index + 1}`,
+          data: jsonData.map(row => {
+            return {
+              x: excelDateToJSDate(row[0]),
+              y: parseInt(row[index + 1], 10)
+            };
+          })
+        };
+      });
+
+      setJsonResult(result);
+    };
+
+    const filePath = path;
+
+    // Assuming the file content is stored in local storage as a base64 encoded string
+    const base64Data = localStorage.getItem(filePath);
+    if (base64Data) {
+      const binaryStr = atob(base64Data);
+      excelToJson(binaryStr);
+    }
+  }, [path]);
+
+  return (
+    <div>
+      <h1>Excel to JSON Result</h1>
+      {jsonResult ? (
+        <pre>{JSON.stringify(jsonResult, null, 2)}</pre>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+};
+
+export default ExcelToJSDate;
+
+
+
+
 const XLSX = require('xlsx');
 const fs = require('fs');
 
