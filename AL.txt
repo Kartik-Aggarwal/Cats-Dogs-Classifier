@@ -1,3 +1,299 @@
+import React, { useState, useEffect } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Line } from 'react-chartjs-2';
+import * as XLSX from 'xlsx';
+import BasicDatePicker from './DatePicker';
+import 'react-datepicker/dist/react-datepicker.css'; // Import the default styles
+import './DatePickerStyles.css';
+import { Box } from '@mui/material';
+import { tokens } from '../theme';
+import { useTheme } from '@emotion/react';
+import './TSG.css'  
+
+const TimeSeriesGraph = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  const [additionalData, setAdditionalData] = useState([]);
+  const [filteredAdditionalData, setFilteredAdditionalData] = useState([]);
+
+  // const knownFilePath = '${process.env.PUBLIC_URL}/graph_data.xlsx';
+  const CustomDatePickerInput = React.forwardRef(({ value, onClick }, ref) => (
+    <button className="custom-datepicker-button" onClick={onClick} ref={ref}>
+      {value}
+    </button>
+  ));
+
+ 
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const binaryStr = event.target.result;
+      const workbook = XLSX.read(binaryStr, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      const formattedData = jsonData.slice(1).map(row => {
+        const rawDate = row[0];
+        let jsDate
+        if (typeof rawDate === 'number') {
+            const parsedDate = XLSX.SSF.parse_date_code(rawDate);
+            jsDate = new Date(parsedDate.y, parsedDate.m - 1, parsedDate.d);
+        } else {
+            jsDate = new Date(rawDate);
+        }
+        return {
+          date: jsDate,
+          value: row[1],
+        };
+      }); 
+      setData(formattedData);
+      console.log("Full Time Series Data:", formattedData);
+    };
+    reader.readAsBinaryString(file);
+  };
+
+  useEffect(() => {
+    const filePath = 'graph_data.xlsx'; // Replace with your file path
+
+    // Function to load Excel file
+    const loadExcelFile = async () => {
+      try {
+        const response = await fetch(filePath);
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0]; // assuming only one sheet
+        const sheet = workbook.Sheets[sheetName];
+        const excelData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        const formattedData = excelData.slice(1).map(row => {
+          const rawDate = row[0];
+          let jsDate;
+          if (typeof rawDate === 'number') {
+            const parsedDate = XLSX.SSF.parse_date_code(rawDate);
+            jsDate = new Date(parsedDate.y, parsedDate.m - 1, parsedDate.d);
+          } else {
+            jsDate = new Date(rawDate);
+          }
+          return {
+            date: jsDate,
+            value: row[1],
+          };
+        });
+        setAdditionalData(formattedData);
+        console.log("Additional Time Series Data here:", formattedData);
+        // Now you have the excelData as an array of arrays or objects
+        console.log(excelData);
+      } catch (error) {
+        console.error('Error loading Excel file:', error);
+      }
+    };
+
+    // Call the function to load the Excel file when component mounts
+    loadExcelFile().catch(error => console.error('Fetching known file failed:', error));
+  }, []);
+
+
+
+  // useEffect(() => {
+  //   const fetchKnownFile = async () => {
+  //     const response = await fetch(knownFilePath);
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+
+  //     const workbook = xlsx.readFile(filePath);
+  //     // Assuming there's only one sheet in the Excel file
+  //     const sheetName = workbook.SheetNames[0];
+  //     const sheet = workbook.Sheets[sheetName];
+
+  //     const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  //     const formattedData = jsonData.slice(1).map(row => {
+  //       const rawDate = row[0];
+  //       let jsDate;
+  //       if (typeof rawDate === 'number') {
+  //         const parsedDate = XLSX.SSF.parse_date_code(rawDate);
+  //         jsDate = new Date(parsedDate.y, parsedDate.m - 1, parsedDate.d);
+  //       } else {
+  //         jsDate = new Date(rawDate);
+  //       }
+  //       return {
+  //         date: jsDate,
+  //         value: row[1],
+  //       };
+  //     });
+  //     setAdditionalData(formattedData);
+  //     console.log("Additional Time Series Data here:", formattedData);
+  //   };
+
+  //   fetchKnownFile().catch(error => console.error('Fetching known file failed:', error));
+  // }, []);
+
+
+
+
+
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      const filtered = data.filter(item => item.date >= startDate && item.date <= endDate);
+      setFilteredData(filtered);
+      console.log("Filtered Time series data:", filtered);
+
+      const startDateForAdditionalData = new Date('2023-01-01');
+      const filteredAdditional = additionalData.filter(item => item.date >= startDate && item.date <= endDate);
+      setFilteredAdditionalData(filteredAdditional);
+      console.log("Filtered Additional Time series data:", filteredAdditional);
+
+    }
+  }, [startDate, endDate, data, additionalData]);
+
+
+
+  const createDataMap = (data) => {
+    const dataMap = {};
+    data.forEach(item => {
+      dataMap[item.date.toDateString()] = item.value;
+    });
+    return dataMap;
+  };
+  
+  const additionalDataMap = createDataMap(filteredAdditionalData);
+  const selectedDataMap = createDataMap(filteredData);
+  
+  const allDates = [...new Set([...filteredAdditionalData.map(item => item.date.toDateString()), ...filteredData.map(item => item.date.toDateString())])].sort((a, b) => new Date(a) - new Date(b));
+  
+  const chartData = {
+    labels: allDates,
+    datasets: [
+      {
+        label: 'Actual Data',
+        data: allDates.map(date => additionalDataMap[date] || null),
+        fill: false,
+        borderColor: 'rgba(255,99,132,1)',
+      },
+      {
+        label: 'Predicted Data',
+        data: allDates.map(date => selectedDataMap[date] || null),
+        fill: true,
+        borderColor: 'rgba(155,100,100,1)',
+      }
+    ],
+  };
+  
+  
+
+
+
+  // const chartData = {
+  //   labels: [...new Set([...filteredAdditionalData.map(item => item.date.toDateString())], ...filteredData.map(item => item.date.toDateString()))],
+  //   datasets: [
+  //     {
+  //       label: 'Additional Time Series Data',
+  //       data: filteredAdditionalData.map(item.date.toDateString() => item.value),
+  //       fill: false,
+  //       borderColor: 'rgba(255,99,132,1)',
+  //     },
+  //     {
+  //       label: 'Selected Time Series Data',
+  //       data: filteredData.map(item.date.toDateString() => item.value),
+  //       fill: false,
+  //       borderColor: 'rgba(155,100,100,1)',
+  //     }
+  //   ],
+  // };
+
+  // const chartData = {
+  //   labels: [...new Set([
+  //     ...filteredAdditionalData.map(item => item.date.toDateString()), 
+  //     ...filteredData.map(item => item.date.toDateString())
+  //   ])],
+  //   datasets: [
+  //     {
+  //       label: 'Additional Time Series Data',
+  //       data: alignDataWithLabels(filteredAdditionalData, chartData.labels),
+  //       fill: false,
+  //       borderColor: 'rgba(255,99,132,1)',
+  //     },
+  //     {
+  //       label: 'Selected Time Series Data',
+  //       data: alignDataWithLabels(filteredData, chartData.labels),
+  //       fill: false,
+  //       borderColor: 'rgba(155,100,100,1)',
+  //     }
+  //   ],
+  // };
+  
+  // function alignDataWithLabels(data, labels) {
+  //   // Create a map for fast lookup of data values based on date
+  //   const dataMap = new Map(data.map(item => [item.date.toDateString(), item.value]));
+  
+  //   // Map labels to corresponding data values; use 0 if no match found (or handle as needed)
+  //   return labels.map(label => dataMap.get(label) || 0);
+  // }
+
+  return (
+    <div>
+      <h1>Custom Date Range Forecastings</h1>
+          <div className="file-upload">
+            <label htmlFor="file-input" className="custom-file-upload">
+              Select File
+            </label>
+            <input
+              id="file-input"
+              type="file"
+              accept=".xlsx, .xls"
+              onChange={handleFileUpload}
+            />
+          </div>
+    <div className="datepicker-container">
+      <div className="datepicker-wrapper">
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          selectsStart
+          startDate={startDate}
+          endDate={endDate}
+          placeholderText="Select start date"
+          customInput={<CustomDatePickerInput />}
+        />
+      </div>
+      <div className="datepicker-wrapper">
+        <DatePicker
+          selected={endDate}
+          onChange={(date) => setEndDate(date)}
+          selectsEnd
+          startDate={startDate}
+          endDate={endDate}
+          minDate={startDate}
+          placeholderText="Select end date"
+          customInput={<CustomDatePickerInput />}
+        />
+      </div>
+    </div>
+
+      <Box height="400px" width='100%' m="20px 0 0 0" bgcolor={colors.primary[400]} p={2} borderRadius={2}>
+        <Line data={chartData} options={{responsive: true, maintainAspectRatio: false}}
+        height={300} width={300}/>
+      </Box>
+    </div>
+  );
+};
+
+export default TimeSeriesGraph;
+
+
+
+
+
+
+
 import { Box, Button, Stack } from "@mui/material";
 import LineChart1 from "../../components/LineChart1";
 import { tokens } from "../../theme";
