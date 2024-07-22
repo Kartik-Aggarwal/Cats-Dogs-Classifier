@@ -1,3 +1,68 @@
+const XLSX = require('xlsx');
+const fs = require('fs');
+
+export default function excelToJSDate( path ) {
+    function excelDateToJSDate(serial) {
+    const utcDays = Math.floor(serial - 25569);
+    const utcValue = utcDays * 86400;
+    const dateInfo = new Date(utcValue * 1000);
+
+    const year = dateInfo.getUTCFullYear();
+    const month = ('0' + (dateInfo.getUTCMonth() + 1)).slice(-2);
+    const day = ('0' + dateInfo.getUTCDate()).slice(-2);
+
+    return year + '-' + month + '-' + day;
+}
+
+
+
+// Function to read Excel file and convert to JSON format
+function excelToJson(filePath) {
+    // Load Excel file
+    const workbook = XLSX.readFile(filePath);
+
+    // Assume data is in the first sheet for simplicity
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+
+    // Convert sheet data to JSON format
+    const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+
+    // Remove header row
+    const headers = jsonData[0];
+    jsonData.shift(); // Remove header row from data
+
+    // Prepare JSON structure as requested
+    const result = headers.slice(1).map((podId, index) => {
+        return {
+            id: `POD${index + 1}`,
+            data: jsonData.map(row => {
+                return {
+                    x: excelDateToJSDate(row[0]), // Assuming first column is date
+                    y: parseInt(row[index + 1]) // Parse numeric value
+                };
+            })
+        };
+    });
+
+    return result;
+}
+
+// Example usage:
+const filePath = path;
+const jsonResult = excelToJson(filePath);
+console.log(jsonResult);
+
+// Write result to JSON file (optional)
+fs.writeFileSync('output.json', JSON.stringify(jsonResult, null, 2));
+
+}
+
+
+
+
+
+
 const createDataMap = (data) => {
   const dataMap = {};
   data.forEach(item => {
