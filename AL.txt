@@ -1,9 +1,21 @@
-Python and Pyspark for code development.
-Git for code version control.
-Real Time Series for FE and Real Time Process Execution/Scoring.
-Build Robust Models.
-Creation of Docker Containers to execute the code.
-Execute Docker Container in Kubernetes Environment.
+Python and PySpark for Code Development (Duration – Python - 4 years, PySpark – 5 months)
+Experienced in development of efficient data pipelines and ETL processes using Python and PySpark leading to improved data processing speeds and reduced processing times.
+Git for Code Version Control (Duration – 2 years)
+Managed version control for multiple projects using Git, maintaining code integrity and facilitation collaboration among team developers.
+Implemented branching strategies and code review processes, leading to substantial reduction in bugs and smoother deployment cycles.
+Real-Time Series for Feature Engineering and Real-Time Process Execution (Duration – 6 months)
+Developed real-time data pipelines and feature engineering for predictive models, enabling real-time decision-making for detection of system malfunctions
+Deployed real-time scoring systems that increased prediction accuracy and reduced latency.
+Building Robust Models (Duration - 3 years)
+Designed and implemented robust machine leaning models for anomaly detection in Multivariate time series using advanced attention-based algorithms like transformer networks, graph attention networks and other deep learning algorithms.
+Meticulously tested and benchmarked the model against SOTA implementations using NASA’s SMAP and MSL datasets.
+Employed statistical methodologies and ML algorithms to develop robust predictive model enabling early detection of system malfunction in water distribution system (WDS).
+Reduced 90% of the operational disruptions and downtime leading to more efficient WDS.
+Creation of Docker Containers and Execution in Kubernetes (Duration - 5 months)
+Containerized applications using Docker, resulting in consistent and reproducible environments across development, testing and production
+Orchestrated containerized applications in Kubernetes, improving scalability and resilience of service
+
+
 
 const XLSX = require('xlsx');
 // const fs = require('fs');
