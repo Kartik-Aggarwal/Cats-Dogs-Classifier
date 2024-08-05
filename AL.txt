@@ -1,3 +1,10 @@
+Python and Pyspark for code development.
+Git for code version control.
+Real Time Series for FE and Real Time Process Execution/Scoring.
+Build Robust Models.
+Creation of Docker Containers to execute the code.
+Execute Docker Container in Kubernetes Environment.
+
 const XLSX = require('xlsx');
 // const fs = require('fs');
 
