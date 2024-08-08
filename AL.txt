@@ -1,3 +1,21 @@
+Developed a time-series forecasting model for a US-based Logistics Company to predict the number of appointments for the next three months using historical data.
+Conducted an in-depth analysis of historical appointment data, segmented by various liable parties. Identified and analyzed trends and patterns in appointment bookings across different months to understand seasonal variations and other influencing factors.
+Employed a combination of statistical methods and machine learning algorithms, including ARIMA, SARIMA, and LSTM networks, to create robust predictive models. Feature engineering was performed to include relevant time-based and categorical features, enhancing model accuracy.
+Achieved a forecast with a 12% deviation from actual values, demonstrating the model's effectiveness in capturing underlying trends and seasonal effects.
+Provided the client with accurate appointment forecasts, enabling better resource planning and operational efficiency thus, helped in minimizing scheduling issues and optimizing the allocation of personnel and equipment.
+
+
+Designed and implemented robust machine leaning models for Anomaly Detection in Multivariate using advanced attention-based algorithms like transformer networks, graph attention networks
+Approach included utilizing models that analyzes time series in both temporal and spatial dimensions, identifying complex patterns and relationships.
+Applied a focus score-based self-conditioning mechanism to ensure robust extraction of relevant features.
+Enabled early detection of potential issues, allowing for proactive responses and minimizing operational disruptions.
+
+
+
+
+
+
+
 Python and PySpark for Code Development (Duration – Python - 4 years, PySpark – 5 months)
 Experienced in development of efficient data pipelines and ETL processes using Python and PySpark leading to improved data processing speeds and reduced processing times.
 Git for Code Version Control (Duration – 2 years)
