@@ -1,3 +1,15 @@
+https://www.youtube.com/watch?v=_0EYw9PGMnM&list=PLe4mIUXfbIqaYmsoFahYCbijPU4rjM38h
+ 
+https://www.youtube.com/watch?v=nct39X2-oMM
+ 
+https://medium.com/@sukmahanifah/deploying-machine-learning-models-with-flask-a-step-by-step-guide-cd22967c1f66#:~:text=Deploying%20Machine%20Learning%20Models%20with%20Flask%3A%20A%20Step-by-Step,Deploy%20to%20a%20Web%20Server%3A%20...%20More%20items
+ 
+https://machinelearningmastery.com/time-series-forecasting-methods-in-python-cheat-sheet/
+ 
+https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/
+ 
+
+
 Developed a time-series forecasting model for a US-based Logistics Company to predict the number of appointments for the next three months using historical data.
 Conducted an in-depth analysis of historical appointment data, segmented by various liable parties. Identified and analyzed trends and patterns in appointment bookings across different months to understand seasonal variations and other influencing factors.
 Employed a combination of statistical methods and machine learning algorithms, including ARIMA, SARIMA, and LSTM networks, to create robust predictive models. Feature engineering was performed to include relevant time-based and categorical features, enhancing model accuracy.
